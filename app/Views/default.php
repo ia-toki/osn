@@ -5,8 +5,8 @@
 
 	<title>KSN 2020 Bidang Informatika</title>
 
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="main.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/main.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/core@3.35.0/lib/css/blueprint.css" />
@@ -18,7 +18,7 @@
 	<nav class="bp3-navbar bp3-dark header">
 		<div class="header__wrapper">
 			<div class="bp3-navbar-group bp3-align-left">
-				<img src="toki-logo.png" class="header__logo">
+				<img src="/toki-logo.png" class="header__logo">
 				<div class="bp3-navbar-heading header__title">Kompetisi Tim Olimpiade Komputer Indonesia</div>
 			</div>
 		</div>
@@ -28,15 +28,18 @@
     <div class="menubar__content">
       <div class="bp3-tabs">
         <ul class="bp3-tab-list" role="tablist">
-          <li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
-            <a href="/">Kompetisi</a>
+          <li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'home' ? 'true' : 'false' ?>">
+            <a href="/">Beranda</a>
+          </li>
+					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
+            <a href="/kompetisi">Kompetisi</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
   
-  <div class="app-content">
+  <div class="content">
 		<?= $this->renderSection('content') ?>
 	</div>
 
