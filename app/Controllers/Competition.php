@@ -42,7 +42,14 @@ class Competition extends BaseController {
 			'menu' => 'competition',
 			'submenu' => 'info',
 			'contentUrl' => '/' . $id,
-			'competitionName' => $competition['Name']
+			'competitionName' => $competition['Name'],
+			'competitionHostName' => $competition['HostName'],
+			'competitionCity' => $competition['City'],
+			'competitionDateBegin' => $competition['DateBegin'],
+			'competitionDateEnd' => $competition['DateEnd'],
+			'competitionWebsite' => $competition['Website'],
+			'competitionContestants' => $competition['Contestants'],
+			'competitionProvinces' => $competition['Provinces'],
 		]);
 	}
 
@@ -115,8 +122,9 @@ class Competition extends BaseController {
 
 	private function getCompetition($id) {
 		$q = $this->db->table('Competition c');
-		$q->select('Name, ScorePr');
-		$q->where('ID', $id);
+		$q->join('Province p', 'p.ID = c.Host');
+		$q->select('c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Website, Contestants, Provinces, ScorePr');
+		$q->where('c.ID', $id);
 		$competitions = $q->get()->getResultArray();
 
 		if (empty($competitions)) {
