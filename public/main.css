@@ -140,7 +140,7 @@ table {
 
 .header {
   background-color: #444751 !important;
-  height: 60px;
+  height: 60px !important;
 }
 
 .header,
@@ -154,6 +154,7 @@ table {
 
 .header__wrapper {
   margin: 0 auto;
+  padding-top: 5px;
   max-width: 1160px;
 }
 
@@ -161,7 +162,14 @@ table {
   margin-left: 10px;
   margin-right: 0;
   font-size: 23px !important;
-  width: 500px;
+  width: 480px;
+}
+
+.header__subtitle {
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 15px;
+  width: 300px;
 }
 
 .header__logo {
