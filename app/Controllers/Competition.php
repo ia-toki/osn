@@ -5,7 +5,7 @@ class Competition extends BaseController {
 		$q = $this->db->table('Competition c');
 		$q->join('Province p', 'p.ID = c.Host');
 		$q->select('c.ID as ID, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces');
-		$q->orderBy('DateBegin', 'DESC');
+		$q->orderBy('Year', 'DESC');
 		$competitions = $q->get()->getResultArray();
 
 		$table = new \CodeIgniter\View\Table();
@@ -36,28 +36,18 @@ class Competition extends BaseController {
 	}
 
 	public function info($id) {
-		$competition = $this->getCompetition($id);
+		$data = $this->getCompetition($id);
 
-		return view('competition_info', [
-			'menu' => 'competition',
-			'submenu' => 'info',
-			'contentUrl' => '/' . $id,
-			'competitionName' => $competition['Name'],
-			'competitionHostName' => $competition['HostName'],
-			'competitionCity' => $competition['City'],
-			'competitionDateBegin' => $competition['DateBegin'],
-			'competitionDateEnd' => $competition['DateEnd'],
-			'competitionWebsite' => $competition['Website'],
-			'competitionContestants' => $competition['Contestants'],
-			'competitionProvinces' => $competition['Provinces'],
-		]);
+		return view('competition_info', array_merge($data, [
+			'submenu' => '',
+		]));
 	}
 
 	public function result($id) {
 		helper('score');
 		helper('medal');
 
-		$competition = $this->getCompetition($id);
+		$data = $this->getCompetition($id);
 
 		$q = $this->db->table('Contestant c');
 		$q->join('Person p', 'p.ID = c.Person');
@@ -105,31 +95,49 @@ class Competition extends BaseController {
 			foreach ($tasks as $t) {
 				$row[] = $taskScores[$c['ID']][$t['Alias']];
 			}
-			array_push($row, formatScore($c['Score'], $competition['ScorePr']), getMedalName($c['Medal']));
+			array_push($row, formatScore($c['Score'], $data['competition']['ScorePr']), getMedalName($c['Medal']));
 
 			$clazz = getMedalClass($c['Medal']);
 			$table->addRow(array_map(function($v) use ($clazz) { return ['data' => $v, 'class' => $clazz]; }, $row));
 		}
 
-		return view('competition_result', [
-			'menu' => 'competition',
-			'submenu' => 'result',
-			'contentUrl' => '/' . $id,
-			'competitionName' => $competition['Name'],
+		return view('competition_result', array_merge($data, [
+			'submenu' => '/hasil',
 			'table' => $table->generate()
-		]);
+		]));
 	}
 
 	private function getCompetition($id) {
 		$q = $this->db->table('Competition c');
 		$q->join('Province p', 'p.ID = c.Host');
-		$q->select('c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Website, Contestants, Provinces, ScorePr');
+		$q->select('c.ID as ID, Year, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Website, Contestants, Provinces, ScorePr');
 		$q->where('c.ID', $id);
 		$competitions = $q->get()->getResultArray();
 
 		if (empty($competitions)) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 		}
-		return $competitions[0];
+		$competition = $competitions[0];
+
+		$data = [
+			'menu' => 'competition',
+			'competition' => $competition
+		];
+
+		$q = $this->db->table('Competition');
+		$q->select('ID, Year');
+		$q->whereIn('Year', array($competition['Year']-1, $competition['Year']+1));
+		$competitions = $q->get()->getResultArray();
+
+		foreach ($competitions as $c) {
+			if ($c['Year'] == $competition['Year']-1) {
+				$data['prevCompetition'] = $c;
+			}
+			if ($c['Year'] == $competition['Year']+1) {
+				$data['nextCompetition'] = $c;
+			}
+		}
+
+		return $data;
 	}
 }

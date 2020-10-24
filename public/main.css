@@ -55,6 +55,10 @@ a {
   color: #3b73b9;
 }
 
+a[role="button"] {
+  text-decoration: none !important;
+}
+
 td {
   line-height: 16px !important;
   color: #252527 !important;
