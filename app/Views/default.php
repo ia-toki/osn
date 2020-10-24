@@ -13,8 +13,8 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/icons@3.22.0/lib/css/blueprint-icons.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 </head>
-<body>
 
+<body>
 	<nav class="bp3-navbar bp3-dark header">
 		<div class="header__wrapper">
 			<div class="bp3-navbar-group bp3-align-left">
@@ -22,27 +22,23 @@
 				<div class="bp3-navbar-heading header__title">Kompetisi Tim Olimpiade Komputer Indonesia</div>
 			</div>
 		</div>
-	</nav>
-
-	<div class="menubar">
-		<div class="menubar__content">
-			<div class="bp3-tabs">
-				<ul class="bp3-tab-list" role="tablist">
-					<li
-						class="bp3-tab"
-						role="tab"
-						aria-selected="true"
-					>
-						<a href="/">Kompetisi</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+  </nav>
+  
+  <div class="menubar">
+    <div class="menubar__content">
+      <div class="bp3-tabs">
+        <ul class="bp3-tab-list" role="tablist">
+          <li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
+            <a href="/">Kompetisi</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="app-content">
+		<?= $this->renderSection('content') ?>
 	</div>
 
-	<div class="app-content">
-		<h3>Kompetisi</h3>
-		<?= $table ?>
-	</div>
 </body>
 </html>
