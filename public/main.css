@@ -237,6 +237,24 @@ table {
   background-color: #b87838;
 }
 
+.col-centered {
+  text-align: center;
+}
+
+.col-rank {
+  width: 40px;
+  text-align: center;
+}
+
+.col-score {
+  width: 50px;
+  text-align: right;
+}
+
+.col-medal {
+  width: 85px;
+}
+
 .col-medals {
   width: 85px;
   text-align: center;

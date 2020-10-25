@@ -83,22 +83,33 @@ class Competition extends BaseController {
 			'table_open' => '<table class="table table-bordered">'
 		]);
 
-		$heading = array('#', 'Nama', 'Provinsi');
+		$heading = array(
+			['data' => '#', 'class' => 'col-centered'],
+			'Nama',
+			'Provinsi'
+		);
 		foreach ($tasks as $t) {
-			$heading[] = $t['Alias'];
+			$heading[] = ['data' => $t['Alias'], 'class' => 'col-centered'];
 		}
-		array_push($heading, 'Total', 'Medali');
+		$heading[] = ['data' => 'Total', 'class' => 'col-centered'];
+		$heading[] = 'Medali';
 		$table->setHeading($heading);
 
 		foreach ($contestants as $c) {
-			$row = array($c['Rank'], $c['Name'], $c['Province']);
-			foreach ($tasks as $t) {
-				$row[] = $taskScores[$c['ID']][$t['Alias']];
-			}
-			array_push($row, formatScore($c['Score'], $data['competition']['ScorePr']), getMedalName($c['Medal']));
-
 			$clazz = getMedalClass($c['Medal']);
-			$table->addRow(array_map(function($v) use ($clazz) { return ['data' => $v, 'class' => $clazz]; }, $row));
+
+			$row = array(
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['Name'], 'class' => $clazz],
+				['data' => $c['Province'], 'class' => $clazz]
+			);
+			foreach ($tasks as $t) {
+				$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']], 'class' => 'col-score ' . $clazz];
+			}
+			$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']), 'class' => 'col-score ' . $clazz];
+			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
+
+			$table->addRow($row);
 		}
 
 		return view('competition_results', array_merge($data, [
@@ -147,7 +158,13 @@ class Competition extends BaseController {
 			'table_open' => '<table class="table table-bordered">'
 		]);
 
-		$table->setHeading('Provinsi', 'Emas', 'Perak', 'Perunggu', 'Total');
+		$table->setHeading(
+			'Provinsi',
+			['data' => 'Emas', 'class' => 'col-centered'],
+			['data' => 'Perak', 'class' => 'col-centered'],
+			['data' => 'Perunggu', 'class' => 'col-centered'],
+			['data' => 'Total', 'class' => 'col-centered']
+		);
 
 		foreach ($provinces as $p) {
 			$table->addRow(
