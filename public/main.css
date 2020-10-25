@@ -246,6 +246,10 @@ table {
   text-align: center;
 }
 
+.col-province {
+  width: 200px;
+}
+
 .col-score {
   width: 50px;
   text-align: right;

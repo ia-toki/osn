@@ -27,9 +27,9 @@ class Competition extends BaseController {
 				'<a href="/' . $c['ID'] . '">' . $c['Name'] . '</a>',
 				$c['HostName'],
 				$c['City'],
-				date_format(date_create($c['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($c['DateEnd']), 'd M Y'),
-				$c['Contestants'],
-				$c['Provinces']
+				['data' => date_format(date_create($c['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($c['DateEnd']), 'd M Y'), 'class' => 'col-centered'],
+				['data' => $c['Contestants'], 'class' => 'col-centered'],
+				['data' => $c['Provinces'], 'class' => 'col-centered']
 			);
 		}
 
@@ -107,7 +107,7 @@ class Competition extends BaseController {
 			$row = array(
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
 				['data' => $c['Name'], 'class' => $clazz],
-				['data' => $c['Province'], 'class' => $clazz]
+				['data' => $c['Province'], 'class' => 'col-province ' . $clazz]
 			);
 			foreach ($tasks as $t) {
 				$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']], 'class' => 'col-score ' . $clazz];
