@@ -236,3 +236,8 @@ table {
 .medal--bronze {
   background-color: #b87838;
 }
+
+.col-medals {
+  width: 85px;
+  text-align: center;
+}

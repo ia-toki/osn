@@ -43,7 +43,7 @@ class Competition extends BaseController {
 		]));
 	}
 
-	public function result($id) {
+	public function results($id) {
 		helper('score');
 		helper('medal');
 
@@ -101,8 +101,66 @@ class Competition extends BaseController {
 			$table->addRow(array_map(function($v) use ($clazz) { return ['data' => $v, 'class' => $clazz]; }, $row));
 		}
 
-		return view('competition_result', array_merge($data, [
+		return view('competition_results', array_merge($data, [
 			'submenu' => '/hasil',
+			'table' => $table->generate()
+		]));
+	}
+	public function provinces($id) {
+		helper('medal');
+
+		$data = $this->getCompetition($id);
+
+		$q = $this->db->query(<<<QUERY
+			select p.ID as ID, pr.Name as Name, coalesce(Golds, 0) as Golds, coalesce(Silvers, 0) as Silvers, coalesce(Bronzes, 0) as Bronzes, coalesce(Golds, 0) + coalesce(Silvers, 0) + coalesce(Bronzes, 0) as Medals from (
+				select distinct(Province) as ID from Contestant where Competition = ?
+			) as p
+			join Province pr on p.ID = pr.ID
+			left join (
+				select Province as ID, count(Medal) as Golds
+				from Contestant
+				where Competition = ?
+				and Medal = 'G'
+				group by Province
+			) as golds on p.ID = golds.ID
+			left join (
+				select Province as ID, count(Medal) as Silvers
+				from Contestant
+				where Competition = ?
+				and Medal = 'S'
+				group by Province
+			) as silvers on p.ID = silvers.ID
+			left join (
+				select Province as ID, count(Medal) as Bronzes
+				from Contestant
+				where Competition = ?
+				and Medal = 'B'
+				group by Province
+			) as bronzes on p.ID = bronzes.ID
+			order by Golds desc, Silvers desc, Bronzes desc, Name asc
+		QUERY, [$id, $id, $id, $id]);
+
+		$provinces = $q->getResultArray();
+
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$table->setHeading('Provinsi', 'Emas', 'Perak', 'Perunggu', 'Total');
+
+		foreach ($provinces as $p) {
+			$table->addRow(
+				$p['Name'],
+				['data' => $p['Golds'], 'class' => 'col-medals ' . getMedalClass('G')],
+				['data' => $p['Silvers'], 'class' => 'col-medals ' . getMedalClass('S')],
+				['data' => $p['Bronzes'], 'class' => 'col-medals ' . getMedalClass('B')],
+				['data' => $p['Medals'], 'class' => 'col-medals'],
+			);
+		}
+
+		return view('competition_provinces', array_merge($data, [
+			'submenu' => '/provinsi',
 			'table' => $table->generate()
 		]));
 	}
