@@ -5,7 +5,7 @@
 
 	<title>KSN Informatika</title>
 
-	<link rel="shortcut icon" href="/toki-logo.png">
+	<link rel="shortcut icon" href="/ksn-logo.png">
 	<link rel="stylesheet" href="/main.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
@@ -18,10 +18,14 @@
 	<nav class="bp3-navbar bp3-dark header">
 		<div class="header__wrapper">
 			<div class="bp3-navbar-group bp3-align-left">
-				<img src="/toki-logo.png" class="header__logo">
+				<img src="/ksn-logo.png" class="header__logo">
 				<div class="bp3-navbar-heading header__title">Kompetisi Sains Nasional Bidang Informatika</div>
 				<span class="bp3-navbar-divider" />
 				<div class="header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
+			</div>
+			<div class="bp3-navbar-group bp3-align-right">
+				<img src="/toki-logo.png" class="header__logo">
+				<img src="/tut-wuri-logo.png" class="header__logo">
 			</div>
 		</div>
   </nav>
