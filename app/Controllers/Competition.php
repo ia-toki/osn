@@ -2,11 +2,15 @@
 
 class Competition extends BaseController {
 	public function index() {
-		$q = $this->db->table('Competition c');
-		$q->join('Province p', 'p.ID = c.Host');
-		$q->select('c.ID as ID, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces');
-		$q->orderBy('Year', 'DESC');
-		$competitions = $q->get()->getResultArray();
+		$competitions = $this->db->query(<<<QUERY
+			select c.ID as ID, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces from Competition c
+			join Province p on p.ID = c.Host
+			left join (
+				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
+				group by Competition
+			) as contestants on c.ID = contestants.Competition
+			order by Year desc
+		QUERY)->getResultArray();
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -49,26 +53,28 @@ class Competition extends BaseController {
 
 		$data = $this->getCompetition($id);
 
-		$q = $this->db->table('Contestant c');
-		$q->join('Person p', 'p.ID = c.Person');
-		$q->join('Province pr', 'pr.ID = c.Province');
-		$q->where('Competition', $id);
-		$q->select('c.ID as ID, Rank, p.Name as Name, pr.Name as Province, Score, Medal');
-		$q->orderBy('Rank', 'ASC');
-		$contestants = $q->get()->getResultArray();
+		$contestants = $this->db->query(<<<QUERY
+			select c.ID as ID, c.Rank as 'Rank', p.Name as Name, pr.Name as Province, Score, Medal
+			from Contestant c
+			join Person p on p.ID = c.Person
+			join Province pr on pr.ID = c.Province
+			where Competition = ?
+			order by c.Rank asc
+		QUERY, [$id])->getResultArray();
 
-		$q = $this->db->table('Task');
-		$q->where('Competition', $id);
-		$q->select('Alias, ScorePr');
-		$q->orderBy('Alias', 'ASC');
-		$tasks = $q->get()->getResultArray();
+		$tasks = $this->db->query(<<<QUERY
+			select Alias, ScorePr from Task
+			where Competition = ?
+			order by Alias asc
+		QUERY, [$id])->getResultArray();
 
-		$q = $this->db->table('Submission s');
-		$q->join('Contestant c', 'c.ID = s.Contestant');
-		$q->join('Task t', 't.ID = s.Task');
-		$q->where('c.Competition', $id);
-		$q->select('c.ID as ContestantID, t.Alias as TaskAlias, s.Score as TaskScore, t.ScorePr as TaskScorePr');
-		$submissions = $q->get()->getResultArray();
+		$submissions = $this->db->query(<<<QUERY
+			select c.ID as ContestantID, t.Alias as TaskAlias, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			from Submission s
+			join Contestant c on c.ID = s.Contestant
+			join Task t on t.ID = s.Task
+			where c.Competition = ?
+		QUERY, [$id])->getResultArray();
 
 		$taskScores = array();
 		foreach ($submissions as $s) {
@@ -122,7 +128,7 @@ class Competition extends BaseController {
 
 		$data = $this->getCompetition($id);
 
-		$q = $this->db->query(<<<QUERY
+		$provinces = $this->db->query(<<<QUERY
 			select p.ID as ID, pr.Name as Name, coalesce(Golds, 0) as Golds, coalesce(Silvers, 0) as Silvers, coalesce(Bronzes, 0) as Bronzes, coalesce(Golds, 0) + coalesce(Silvers, 0) + coalesce(Bronzes, 0) as Medals from (
 				select distinct(Province) as ID from Contestant where Competition = ?
 			) as p
@@ -149,9 +155,7 @@ class Competition extends BaseController {
 				group by Province
 			) as bronzes on p.ID = bronzes.ID
 			order by Golds desc, Silvers desc, Bronzes desc, Name asc
-		QUERY, [$id, $id, $id, $id]);
-
-		$provinces = $q->getResultArray();
+		QUERY, [$id, $id, $id, $id])->getResultArray();
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -183,11 +187,15 @@ class Competition extends BaseController {
 	}
 
 	private function getCompetition($id) {
-		$q = $this->db->table('Competition c');
-		$q->join('Province p', 'p.ID = c.Host');
-		$q->select('c.ID as ID, Year, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Website, Contestants, Provinces, ScorePr');
-		$q->where('c.ID', $id);
-		$competitions = $q->get()->getResultArray();
+		$competitions = $this->db->query(<<<QUERY
+			select c.ID as ID, Year, c.Name as Name, p.Name as HostName, Website, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr from Competition c
+			join Province p on p.ID = c.Host
+			left join (
+				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
+				group by Competition
+			) as contestants on c.ID = contestants.Competition
+			where c.ID = ?
+		QUERY, [$id])->getResultArray();
 
 		if (empty($competitions)) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
@@ -199,10 +207,10 @@ class Competition extends BaseController {
 			'competition' => $competition
 		];
 
-		$q = $this->db->table('Competition');
-		$q->select('ID, Year');
-		$q->whereIn('Year', array($competition['Year']-1, $competition['Year']+1));
-		$competitions = $q->get()->getResultArray();
+		$competitions = $this->db->query(<<<QUERY
+			select ID, Year from Competition
+			where Year in (?, ?)
+		QUERY, [$competition['Year']-1, $competition['Year']+1])->getResultArray();
 
 		foreach ($competitions as $c) {
 			if ($c['Year'] == $competition['Year']-1) {
