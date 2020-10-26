@@ -263,3 +263,7 @@ table {
   width: 85px;
   text-align: center;
 }
+
+.col-new-competition {
+  border-top: 1.5px solid gray !important;
+}

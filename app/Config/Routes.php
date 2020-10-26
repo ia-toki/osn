@@ -32,6 +32,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/kompetisi', 'Competition::index');
+$routes->get('/statistik', 'Statistics::provinces');
+$routes->get('/statistik/provinsi/(:alphanum)', 'Statistics::province/$1');
 $routes->get('/(:alphanum)', 'Competition::info/$1');
 $routes->get('/(:alphanum)/hasil', 'Competition::results/$1');
 $routes->get('/(:alphanum)/provinsi', 'Competition::provinces/$1');

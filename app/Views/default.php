@@ -40,6 +40,9 @@
 					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
             <a href="/kompetisi">Kompetisi</a>
           </li>
+					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'statistics' ? 'true' : 'false' ?>">
+            <a href="/statistik">Statistik</a>
+          </li>
         </ul>
       </div>
     </div>
