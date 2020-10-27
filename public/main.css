@@ -237,6 +237,10 @@ table {
   background-color: #b87838;
 }
 
+.header-buttons {
+  margin-bottom: 10px;
+}
+
 .col-centered {
   text-align: center;
 }
