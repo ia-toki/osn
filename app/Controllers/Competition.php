@@ -54,7 +54,7 @@ class Competition extends BaseController {
 		$data = $this->getCompetition($id);
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', p.Name as Name, pr.Name as Province, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, p.Name as Name, pr.Name as Province, Score, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
 			join Province pr on pr.ID = c.Province
@@ -106,7 +106,7 @@ class Competition extends BaseController {
 
 			$row = array(
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
-				['data' => $c['Name'], 'class' => $clazz],
+				['data' => '<a href="/statistik/peserta/' . $c['PersonID'] . '">' . $c['Name'] . '</a>', 'class' => $clazz],
 				['data' => $c['Province'], 'class' => 'col-province ' . $clazz]
 			);
 			foreach ($tasks as $t) {

@@ -105,7 +105,7 @@ class Statistics extends BaseController {
 			$contestantCountsMap[$c['Competition']] = $c['Count'];
 		}
 
-		$taskCount = 0;
+		$taskCount = 1;
 		$taskScores = array();
 		foreach ($submissions as $s) {
 			if (empty($taskScores[$s['CompetitionID']])) {
@@ -173,6 +173,106 @@ class Statistics extends BaseController {
 			'menu' => 'statistics',
 			'submenu' => '',
 			'province' => $province,
+			'table' => $table->generate()
+		]);
+	}
+
+	public function persons() {
+		return view('statistics_persons', [
+			'menu' => 'statistics',
+			'submenu' => '/peserta'
+		]);
+	}
+
+	public function person($id) {
+		helper('score');
+		helper('medal');
+
+		$persons = $this->db->query(<<<QUERY
+			select ID, Name from Person
+			where ID = ?
+		QUERY, [$id])->getResultArray();
+
+		if (empty($persons)) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		}
+		$person = $persons[0];
+
+		$contestants = $this->db->query(<<<QUERY
+			select c.ID as ID, Competition, comp.ShortName as CompetitionName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			from Contestant c
+			join Competition comp on comp.ID = c.Competition
+			join Province pr on pr.ID = c.Province
+			where c.Person = ?
+			order by comp.Year desc, c.Rank asc
+		QUERY, [$id])->getResultArray();
+
+		$submissions = $this->db->query(<<<QUERY
+			select comp.ID as CompetitionID, c.ID as ContestantID, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			from Submission s
+			join Contestant c on c.ID = s.Contestant
+			join Competition comp on comp.ID = c.Competition
+			join Task t on t.ID = s.Task
+			where c.Person = ?
+			order by t.Alias asc
+		QUERY, [$id])->getResultArray();
+
+		$taskCount = 1;
+		$taskScores = array();
+		foreach ($submissions as $s) {
+			if (empty($taskScores[$s['CompetitionID']])) {
+				$taskScores[$s['CompetitionID']] = array();
+			}
+			$taskScores[$s['CompetitionID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
+			$taskCount = max($taskCount, count($taskScores[$s['CompetitionID']]));
+		}
+
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			'Kompetisi',
+			'Provinsi',
+			['data' => '#', 'class' => 'col-centered'],
+			['data' => 'Nilai', 'colspan' => $taskCount, 'class' => 'col-centered'],
+			['data' => 'Total', 'class' => 'col-centered'],
+			'Medali'
+		);
+		$table->setHeading($heading);
+
+		foreach ($contestants as $c) {
+			$clazz = getMedalClass($c['Medal']);
+
+			$row = array(
+				['data' => '<a href="/' . $c['Competition'] . '/hasil">' . $c['CompetitionName'] . '</a>', 'class' => $clazz],
+				['data' => '<a href="/statistik/provinsi/' . $c['ProvinceID'] . '">' . $c['ProvinceName'] . '</a>', 'class' => $clazz],
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
+			);
+
+			$tasks = 0;
+			if (isset($taskScores[$c['Competition']])) {
+				foreach ($taskScores[$c['Competition']] as $t) {
+					$row[] = ['data' => $t, 'class' => 'col-score ' . $clazz];
+					$tasks++;
+				}
+			}
+
+			if ($tasks < $taskCount) {
+				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$tasks];
+			}
+
+			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
+			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
+
+			$table->addRow($row);
+		}
+
+		return view('statistics_person', [
+			'menu' => 'statistics',
+			'submenu' => '/peserta',
+			'person' => $person,
 			'table' => $table->generate()
 		]);
 	}

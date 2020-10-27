@@ -34,6 +34,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/kompetisi', 'Competition::index');
 $routes->get('/statistik', 'Statistics::provinces');
 $routes->get('/statistik/provinsi/(:alphanum)', 'Statistics::province/$1');
+$routes->get('/statistik/peserta/(:alphanum)', 'Statistics::person/$1');
+$routes->get('/statistik/peserta', 'Statistics::persons');
 $routes->get('/(:alphanum)', 'Competition::info/$1');
 $routes->get('/(:alphanum)/hasil', 'Competition::results/$1');
 $routes->get('/(:alphanum)/provinsi', 'Competition::provinces/$1');
