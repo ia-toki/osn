@@ -75,7 +75,7 @@ class Statistics extends BaseController {
 		$province = $provinces[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, c.Rank as 'Rank', p.Name as Name, Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.ShortName as CompetitionName, c.Rank as 'Rank', p.Name as Name, Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			join Person p on p.ID = c.Person
@@ -140,7 +140,11 @@ class Statistics extends BaseController {
 			$row = array();
 			if ($c['Competition'] != $curCompetition) {
 				$clazz = $clazz . ' col-new-competition';
-				$row[] = ['data' => $c['Competition'], 'class' => $clazz, 'rowspan' => $contestantCountsMap[$c['Competition']]];
+				$row[] = [
+					'data' => '<a href="/' . $c['Competition'] . '/hasil">' . $c['CompetitionName'] . '</a>',
+					'class' => $clazz,
+					'rowspan' => $contestantCountsMap[$c['Competition']]
+				];
 			}
 			$curCompetition = $c['Competition'];
 			$clazz = $clazz . ' ' . getMedalClass($c['Medal']);
