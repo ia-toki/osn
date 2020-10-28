@@ -2,8 +2,10 @@
 
 class Competition extends BaseController {
 	public function index() {
+		helper('link');
+
 		$competitions = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Name as Name, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces from Competition c
+			select c.ID as ID, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces from Competition c
 			join Province p on p.ID = c.Host
 			left join (
 				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
@@ -25,7 +27,7 @@ class Competition extends BaseController {
 			$table->addRow(
 				$competitionsCount-$i,
 				'<a href="/' . $c['ID'] . '">' . $c['Name'] . '</a>',
-				$c['HostName'],
+				linkProvince($c['ProvinceID'], $c['HostName']),
 				$c['City'],
 				['data' => date_format(date_create($c['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($c['DateEnd']), 'd M Y'), 'class' => 'col-centered'],
 				['data' => $c['Contestants'], 'class' => 'col-centered'],
@@ -50,11 +52,12 @@ class Competition extends BaseController {
 	public function results($id) {
 		helper('score');
 		helper('medal');
+		helper('link');
 
 		$data = $this->getCompetition($id);
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, p.Name as Name, pr.Name as Province, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, Score, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
 			join Province pr on pr.ID = c.Province
@@ -106,8 +109,8 @@ class Competition extends BaseController {
 
 			$row = array(
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
-				['data' => '<a href="/statistik/peserta/' . $c['PersonID'] . '">' . $c['Name'] . '</a>', 'class' => $clazz],
-				['data' => $c['Province'], 'class' => 'col-province ' . $clazz]
+				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
+				['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => 'col-province ' . $clazz]
 			);
 			foreach ($tasks as $t) {
 				$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']], 'class' => 'col-score ' . $clazz];
@@ -123,8 +126,10 @@ class Competition extends BaseController {
 			'table' => $table->generate()
 		]));
 	}
+
 	public function provinces($id) {
 		helper('medal');
+		helper('link');
 
 		$data = $this->getCompetition($id);
 
@@ -172,7 +177,7 @@ class Competition extends BaseController {
 
 		foreach ($provinces as $p) {
 			$table->addRow(
-				$p['Name'],
+				linkProvince($p['ID'], $p['Name']),
 				['data' => $p['Golds'], 'class' => 'col-medals ' . getMedalClass('G')],
 				['data' => $p['Silvers'], 'class' => 'col-medals ' . getMedalClass('S')],
 				['data' => $p['Bronzes'], 'class' => 'col-medals ' . getMedalClass('B')],

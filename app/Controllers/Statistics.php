@@ -3,6 +3,7 @@
 class Statistics extends BaseController {
 	public function provinces() {
 		helper('medal');
+		helper('link');
 
 		$provinces = $this->db->query(<<<QUERY
 			select p.ID as ID, pr.Name as Name, coalesce(Golds, 0) as Golds, coalesce(Silvers, 0) as Silvers, coalesce(Bronzes, 0) as Bronzes, coalesce(Golds, 0) + coalesce(Silvers, 0) + coalesce(Bronzes, 0) as Medals from (
@@ -45,7 +46,7 @@ class Statistics extends BaseController {
 
 		foreach ($provinces as $p) {
 			$table->addRow(
-				'<a href="' . '/statistik/provinsi/' . $p['ID'] . '">' . $p['Name'] . '</a>',
+				linkProvince($p['ID'], $p['Name']),
 				['data' => $p['Golds'], 'class' => 'col-medals ' . getMedalClass('G')],
 				['data' => $p['Silvers'], 'class' => 'col-medals ' . getMedalClass('S')],
 				['data' => $p['Bronzes'], 'class' => 'col-medals ' . getMedalClass('B')],
@@ -63,6 +64,7 @@ class Statistics extends BaseController {
 	public function province($id) {
 		helper('score');
 		helper('medal');
+		helper('link');
 
 		$provinces = $this->db->query(<<<QUERY
 			select ID, Name from Province
@@ -75,7 +77,7 @@ class Statistics extends BaseController {
 		$province = $provinces[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.ShortName as CompetitionName, c.Rank as 'Rank', p.Name as Name, Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.ShortName as CompetitionName, p.ID as PersonID, c.Rank as 'Rank', p.Name as Name, Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			join Person p on p.ID = c.Person
@@ -141,7 +143,7 @@ class Statistics extends BaseController {
 			if ($c['Competition'] != $curCompetition) {
 				$clazz = $clazz . ' col-new-competition';
 				$row[] = [
-					'data' => '<a href="/' . $c['Competition'] . '/hasil">' . $c['CompetitionName'] . '</a>',
+					'data' => linkCompetition($c['Competition'], $c['CompetitionName']),
 					'class' => $clazz,
 					'rowspan' => $contestantCountsMap[$c['Competition']]
 				];
@@ -149,7 +151,7 @@ class Statistics extends BaseController {
 			$curCompetition = $c['Competition'];
 			$clazz = $clazz . ' ' . getMedalClass($c['Medal']);
 			$row[] = ['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz];
-			$row[] = ['data' => $c['Name'], 'class' => $clazz];
+			$row[] = ['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz];
 
 			$tasks = 0;
 			if (isset($taskScores[$c['Competition']])) {
@@ -187,6 +189,7 @@ class Statistics extends BaseController {
 	public function person($id) {
 		helper('score');
 		helper('medal');
+		helper('link');
 
 		$persons = $this->db->query(<<<QUERY
 			select ID, Name from Person
@@ -246,8 +249,8 @@ class Statistics extends BaseController {
 			$clazz = getMedalClass($c['Medal']);
 
 			$row = array(
-				['data' => '<a href="/' . $c['Competition'] . '/hasil">' . $c['CompetitionName'] . '</a>', 'class' => $clazz],
-				['data' => '<a href="/statistik/provinsi/' . $c['ProvinceID'] . '">' . $c['ProvinceName'] . '</a>', 'class' => $clazz],
+				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
+				['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz],
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
 			);
 
