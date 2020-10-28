@@ -1,5 +1,9 @@
 <?php
 
+function linkCompetitionInfo($id, $name) {
+	return '<a href="/' . $id . '">' . $name . '</a>';
+}
+
 function linkCompetition($id, $name) {
 	return '<a href="/' . $id . '/hasil">' . $name . '</a>';
 }

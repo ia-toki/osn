@@ -36,8 +36,8 @@ h3 {
 }
 
 h4 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 16px !important;
+  font-weight: bold !important;
   line-height: 20px !important;
 }
 
@@ -245,6 +245,10 @@ table {
   text-align: center;
 }
 
+.col-order {
+  width: 40px;
+}
+
 .col-rank {
   width: 40px;
   text-align: center;
@@ -270,4 +274,14 @@ table {
 
 .col-new-competition {
   border-top: 1.5px solid gray !important;
+}
+
+.statistics-person-summary {
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.col-statistics-person-medal {
+  font-size: 20px !important;
+  text-align: center;
 }

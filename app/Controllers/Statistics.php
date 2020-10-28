@@ -180,9 +180,44 @@ class Statistics extends BaseController {
 	}
 
 	public function persons() {
+		helper('score');
+		helper('medal');
+		helper('link');
+
+		$medals = $this->getMedalStatistics(null);
+
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			'Nama',
+			['data' => 'Internasional', 'class' => 'col-centered', 'colspan' => '3'],
+			['data' => 'Regional', 'class' => 'col-centered', 'colspan' => '3'],
+			['data' => 'Nasional', 'class' => 'col-centered', 'colspan' => '3']
+		);
+		$table->setHeading($heading);
+
+		foreach ($medals as $m) {
+			$table->addRow(
+				linkPerson($m['ID'], $m['Name']),
+				['data' => $m['InternationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+				['data' => $m['InternationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+				['data' => $m['InternationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+				['data' => $m['RegionalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+				['data' => $m['RegionalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+				['data' => $m['RegionalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+				['data' => $m['NationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+				['data' => $m['NationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+				['data' => $m['NationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+			);
+		}
+
 		return view('statistics_persons', [
 			'menu' => 'statistics',
-			'submenu' => '/peserta'
+			'submenu' => '/peserta',
+			'table' => $table->generate()
 		]);
 	}
 
@@ -202,10 +237,10 @@ class Statistics extends BaseController {
 		$person = $persons[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.ShortName as CompetitionName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
-			join Province pr on pr.ID = c.Province
+			left join Province pr on pr.ID = c.Province
 			where c.Person = ?
 			order by comp.Year desc, c.Rank asc
 		QUERY, [$id])->getResultArray();
@@ -220,6 +255,155 @@ class Statistics extends BaseController {
 			order by t.Alias asc
 		QUERY, [$id])->getResultArray();
 
+		$medals = $this->getMedalStatistics($id);
+
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			['data' => 'Internasional', 'class' => 'col-centered', 'colspan' => '3'],
+			['data' => 'Regional', 'class' => 'col-centered', 'colspan' => '3'],
+			['data' => 'Nasional', 'class' => 'col-centered', 'colspan' => '3']
+		);
+		$table->setHeading($heading);
+
+		$table->addRow(
+			['data' => $medals[0]['InternationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+			['data' => $medals[0]['InternationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+			['data' => $medals[0]['InternationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+			['data' => $medals[0]['RegionalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+			['data' => $medals[0]['RegionalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+			['data' => $medals[0]['RegionalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+			['data' => $medals[0]['NationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
+			['data' => $medals[0]['NationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
+			['data' => $medals[0]['NationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
+		);
+
+		return view('statistics_person', [
+			'menu' => 'statistics',
+			'submenu' => '/peserta',
+			'person' => $person,
+			'medalsTable' => $table->generate(),
+			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),
+			'regionalTable' => $this->getExternalStatistics('Regional', $contestants, $submissions),
+			'nationalTable' => $this->getNationalStatistics($contestants, $submissions)
+		]);
+	}
+
+	private function getMedalStatistics($id) {
+		return $this->db->query(sprintf(<<<QUERY
+			select c.ID as ID, Name, InternationalGolds, InternationalSilvers, InternationalBronzes, RegionalGolds, RegionalSilvers, RegionalBronzes, NationalGolds, NationalSilvers, NationalBronzes from (
+				select ID, Name from Person %s
+			) as c
+			left join (
+				select Person, count(Medal) as InternationalGolds
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'International' and Medal = 'G'
+				group by Person
+			) as iGolds on c.ID = iGolds.Person
+			left join (
+				select Person, count(Medal) as InternationalSilvers
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'International' and Medal = 'S'
+				group by Person
+			) as iSilvers on c.ID = iSilvers.Person
+			left join (
+				select Person, count(Medal) as InternationalBronzes
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'International' and Medal = 'B'
+				group by Person
+			) as iBronzes on c.ID = iBronzes.Person
+			left join (
+				select Person, count(Medal) as RegionalGolds
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'Regional' and Medal = 'G'
+				group by Person
+			) as rGolds on c.ID = rGolds.Person
+			left join (
+				select Person, count(Medal) as RegionalSilvers
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'Regional' and Medal = 'S'
+				group by Person
+			) as rSilvers on c.ID = rSilvers.Person
+			left join (
+				select Person, count(Medal) as RegionalBronzes
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'Regional' and Medal = 'B'
+				group by Person
+			) as rBronzes on c.ID = rBronzes.Person
+			left join (
+				select Person, count(Medal) as NationalGolds
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'National' and Medal = 'G'
+				group by Person
+			) as nGolds on c.ID = nGolds.Person
+			left join (
+				select Person, count(Medal) as NationalSilvers
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'National' and Medal = 'S'
+				group by Person
+			) as nSilvers on c.ID = nSilvers.Person
+			left join (
+				select Person, count(Medal) as NationalBronzes
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'National' and Medal = 'B'
+				group by Person
+			) as nBronzes on c.ID = nBronzes.Person
+			order by InternationalGolds desc, InternationalSilvers desc, InternationalBronzes desc, RegionalGolds desc, RegionalSilvers desc, RegionalBronzes desc, NationalGolds desc, NationalSilvers desc, NationalBronzes desc, Name asc
+			limit 100
+		QUERY, $id ? 'where ID = ?' : ''), [$id])->getResultArray();
+	}
+
+	private function getExternalStatistics($level, $contestants, $submissions) {
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			'Kompetisi',
+			['data' => '#', 'class' => 'col-centered'],
+			'Medali'
+		);
+		$table->setHeading($heading);
+
+		$rowCount = 0;
+		foreach ($contestants as $c) {
+			if ($c['CompetitionLevel'] != $level) {
+				continue;
+			}
+
+			$clazz = getMedalClass($c['Medal']);
+
+			$row = array(
+				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
+			);
+
+			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
+
+			$table->addRow($row);
+			$rowCount++;
+		}
+
+		if ($rowCount > 0) {
+			return $table->generate();
+		}
+		return null;
+	}
+
+	private function getNationalStatistics($contestants, $submissions) {
 		$taskCount = 1;
 		$taskScores = array();
 		foreach ($submissions as $s) {
@@ -245,7 +429,12 @@ class Statistics extends BaseController {
 		);
 		$table->setHeading($heading);
 
+		$rowCount = 0;
 		foreach ($contestants as $c) {
+			if ($c['CompetitionLevel'] != 'National') {
+				continue;
+			}
+
 			$clazz = getMedalClass($c['Medal']);
 
 			$row = array(
@@ -270,13 +459,12 @@ class Statistics extends BaseController {
 			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
 
 			$table->addRow($row);
+			$rowCount++;
 		}
 
-		return view('statistics_person', [
-			'menu' => 'statistics',
-			'submenu' => '/peserta',
-			'person' => $person,
-			'table' => $table->generate()
-		]);
+		if ($rowCount > 0) {
+			return $table->generate();
+		}
+		return null;
 	}
 }
