@@ -1,6 +1,33 @@
 <?php namespace App\Controllers;
 
 class Statistics extends BaseController {
+	public function national() {
+		helper('medal');
+
+		$medals = $this->getNationalMedals();
+
+		$table = new \CodeIgniter\View\Table();
+		$table->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			createMedalHeading('Internasional'),
+			createMedalHeading('Regional')
+		);
+		$table->setHeading($heading);
+
+		$table->addRow(
+			...createMedalCells($medals[0], '', 'col-statistics-person-medal'),
+			...createMedalCells($medals[1], '', 'col-statistics-person-medal'),
+		);
+
+		return view('statistics_national', [
+			'menu' => 'statistics',
+			'submenu' => '/nasional',
+			'table' => $table->generate()
+		]);
+	}
 	public function provinces() {
 		helper('medal');
 		helper('link');

@@ -54,6 +54,44 @@ class BaseController extends Controller
 		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level], 'strlen')))->getResultArray();
 	}
 
+	protected function getNationalMedals() {
+		return $this->db->query(<<<QUERY
+			select c.Level as Level, Golds, Silvers, Bronzes, Participants from (
+				select distinct(Level) as Level from Competition
+				where Level <> 'National'
+			) as c
+			left join (
+				select comp.Level as Level, count(Medal) as Golds
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where Medal = 'G'
+				group by comp.Level
+			) as golds on c.Level = golds.Level
+			left join (
+				select comp.Level as Level, count(Medal) as Silvers
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where Medal = 'S'
+				group by comp.Level
+			) as silvers on c.Level = silvers.Level
+			left join (
+				select comp.Level as Level, count(Medal) as Bronzes
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where Medal = 'B'
+				group by comp.Level
+			) as bronzes on c.Level = bronzes.Level
+			left join (
+				select comp.Level as Level, count(Medal) as Participants
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where Medal = ''
+				group by comp.Level
+			) as participants on c.Level = participants.Level
+			order by Level asc
+		QUERY)->getResultArray();
+	}
+
 	protected function getProvinceMedals($id, $competitionId) {
 		return $this->db->query(sprintf(<<<QUERY
 			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants from (
