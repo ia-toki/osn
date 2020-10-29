@@ -182,7 +182,7 @@ class Competition extends BaseController {
 			$c = $competitions[$i];
 			$table->addRow(
 				$competitionsCount-$i,
-				linkCompetitionInfo($c['ID'], $c['Name']),
+				linkCompetition($c['ID'], $c['Name']),
 				['data' => $c['Contestants'], 'class' => 'col-id-contestants'],
 			);
 		}
