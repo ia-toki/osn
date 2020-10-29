@@ -241,7 +241,7 @@ table {
   background-color: #b87838;
 }
 
-.header-buttons {
+.header-section {
   margin-bottom: 10px;
 }
 
@@ -298,4 +298,8 @@ table {
 .col-statistics-person-medal {
   font-size: 20px !important;
   text-align: center;
+}
+
+.table-competition-info {
+  max-width: 600px !important;
 }

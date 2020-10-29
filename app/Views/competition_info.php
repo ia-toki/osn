@@ -1,17 +1,20 @@
 <?= $this->extend('competition') ?>
 
 <?= $this->section('subcontent') ?>
-	<ul>
-		<li>Tempat: <?= $competition['City'] ?>, <?= $competition['HostName'] ?></li>
-		<li>Waktu: <?= date_format(date_create($competition['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($competition['DateEnd']), 'd M Y') ?></li>
-		<?php if ($competition['Website']) : ?>
-			<li>Website: <a href="<?= $competition['Website'] ?>"><?= $competition['Website'] ?></a></li>
-		<?php endif ?>
-		<?php if ($competition['Contestants']) : ?>
-			<li>Peserta: <?= $competition['Contestants'] ?></li>
-		<?php endif ?>
-		<?php if ($competition['Provinces']) : ?>
-			<li>Provinsi: <?= $competition['Provinces'] ?></li>
-		<?php endif ?>
-	</ul>
+	<h3>Informasi Umum</h3>
+	<table class="table table-bordered table-competition-info">
+		<tbody>
+			<tr><th>Tempat</th><td><?= $competition['City'] ?>, <?= $competition['HostName'] ?></td></tr>
+			<tr><th>Waktu</th><td> <?= date_format(date_create($competition['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($competition['DateEnd']), 'd M Y') ?></td></tr>
+			<?php if ($competition['Website']) : ?>
+				<tr><th>Situs</th><td><a href="<?= $competition['Website'] ?>"><?= $competition['Website'] ?></a></td></tr>
+			<?php endif ?>
+			<?php if ($competition['Contestants']) : ?>
+				<tr><th>Peserta</th><td><?= $competition['Contestants'] ?></td></tr>
+			<?php endif ?>
+			<?php if ($competition['Provinces']) : ?>
+				<tr><th>Provinsi</th><td><?= $competition['Provinces'] ?></td></tr>
+			<?php endif ?>
+		</tbody>
+	</table>
 <?= $this->endSection() ?>
