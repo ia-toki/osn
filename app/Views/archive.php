@@ -8,7 +8,6 @@
 	<a role="button" href="/arsip" class="bp3-button <?= $submenu == '/' ? 'bp3-active' : '' ?>">Nasional</a>
 </div>
 
-<div class="bp3-card subcontent">
-	<?= $this->renderSection('subcontent') ?>
-</div>
+<?= $this->renderSection('subcontent') ?>
+
 <?= $this->endSection() ?>

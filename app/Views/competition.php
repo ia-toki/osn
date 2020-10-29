@@ -11,7 +11,7 @@
 		<?php endif ?>
 	</h2>
 
-	<div class="bp3-button-group">
+	<div class="bp3-button-group section">
 		<?php if ($isNational) : ?>
 			<a role="button" href="/<?= $competition['ID'] ?>" class="bp3-button <?= $submenu == '' ? 'bp3-active' : '' ?>">Informasi</a>
 		<?php endif; ?>
@@ -21,8 +21,6 @@
 		<?php endif; ?>
 	</div>
 
-	<div class="bp3-card subcontent">
-		<?= $this->renderSection('subcontent') ?>
-	</div>
+	<?= $this->renderSection('subcontent') ?>
 
 <?= $this->endSection() ?>
