@@ -1,5 +1,5 @@
 <?= $this->extend('statistics') ?>
 
 <?= $this->section('subcontent') ?>
-  <?= $table ?>
+	<?= $table ?>
 <?= $this->endSection() ?>
