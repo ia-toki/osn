@@ -55,6 +55,10 @@ a {
   color: #3b73b9;
 }
 
+table a {
+  color: #0F3678 !important;
+}
+
 a[role="button"] {
   text-decoration: none !important;
 }
