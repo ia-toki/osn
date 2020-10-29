@@ -26,7 +26,7 @@ class Statistics extends BaseController {
 
 		return view('statistics_provinces', [
 			'menu' => 'statistics',
-			'submenu' => '',
+			'submenu' => '/provinsi',
 			'table' => $table->generate()
 		]);
 	}
@@ -197,7 +197,7 @@ class Statistics extends BaseController {
 
 		return view('statistics_persons', [
 			'menu' => 'statistics',
-			'submenu' => '/peserta',
+			'submenu' => '/',
 			'table' => $table->generate()
 		]);
 	}
@@ -258,7 +258,7 @@ class Statistics extends BaseController {
 
 		return view('statistics_person', [
 			'menu' => 'statistics',
-			'submenu' => '/peserta',
+			'submenu' => '/',
 			'person' => $person,
 			'medalsTable' => $table->generate(),
 			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),

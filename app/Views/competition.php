@@ -15,7 +15,7 @@
 		<?php if ($isNational) : ?>
 			<a role="button" href="/<?= $competition['ID'] ?>" class="bp3-button <?= $submenu == '' ? 'bp3-active' : '' ?>">Informasi</a>
 		<?php endif; ?>
-		<a role="button" href="/<?= $competition['ID'] ?>/hasil" class="bp3-button <?= $submenu == '/hasil' ? 'bp3-active' : '' ?>">Hasil Individu</a>
+		<a role="button" href="/<?= $competition['ID'] ?>/hasil" class="bp3-button <?= $submenu == '/hasil' ? 'bp3-active' : '' ?>">Hasil Peserta</a>
 		<?php if ($isNational) : ?>
 			<a role="button" href="/<?= $competition['ID'] ?>/provinsi" class="bp3-button <?= $submenu == '/provinsi' ? 'bp3-active' : '' ?>">Hasil Provinsi</a>
 		<?php endif; ?>
