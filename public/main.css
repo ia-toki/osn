@@ -272,6 +272,11 @@ table {
   text-align: center;
 }
 
+.col-id-contestants {
+  width: 150px;
+  text-align: center;
+}
+
 .col-new-competition {
   border-top: 1.5px solid gray !important;
 }

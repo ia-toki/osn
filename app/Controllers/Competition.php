@@ -4,16 +4,7 @@ class Competition extends BaseController {
 	public function listNational() {
 		helper('link');
 
-		$competitions = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, City, DateBegin, DateEnd, Contestants, Provinces from Competition c
-			left join Province p on p.ID = c.Host
-			left join (
-				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
-				group by Competition
-			) as contestants on c.ID = contestants.Competition
-			where c.Level = 'National'
-			order by Year desc
-		QUERY)->getResultArray();
+		$competitions = $this->getCompetitions(null, 'National');
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -177,25 +168,22 @@ class Competition extends BaseController {
 	private function listExternal($level, $submenu) {
 		helper('link');
 
-		$competitions = $this->db->query(<<<QUERY
-			select ID, Name from Competition
-			where Level = ?
-			order by Year desc
-		QUERY, $level)->getResultArray();
+		$competitions = $this->getCompetitions(null, $level);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
 			'table_open' => '<table class="table table-striped table-bordered">'
 		]);
 
-		$table->setHeading(['data' => '#', 'class' => 'col-order'], 'Nama');
+		$table->setHeading(['data' => '#', 'class' => 'col-order'], 'Nama', 'Peserta Indonesia');
 
 		$competitionsCount = count($competitions);
 		for ($i = 0; $i < $competitionsCount; $i++) {
 			$c = $competitions[$i];
 			$table->addRow(
 				$competitionsCount-$i,
-				linkCompetitionInfo($c['ID'], $c['Name'])
+				linkCompetitionInfo($c['ID'], $c['Name']),
+				['data' => $c['Contestants'], 'class' => 'col-id-contestants'],
 			);
 		}
 
@@ -207,15 +195,7 @@ class Competition extends BaseController {
 	}
 
 	private function getCompetition($id) {
-		$competitions = $this->db->query(<<<QUERY
-			select c.ID as ID, Level, Year, c.Name as Name, p.Name as HostName, Website, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr from Competition c
-			left join Province p on p.ID = c.Host
-			left join (
-				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
-				group by Competition
-			) as contestants on c.ID = contestants.Competition
-			where c.ID = ?
-		QUERY, [$id])->getResultArray();
+		$competitions = $this->getCompetitions($id, null);
 
 		if (empty($competitions)) {
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();

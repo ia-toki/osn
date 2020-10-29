@@ -39,6 +39,21 @@ class BaseController extends Controller
 		$this->db = \Config\Database::connect();
 	}
 
+	protected function getCompetitions($id, $level) {
+		return $this->db->query(sprintf(<<<QUERY
+			select c.ID as ID, Level, Year, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, Website, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr from Competition c
+			left join Province p on p.ID = c.Host
+			left join (
+				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
+				group by Competition
+			) as contestants on c.ID = contestants.Competition
+			where 1
+			%s
+			%s
+			order by Year desc
+		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level], 'strlen')))->getResultArray();
+	}
+
 	protected function getProvinceMedals($competitionId) {
 		return $this->db->query(sprintf(<<<QUERY
 			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants from (
