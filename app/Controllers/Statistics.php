@@ -5,7 +5,7 @@ class Statistics extends BaseController {
 		helper('medal');
 		helper('link');
 
-		$medals = $this->getProvinceMedals(null);
+		$medals = $this->getProvinceMedals(null, null);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -90,6 +90,22 @@ class Statistics extends BaseController {
 			$taskCount = max($taskCount, count($taskScores[$s['CompetitionID']][$s['ContestantID']]));
 		}
 
+		$medals = $this->getProvinceMedals($id, null);
+
+		$medalsTable = new \CodeIgniter\View\Table();
+		$medalsTable->setTemplate([
+			'table_open' => '<table class="table table-bordered">'
+		]);
+
+		$heading = array(
+			createMedalHeading('Nasional')
+		);
+		$medalsTable->setHeading($heading);
+
+		$medalsTable->addRow(
+			...createMedalCells($medals[0], '', 'col-statistics-person-medal')
+		);
+
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
 			'table_open' => '<table class="table table-bordered">'
@@ -145,6 +161,7 @@ class Statistics extends BaseController {
 			'menu' => 'statistics',
 			'submenu' => '',
 			'province' => $province,
+			'medalsTable' => $medalsTable->generate(),
 			'table' => $table->generate()
 		]);
 	}

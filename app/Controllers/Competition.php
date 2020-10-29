@@ -140,7 +140,7 @@ class Competition extends BaseController {
 
 		$data = $this->getCompetition($id);
 
-		$medals = $this->getProvinceMedals($id);
+		$medals = $this->getProvinceMedals(null, $id);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([

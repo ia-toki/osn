@@ -281,6 +281,11 @@ table {
   border-top: 1.5px solid gray !important;
 }
 
+.statistics-province-summary {
+  margin-bottom: 30px;
+  max-width: 250px;
+}
+
 .statistics-person-summary {
   margin-bottom: 30px;
   max-width: 600px;

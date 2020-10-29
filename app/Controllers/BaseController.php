@@ -54,7 +54,7 @@ class BaseController extends Controller
 		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level], 'strlen')))->getResultArray();
 	}
 
-	protected function getProvinceMedals($competitionId) {
+	protected function getProvinceMedals($id, $competitionId) {
 		return $this->db->query(sprintf(<<<QUERY
 			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants from (
 				select distinct(Province) as ID from Contestant where 1 %1\$s
@@ -84,8 +84,10 @@ class BaseController extends Controller
 				where Medal = '' %1\$s
 				group by Province
 			) as participants on p.ID = participants.ID
+			where 1 %2\$s
 			order by coalesce(Golds, 0) desc, coalesce(Silvers, 0) desc, coalesce(Bronzes, 0) desc, coalesce(Participants, 0), Name asc
-		QUERY, $competitionId ? 'and Competition = ?' : ''), [$competitionId, $competitionId, $competitionId, $competitionId, $competitionId])->getResultArray();
+		QUERY, $competitionId ? 'and Competition = ?' : '', $id ? 'and p.ID = ?' : ''),
+		array_values(array_filter([$competitionId, $competitionId, $competitionId, $competitionId, $competitionId, $id], 'strlen')))->getResultArray();
 	}
 
 	protected function getPersonMedals($id) {
