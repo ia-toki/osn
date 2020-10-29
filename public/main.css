@@ -139,6 +139,7 @@ table {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 20px;
+  padding-bottom: 10px;
   max-width: 1160px;
 }
 
@@ -241,8 +242,13 @@ table {
   background-color: #b87838;
 }
 
-.header-section {
+.section {
   margin-bottom: 10px;
+}
+
+.section-cell {
+  width: 50%;
+  padding: 5px;
 }
 
 .col-centered {
@@ -302,4 +308,25 @@ table {
 
 .table-competition-info {
   max-width: 600px !important;
+}
+
+.home-card {
+  height: 150px;
+  background-color: rgba(217, 130, 43, 0.15) !important;
+}
+
+.home-info {
+  margin: 20px 5px;
+}
+
+.col-preparation-name {
+  width: 300px;
+}
+
+.col-preparation-by {
+  width: 150px;
+}
+
+.col-archive-year {
+  width: 200px;
 }

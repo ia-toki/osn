@@ -31,9 +31,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/persiapan', 'Preparation::index');
+$routes->get('/silabus', 'Syllabus::national');
 $routes->get('/kompetisi', 'Competition::listNational');
 $routes->get('/kompetisi/internasional', 'Competition::listInternational');
 $routes->get('/kompetisi/regional', 'Competition::listRegional');
+$routes->get('/arsip', 'Archive::national');
+$routes->get('/arsip/kota', 'Archive::city');
+$routes->get('/arsip/provinsi', 'Archive::province');
 $routes->get('/statistik', 'Statistics::persons');
 $routes->get('/statistik/provinsi', 'Statistics::provinces');
 $routes->get('/statistik/provinsi/(:alphanum)', 'Statistics::province/$1');

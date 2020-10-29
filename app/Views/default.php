@@ -36,9 +36,18 @@
         <ul class="bp3-tab-list" role="tablist">
           <li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'home' ? 'true' : 'false' ?>">
             <a href="/">Beranda</a>
-          </li>
+					</li>
+					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'preparation' ? 'true' : 'false' ?>">
+            <a href="/persiapan">Persiapan</a>
+					</li>
+					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'syllabus' ? 'true' : 'false' ?>">
+            <a href="/silabus">Silabus</a>
+					</li>
 					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
             <a href="/kompetisi">Kompetisi</a>
+          </li>
+					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'archive' ? 'true' : 'false' ?>">
+            <a href="/arsip">Arsip Soal</a>
           </li>
 					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'statistics' ? 'true' : 'false' ?>">
             <a href="/statistik">Statistik</a>
