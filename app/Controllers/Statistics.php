@@ -14,16 +14,13 @@ class Statistics extends BaseController {
 
 		$table->setHeading(
 			'Provinsi',
-			['data' => 'Nasional', 'class' => 'col-centered', 'colspan' => 4]
+			createMedalHeading('Nasional')
 		);
 
 		foreach ($medals as $m) {
 			$table->addRow(
 				linkProvince($m['ID'], $m['Name']),
-				['data' => $m['Golds'] ?? '-', 'class' => 'col-medals ' . getMedalClass('G')],
-				['data' => $m['Silvers'] ?? '-', 'class' => 'col-medals ' . getMedalClass('S')],
-				['data' => $m['Bronzes'] ?? '-', 'class' => 'col-medals ' . getMedalClass('B')],
-				['data' => $m['Participants'] ?? '-', 'class' => 'col-medals'],
+				...createMedalCells($m, '', null)
 			);
 		}
 
@@ -166,27 +163,18 @@ class Statistics extends BaseController {
 
 		$heading = array(
 			'Nama',
-			['data' => 'Internasional', 'class' => 'col-centered', 'colspan' => '4'],
-			['data' => 'Regional', 'class' => 'col-centered', 'colspan' => '4'],
-			['data' => 'Nasional', 'class' => 'col-centered', 'colspan' => '4']
+			createMedalHeading('Internasional'),
+			createMedalHeading('Regional'),
+			createMedalHeading('Nasional')
 		);
 		$table->setHeading($heading);
 
 		foreach ($medals as $m) {
 			$table->addRow(
 				linkPerson($m['ID'], $m['Name']),
-				['data' => $m['InternationalGolds'] ?? '-', 'class' => 'col-medals medal--gold'],
-				['data' => $m['InternationalSilvers'] ?? '-', 'class' => 'col-medals medal--silver'],
-				['data' => $m['InternationalBronzes'] ?? '-', 'class' => 'col-medals medal--bronze'],
-				['data' => $m['InternationalParticipants'] ?? '-', 'class' => 'col-medals'],
-				['data' => $m['RegionalGolds'] ?? '-', 'class' => 'col-medals medal--gold'],
-				['data' => $m['RegionalSilvers'] ?? '-', 'class' => 'col-medals medal--silver'],
-				['data' => $m['RegionalBronzes'] ?? '-', 'class' => 'col-medals medal--bronze'],
-				['data' => $m['RegionalParticipants'] ?? '-', 'class' => 'col-medals'],
-				['data' => $m['NationalGolds'] ?? '-', 'class' => 'col-medals medal--gold'],
-				['data' => $m['NationalSilvers'] ?? '-', 'class' => 'col-medals medal--silver'],
-				['data' => $m['NationalBronzes'] ?? '-', 'class' => 'col-medals medal--bronze'],
-				['data' => $m['NationalParticipants'] ?? '-', 'class' => 'col-medals'],
+				...createMedalCells($m, 'International', null),
+				...createMedalCells($m, 'Regional', null),
+				...createMedalCells($m, 'National', null)
 			);
 		}
 
@@ -239,25 +227,16 @@ class Statistics extends BaseController {
 		]);
 
 		$heading = array(
-			['data' => 'Internasional', 'class' => 'col-centered', 'colspan' => '4'],
-			['data' => 'Regional', 'class' => 'col-centered', 'colspan' => '4'],
-			['data' => 'Nasional', 'class' => 'col-centered', 'colspan' => '4']
+			createMedalHeading('Internasional'),
+			createMedalHeading('Regional'),
+			createMedalHeading('Nasional')
 		);
 		$table->setHeading($heading);
 
 		$table->addRow(
-			['data' => $medals[0]['InternationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
-			['data' => $medals[0]['InternationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
-			['data' => $medals[0]['InternationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
-			['data' => $medals[0]['InternationalParticipants'] ?? '-', 'class' => 'col-statistics-person-medal'],
-			['data' => $medals[0]['RegionalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
-			['data' => $medals[0]['RegionalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
-			['data' => $medals[0]['RegionalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
-			['data' => $medals[0]['RegionalParticipants'] ?? '-', 'class' => 'col-statistics-person-medal'],
-			['data' => $medals[0]['NationalGolds'] ?? '-', 'class' => 'col-statistics-person-medal medal--gold'],
-			['data' => $medals[0]['NationalSilvers'] ?? '-', 'class' => 'col-statistics-person-medal medal--silver'],
-			['data' => $medals[0]['NationalBronzes'] ?? '-', 'class' => 'col-statistics-person-medal medal--bronze'],
-			['data' => $medals[0]['NationalParticipants'] ?? '-', 'class' => 'col-statistics-person-medal']
+			...createMedalCells($medals[0], 'International', 'col-statistics-person-medal'),
+			...createMedalCells($medals[0], 'Regional', 'col-statistics-person-medal'),
+			...createMedalCells($medals[0], 'National', 'col-statistics-person-medal')
 		);
 
 		return view('statistics_person', [
