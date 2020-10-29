@@ -149,34 +149,7 @@ class Competition extends BaseController {
 
 		$data = $this->getCompetition($id);
 
-		$provinces = $this->db->query(<<<QUERY
-			select p.ID as ID, pr.Name as Name, coalesce(Golds, 0) as Golds, coalesce(Silvers, 0) as Silvers, coalesce(Bronzes, 0) as Bronzes, coalesce(Golds, 0) + coalesce(Silvers, 0) + coalesce(Bronzes, 0) as Medals from (
-				select distinct(Province) as ID from Contestant where Competition = ?
-			) as p
-			join Province pr on p.ID = pr.ID
-			left join (
-				select Province as ID, count(Medal) as Golds
-				from Contestant
-				where Competition = ?
-				and Medal = 'G'
-				group by Province
-			) as golds on p.ID = golds.ID
-			left join (
-				select Province as ID, count(Medal) as Silvers
-				from Contestant
-				where Competition = ?
-				and Medal = 'S'
-				group by Province
-			) as silvers on p.ID = silvers.ID
-			left join (
-				select Province as ID, count(Medal) as Bronzes
-				from Contestant
-				where Competition = ?
-				and Medal = 'B'
-				group by Province
-			) as bronzes on p.ID = bronzes.ID
-			order by Golds desc, Silvers desc, Bronzes desc, Name asc
-		QUERY, [$id, $id, $id, $id])->getResultArray();
+		$medals = $this->getProvinceMedals($id);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -185,19 +158,16 @@ class Competition extends BaseController {
 
 		$table->setHeading(
 			'Provinsi',
-			['data' => 'Emas', 'class' => 'col-centered'],
-			['data' => 'Perak', 'class' => 'col-centered'],
-			['data' => 'Perunggu', 'class' => 'col-centered'],
-			['data' => 'Total', 'class' => 'col-centered']
+			['data' => 'Medali', 'class' => 'col-centered', 'colspan' => 4]
 		);
 
-		foreach ($provinces as $p) {
+		foreach ($medals as $m) {
 			$table->addRow(
-				linkProvince($p['ID'], $p['Name']),
-				['data' => $p['Golds'], 'class' => 'col-medals ' . getMedalClass('G')],
-				['data' => $p['Silvers'], 'class' => 'col-medals ' . getMedalClass('S')],
-				['data' => $p['Bronzes'], 'class' => 'col-medals ' . getMedalClass('B')],
-				['data' => $p['Medals'], 'class' => 'col-medals'],
+				linkProvince($m['ID'], $m['Name']),
+				['data' => $m['Golds'] ?? '-', 'class' => 'col-medals ' . getMedalClass('G')],
+				['data' => $m['Silvers'] ?? '-', 'class' => 'col-medals ' . getMedalClass('S')],
+				['data' => $m['Bronzes'] ?? '-', 'class' => 'col-medals ' . getMedalClass('B')],
+				['data' => $m['Participants'] ?? '-', 'class' => 'col-medals'],
 			);
 		}
 

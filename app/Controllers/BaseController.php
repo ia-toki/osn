@@ -39,38 +39,38 @@ class BaseController extends Controller
 		$this->db = \Config\Database::connect();
 	}
 
-	protected function getProvinceMedals() {
-		return $this->db->query(<<<QUERY
+	protected function getProvinceMedals($competitionId) {
+		return $this->db->query(sprintf(<<<QUERY
 			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants from (
-				select distinct(Province) as ID from Contestant
+				select distinct(Province) as ID from Contestant where 1 %1\$s
 			) as p
 			join Province pr on p.ID = pr.ID
 			left join (
 				select Province as ID, count(Medal) as Golds
 				from Contestant
-				where Medal = 'G'
+				where Medal = 'G' %1\$s
 				group by Province
 			) as golds on p.ID = golds.ID
 			left join (
 				select Province as ID, count(Medal) as Silvers
 				from Contestant
-				where Medal = 'S'
+				where Medal = 'S' %1\$s
 				group by Province
 			) as silvers on p.ID = silvers.ID
 			left join (
 				select Province as ID, count(Medal) as Bronzes
 				from Contestant
-				where Medal = 'B'
+				where Medal = 'B' %1\$s
 				group by Province
 			) as bronzes on p.ID = bronzes.ID
 			left join (
 				select Province as ID, count(Medal) as Participants
 				from Contestant
-				where Medal = ''
+				where Medal = '' %1\$s
 				group by Province
 			) as participants on p.ID = participants.ID
 			order by coalesce(Golds, 0) desc, coalesce(Silvers, 0) desc, coalesce(Bronzes, 0) desc, coalesce(Participants, 0), Name asc
-		QUERY)->getResultArray();
+		QUERY, $competitionId ? 'and Competition = ?' : ''), [$competitionId, $competitionId, $competitionId, $competitionId, $competitionId])->getResultArray();
 	}
 
 	protected function getPersonMedals($id) {

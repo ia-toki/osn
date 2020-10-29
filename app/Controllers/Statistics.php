@@ -5,7 +5,7 @@ class Statistics extends BaseController {
 		helper('medal');
 		helper('link');
 
-		$medals = $this->getProvinceMedals();
+		$medals = $this->getProvinceMedals(null);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -20,10 +20,10 @@ class Statistics extends BaseController {
 		foreach ($medals as $m) {
 			$table->addRow(
 				linkProvince($m['ID'], $m['Name']),
-				['data' => $m['Golds'], 'class' => 'col-medals ' . getMedalClass('G')],
-				['data' => $m['Silvers'], 'class' => 'col-medals ' . getMedalClass('S')],
-				['data' => $m['Bronzes'], 'class' => 'col-medals ' . getMedalClass('B')],
-				['data' => $m['Participants'], 'class' => 'col-medals'],
+				['data' => $m['Golds'] ?? '-', 'class' => 'col-medals ' . getMedalClass('G')],
+				['data' => $m['Silvers'] ?? '-', 'class' => 'col-medals ' . getMedalClass('S')],
+				['data' => $m['Bronzes'] ?? '-', 'class' => 'col-medals ' . getMedalClass('B')],
+				['data' => $m['Participants'] ?? '-', 'class' => 'col-medals'],
 			);
 		}
 
