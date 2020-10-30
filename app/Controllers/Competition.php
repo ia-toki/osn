@@ -148,12 +148,14 @@ class Competition extends BaseController {
 		]);
 
 		$table->setHeading(
+			['data' => '#', 'class' => 'col-centered'],
 			'Provinsi',
 			createMedalHeading('Medali')
 		);
 
 		foreach ($medals as $m) {
 			$table->addRow(
+				['data' => $m['Rank'], 'class' => 'col-rank'],
 				linkProvince($m['ID'], $m['Name']),
 				...createMedalCells($m, '', null)
 			);

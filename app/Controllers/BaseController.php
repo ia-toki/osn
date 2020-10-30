@@ -94,7 +94,9 @@ class BaseController extends Controller
 
 	protected function getProvinceMedals($id, $competitionId) {
 		return $this->db->query(sprintf(<<<QUERY
-			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants from (
+			select p.ID as ID, pr.Name as Name, Golds, Silvers, Bronzes, Participants,
+			rank() over (order by %3\$s) as `Rank`
+			from (
 				select distinct(Province) as ID from Contestant where 1 %1\$s
 			) as p
 			join Province pr on p.ID = pr.ID
@@ -123,8 +125,8 @@ class BaseController extends Controller
 				group by Province
 			) as participants on p.ID = participants.ID
 			where 1 %2\$s
-			order by coalesce(Golds, 0) desc, coalesce(Silvers, 0) desc, coalesce(Bronzes, 0) desc, coalesce(Participants, 0), Name asc
-		QUERY, $competitionId ? 'and Competition = ?' : '', $id ? 'and p.ID = ?' : ''),
+			order by %3\$s, coalesce(Participants, 0) desc, Name asc
+		QUERY, $competitionId ? 'and Competition = ?' : '', $id ? 'and p.ID = ?' : '', 'coalesce(Golds, 0) desc, coalesce(Silvers, 0) desc, coalesce(Bronzes, 0) desc'),
 		array_values(array_filter([$competitionId, $competitionId, $competitionId, $competitionId, $competitionId, $id], 'strlen')))->getResultArray();
 	}
 
@@ -133,10 +135,26 @@ class BaseController extends Controller
 			select c.ID as ID, Name,
 			InternationalGolds, InternationalSilvers, InternationalBronzes, InternationalParticipants,
 			RegionalGolds, RegionalSilvers, RegionalBronzes, RegionalParticipants,
-			NationalGolds, NationalSilvers, NationalBronzes, NationalParticipants
+			NationalGolds, NationalSilvers, NationalBronzes, NationalParticipants,
+			rank() over (order by %1\$s) as `Rank`,
+			InternationalBatch, NationalBatch
 			from (
-				select ID, Name from Person %s
+				select ID, Name from Person %2\$s
 			) as c
+			left join (
+				select Person, max(comp.Year) as InternationalBatch
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level <> 'National'
+				group by Person
+			) as iBatch on c.ID = iBatch.Person
+			left join (
+				select Person, max(comp.Year) as NationalBatch
+				from Contestant c
+				join Competition comp on comp.ID = c.Competition
+				where comp.Level = 'National'
+				group by Person
+			) as nBatch on c.ID = nBatch.Person
 			left join (
 				select Person, count(Medal) as InternationalGolds
 				from Contestant c
@@ -221,10 +239,11 @@ class BaseController extends Controller
 				where comp.Level = 'National' and Medal = ''
 				group by Person
 			) as nParticipants on c.ID = nParticipants.Person
-			order by coalesce(InternationalGolds, 0) desc, coalesce(InternationalSilvers, 0) desc, coalesce(InternationalBronzes, 0) desc, coalesce(InternationalParticipants, 0) desc,
-			coalesce(RegionalGolds, 0) desc, coalesce(RegionalSilvers, 0) desc, coalesce(RegionalBronzes, 0) desc, coalesce(RegionalParticipants, 0) desc,
-			coalesce(NationalGolds, 0) desc, coalesce(NationalSilvers, 0) desc, coalesce(NationalBronzes, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
-			limit 100
-		QUERY, $id ? 'where ID = ?' : ''), [$id])->getResultArray();
+			order by %1\$s, coalesce(InternationalParticipants, 0) desc, coalesce(RegionalParticipants, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
+		QUERY, <<<WINDOW
+			coalesce(InternationalGolds, 0) desc, coalesce(InternationalSilvers, 0) desc, coalesce(InternationalBronzes, 0) desc,
+			coalesce(RegionalGolds, 0) desc, coalesce(RegionalSilvers, 0) desc, coalesce(RegionalBronzes, 0) desc,
+			coalesce(NationalGolds, 0) desc, coalesce(NationalSilvers, 0) desc, coalesce(NationalBronzes, 0) desc
+		WINDOW, $id ? 'where ID = ?' : ''), [$id])->getResultArray();
 	}
 }

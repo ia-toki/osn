@@ -40,12 +40,14 @@ class Statistics extends BaseController {
 		]);
 
 		$table->setHeading(
+			['data' => '#', 'class' => 'col-centered'],
 			'Provinsi',
 			createMedalHeading('Nasional')
 		);
 
 		foreach ($medals as $m) {
 			$table->addRow(
+				['data' => $m['Rank'], 'class' => 'col-rank'],
 				linkProvince($m['ID'], $m['Name']),
 				...createMedalCells($m, '', null)
 			);
@@ -206,7 +208,9 @@ class Statistics extends BaseController {
 		]);
 
 		$heading = array(
+			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
+			'Angkatan',
 			createMedalHeading('Internasional'),
 			createMedalHeading('Regional'),
 			createMedalHeading('Nasional')
@@ -215,7 +219,9 @@ class Statistics extends BaseController {
 
 		foreach ($medals as $m) {
 			$table->addRow(
+				['data' => $m['Rank'], 'class' => 'col-rank'],
 				linkPerson($m['ID'], $m['Name']),
+				['data' => max($m['InternationalBatch'], 1 + $m['NationalBatch']), 'class' => 'col-batch'],
 				...createMedalCells($m, 'International', null),
 				...createMedalCells($m, 'Regional', null),
 				...createMedalCells($m, 'National', null)

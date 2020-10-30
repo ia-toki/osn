@@ -264,6 +264,11 @@ table {
   text-align: center;
 }
 
+.col-batch {
+  width: 85px;
+  text-align: center;
+}
+
 .col-province {
   width: 200px;
 }
