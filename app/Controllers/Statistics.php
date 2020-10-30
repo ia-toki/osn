@@ -6,11 +6,7 @@ class Statistics extends BaseController {
 
 		$medals = $this->getNationalMedals();
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			createMedalHeading('Internasional'),
 			createMedalHeading('Regional')
@@ -28,17 +24,14 @@ class Statistics extends BaseController {
 			'table' => $table->generate()
 		]);
 	}
+
 	public function provinces() {
 		helper('medal');
 		helper('link');
 
 		$medals = $this->getProvinceMedals(null, null);
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$table->setHeading(
 			['data' => '#', 'class' => 'col-centered'],
 			'Provinsi',
@@ -76,10 +69,11 @@ class Statistics extends BaseController {
 		$province = $provinces[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.ShortName as CompetitionName, p.ID as PersonID, c.Rank as 'Rank', p.Name as Name, Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.ShortName as CompetitionName, p.ID as PersonID, c.Rank as 'Rank', p.Name as Name, s.ID as SchoolID, s.Name as SchoolName, Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			join Person p on p.ID = c.Person
+			left join School s on s.ID = c.School
 			where c.Province = ?
 			order by comp.Year desc, c.Rank asc
 		QUERY, [$id])->getResultArray();
@@ -135,15 +129,12 @@ class Statistics extends BaseController {
 			...createMedalCells($medals[0], '', 'col-statistics-person-medal')
 		);
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			'Kompetisi',
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
+			'Sekolah',
 			['data' => 'Nilai', 'colspan' => $taskCount, 'class' => 'col-centered'],
 			['data' => 'Total', 'class' => 'col-centered'],
 			'Medali'
@@ -167,6 +158,7 @@ class Statistics extends BaseController {
 			$clazz = $clazz . ' ' . getMedalClass($c['Medal']);
 			$row[] = ['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz];
 			$row[] = ['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz];
+			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz];
 
 			$tasks = 0;
 			if (isset($taskScores[$c['Competition']])) {
@@ -195,6 +187,107 @@ class Statistics extends BaseController {
 		]);
 	}
 
+	public function schools() {
+		helper('score');
+		helper('medal');
+		helper('link');
+
+		$nameFilter = trim($this->request->getVar('name'));
+		if (strlen($nameFilter) < 3) {
+			$nameFilter = null;
+		}
+		$medals = $this->getSchoolMedals(null, $nameFilter);
+
+		$table = createTable();
+		$heading = array(
+			['data' => '#', 'class' => 'col-centered'],
+			'Nama',
+			createMedalHeading('Internasional'),
+			createMedalHeading('Regional'),
+			createMedalHeading('Nasional')
+		);
+		$table->setHeading($heading);
+
+		foreach ($medals as $m) {
+			$table->addRow(
+				['data' => $m['Rank'], 'class' => 'col-rank'],
+				linkSchool($m['ID'], $m['Name']),
+				...createMedalCells($m, 'International', null),
+				...createMedalCells($m, 'Regional', null),
+				...createMedalCells($m, 'National', null)
+			);
+		}
+
+		return view('statistics_persons', [
+			'menu' => 'statistics',
+			'submenu' => '/sekolah',
+			'table' => $table->generate(),
+			'nameFilter' => $nameFilter
+		]);
+	}
+
+	public function school($id) {
+		helper('score');
+		helper('medal');
+		helper('link');
+
+		$schools = $this->db->query(<<<QUERY
+			select ID, Name from School
+			where ID = ?
+		QUERY, [$id])->getResultArray();
+
+		if (empty($schools)) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		}
+		$school = $schools[0];
+
+		$contestants = $this->db->query(<<<QUERY
+			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, p.ID as PersonID, p.Name as PersonName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			from Contestant c
+			join Competition comp on comp.ID = c.Competition
+			left join Person p on p.ID = c.Person
+			left join Province pr on pr.ID = c.Province
+			where c.School = ?
+			order by comp.Year desc, c.Rank asc
+		QUERY, [$id])->getResultArray();
+
+		$submissions = $this->db->query(<<<QUERY
+			select comp.ID as CompetitionID, c.ID as ContestantID, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			from Submission s
+			join Contestant c on c.ID = s.Contestant
+			join Competition comp on comp.ID = c.Competition
+			join Task t on t.ID = s.Task
+			where c.School = ?
+			order by t.Alias asc
+		QUERY, [$id])->getResultArray();
+
+		$medals = $this->getSchoolMedals($id, null);
+
+		$table = createTable();
+		$heading = array(
+			createMedalHeading('Internasional'),
+			createMedalHeading('Regional'),
+			createMedalHeading('Nasional')
+		);
+		$table->setHeading($heading);
+
+		$table->addRow(
+			...createMedalCells($medals[0], 'International', 'col-statistics-person-medal'),
+			...createMedalCells($medals[0], 'Regional', 'col-statistics-person-medal'),
+			...createMedalCells($medals[0], 'National', 'col-statistics-person-medal')
+		);
+
+		return view('statistics_person', [
+			'menu' => 'statistics',
+			'submenu' => '/sekolah',
+			'person' => $school,
+			'medalsTable' => $table->generate(),
+			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),
+			'regionalTable' => $this->getExternalStatistics('Regional', $contestants, $submissions),
+			'nationalTable' => $this->getNationalStatistics(false, $contestants, $submissions)
+		]);
+	}
+
 	public function persons() {
 		helper('score');
 		helper('medal');
@@ -206,11 +299,7 @@ class Statistics extends BaseController {
 		}
 		$medals = $this->getPersonMedals(null, $nameFilter);
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
@@ -256,9 +345,10 @@ class Statistics extends BaseController {
 		$person = $persons[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
+			left join School s on s.ID = c.School
 			left join Province pr on pr.ID = c.Province
 			where c.Person = ?
 			order by comp.Year desc, c.Rank asc
@@ -276,11 +366,7 @@ class Statistics extends BaseController {
 
 		$medals = $this->getPersonMedals($id, null);
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			createMedalHeading('Internasional'),
 			createMedalHeading('Regional'),
@@ -301,18 +387,15 @@ class Statistics extends BaseController {
 			'medalsTable' => $table->generate(),
 			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),
 			'regionalTable' => $this->getExternalStatistics('Regional', $contestants, $submissions),
-			'nationalTable' => $this->getNationalStatistics($contestants, $submissions)
+			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions)
 		]);
 	}
 
 	private function getExternalStatistics($level, $contestants, $submissions) {
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			'Kompetisi',
+			'Sekolah',
 			['data' => '#', 'class' => 'col-centered'],
 			'Medali'
 		);
@@ -328,6 +411,7 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
+				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz],
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
 			);
 
@@ -343,7 +427,7 @@ class Statistics extends BaseController {
 		return null;
 	}
 
-	private function getNationalStatistics($contestants, $submissions) {
+	private function getNationalStatistics($isPerson, $contestants, $submissions) {
 		$taskCount = 1;
 		$taskScores = array();
 		foreach ($submissions as $s) {
@@ -354,14 +438,11 @@ class Statistics extends BaseController {
 			$taskCount = max($taskCount, count($taskScores[$s['CompetitionID']]));
 		}
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			'Kompetisi',
-			'Provinsi',
+			$isPerson ? 'Sekolah' : 'Nama',
+			['data' => 'Provinsi', 'class' => 'col-province'],
 			['data' => '#', 'class' => 'col-centered'],
 			['data' => 'Nilai', 'colspan' => $taskCount, 'class' => 'col-centered'],
 			['data' => 'Total', 'class' => 'col-centered'],
@@ -379,6 +460,7 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
+				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz],
 				['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz],
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
 			);

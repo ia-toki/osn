@@ -60,9 +60,10 @@ class Competition extends BaseController {
 		$isNational = $data['isNational'];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Score, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
+			left join School s on s.ID = c.School
 			left join Province pr on pr.ID = c.Province
 			where Competition = ?
 			order by -c.Rank desc, name asc
@@ -90,17 +91,14 @@ class Competition extends BaseController {
 			$taskScores[$s['ContestantID']][$s['TaskAlias']] = formatScore($s['TaskScore'], $s['TaskScorePr']);
 		}
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$heading = array(
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama'
 		);
 		if ($isNational) {
-			$heading[] = 'Provinsi';
+			$heading[] = 'Sekolah';
+			$heading[] = ['data' => 'Provinsi', 'class' => 'col-province'];
 			foreach ($tasks as $t) {
 				$heading[] = ['data' => $t['Alias'], 'class' => 'col-centered'];
 			}
@@ -117,7 +115,8 @@ class Competition extends BaseController {
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
 			);
 			if ($isNational) {
-				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => 'col-province ' . $clazz];
+				$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz];
+				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 				foreach ($tasks as $t) {
 					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']], 'class' => 'col-score ' . $clazz];
 				}
@@ -142,11 +141,7 @@ class Competition extends BaseController {
 
 		$medals = $this->getProvinceMedals(null, $id);
 
-		$table = new \CodeIgniter\View\Table();
-		$table->setTemplate([
-			'table_open' => '<table class="table table-bordered">'
-		]);
-
+		$table = createTable();
 		$table->setHeading(
 			['data' => '#', 'class' => 'col-centered'],
 			'Provinsi',

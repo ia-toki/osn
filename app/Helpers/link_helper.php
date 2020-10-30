@@ -8,6 +8,10 @@ function linkCompetition($id, $name) {
 	return '<a href="/' . $id . '/hasil">' . $name . '</a>';
 }
 
+function linkSchool($id, $name) {
+	return '<a href="/statistik/sekolah/' . $id . '">' . $name . '</a>';
+}
+
 function linkProvince($id, $name) {
 	return '<a href="/statistik/provinsi/' . $id . '">' . $name . '</a>';
 }

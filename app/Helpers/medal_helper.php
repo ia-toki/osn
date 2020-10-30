@@ -1,5 +1,13 @@
 <?php
 
+function createTable() {
+	$table = new \CodeIgniter\View\Table();
+	$table->setTemplate([
+		'table_open' => '<table class="table table-bordered">'
+	]);
+	return $table;
+}
+
 function getMedalClass($medal) {
 	if (!$medal) {
 		return '';

@@ -2,6 +2,7 @@ body {
   color: #252527 !important;
   font-family: "Open Sans", sans-serif !important;
   background-color: #f4f5f6 !important;
+  font-size: 13px;
 }
 
 p {
@@ -64,8 +65,12 @@ a[role="button"] {
 }
 
 td {
-  line-height: 16px !important;
+  line-height: 15px !important;
   color: #252527 !important;
+}
+
+td, th {
+  font-size: 13px;
 }
 
 ol {
@@ -126,6 +131,10 @@ table {
 .html-text h4 {
   margin-bottom: 10px !important;
   line-height: 20px !important;
+}
+
+.bp3-callout {
+  font-size: 13px !important;
 }
 
 .clearfix::after {
@@ -270,11 +279,11 @@ table {
 }
 
 .col-province {
-  width: 200px;
+  width: 150px;
 }
 
 .col-score {
-  width: 50px;
+  width: 40px;
   text-align: right;
 }
 

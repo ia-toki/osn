@@ -131,118 +131,126 @@ class BaseController extends Controller
 	}
 
 	protected function getPersonMedals($id, $name) {
+		return $this->getMedals('Person', $id, $name);
+	}
+
+	protected function getSchoolMedals($id, $name) {
+		return $this->getMedals('School', $id, $name);
+	}
+
+	protected function getMedals($type, $id, $name) {
 		return $this->db->query(sprintf(<<<QUERY
 			select *
 			from (
-				select c.ID as ID, Name, InternationalBatch, NationalBatch, rank() over (order by %1\$s) as `Rank`,
+				select c.ID as ID, Name, InternationalBatch, NationalBatch, rank() over (order by %2\$s) as `Rank`,
 				InternationalGolds, InternationalSilvers, InternationalBronzes, InternationalParticipants,
 				RegionalGolds, RegionalSilvers, RegionalBronzes, RegionalParticipants,
 				NationalGolds, NationalSilvers, NationalBronzes, NationalParticipants
 				from (
-					select ID, Name from Person %2\$s
+					select ID, Name from %1\$s %3\$s
 				) as c
 				left join (
-					select Person, max(comp.Year) as InternationalBatch
+					select %1\$s, max(comp.Year) as InternationalBatch
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level <> 'National'
-					group by Person
-				) as iBatch on c.ID = iBatch.Person
+					group by %1\$s
+				) as iBatch on c.ID = iBatch.%1\$s
 				left join (
-					select Person, max(comp.Year) as NationalBatch
+					select %1\$s, max(comp.Year) as NationalBatch
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'National'
-					group by Person
-				) as nBatch on c.ID = nBatch.Person
+					group by %1\$s
+				) as nBatch on c.ID = nBatch.%1\$s
 				left join (
-					select Person, count(Medal) as InternationalGolds
+					select %1\$s, count(Medal) as InternationalGolds
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'International' and Medal = 'G'
-					group by Person
-				) as iGolds on c.ID = iGolds.Person
+					group by %1\$s
+				) as iGolds on c.ID = iGolds.%1\$s
 				left join (
-					select Person, count(Medal) as InternationalSilvers
+					select %1\$s, count(Medal) as InternationalSilvers
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'International' and Medal = 'S'
-					group by Person
-				) as iSilvers on c.ID = iSilvers.Person
+					group by %1\$s
+				) as iSilvers on c.ID = iSilvers.%1\$s
 				left join (
-					select Person, count(Medal) as InternationalBronzes
+					select %1\$s, count(Medal) as InternationalBronzes
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'International' and Medal = 'B'
-					group by Person
-				) as iBronzes on c.ID = iBronzes.Person
+					group by %1\$s
+				) as iBronzes on c.ID = iBronzes.%1\$s
 				left join (
-					select Person, count(Medal) as InternationalParticipants
+					select %1\$s, count(Medal) as InternationalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'International' and Medal = ''
-					group by Person
-				) as iParticipants on c.ID = iParticipants.Person
+					group by %1\$s
+				) as iParticipants on c.ID = iParticipants.%1\$s
 				left join (
-					select Person, count(Medal) as RegionalGolds
+					select %1\$s, count(Medal) as RegionalGolds
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'Regional' and Medal = 'G'
-					group by Person
-				) as rGolds on c.ID = rGolds.Person
+					group by %1\$s
+				) as rGolds on c.ID = rGolds.%1\$s
 				left join (
-					select Person, count(Medal) as RegionalSilvers
+					select %1\$s, count(Medal) as RegionalSilvers
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'Regional' and Medal = 'S'
-					group by Person
-				) as rSilvers on c.ID = rSilvers.Person
+					group by %1\$s
+				) as rSilvers on c.ID = rSilvers.%1\$s
 				left join (
-					select Person, count(Medal) as RegionalBronzes
+					select %1\$s, count(Medal) as RegionalBronzes
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'Regional' and Medal = 'B'
-					group by Person
-				) as rBronzes on c.ID = rBronzes.Person
+					group by %1\$s
+				) as rBronzes on c.ID = rBronzes.%1\$s
 				left join (
-					select Person, count(Medal) as RegionalParticipants
+					select %1\$s, count(Medal) as RegionalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'Regional' and Medal = ''
-					group by Person
-				) as rParticipants on c.ID = rParticipants.Person
+					group by %1\$s
+				) as rParticipants on c.ID = rParticipants.%1\$s
 				left join (
-					select Person, count(Medal) as NationalGolds
+					select %1\$s, count(Medal) as NationalGolds
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'National' and Medal = 'G'
-					group by Person
-				) as nGolds on c.ID = nGolds.Person
+					group by %1\$s
+				) as nGolds on c.ID = nGolds.%1\$s
 				left join (
-					select Person, count(Medal) as NationalSilvers
+					select %1\$s, count(Medal) as NationalSilvers
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'National' and Medal = 'S'
-					group by Person
-				) as nSilvers on c.ID = nSilvers.Person
+					group by %1\$s
+				) as nSilvers on c.ID = nSilvers.%1\$s
 				left join (
-					select Person, count(Medal) as NationalBronzes
+					select %1\$s, count(Medal) as NationalBronzes
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'National' and Medal = 'B'
-					group by Person
-				) as nBronzes on c.ID = nBronzes.Person
+					group by %1\$s
+				) as nBronzes on c.ID = nBronzes.%1\$s
 				left join (
-					select Person, count(Medal) as NationalParticipants
+					select %1\$s, count(Medal) as NationalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
 					where comp.Level = 'National' and Medal = ''
-					group by Person
-				) as nParticipants on c.ID = nParticipants.Person
-				order by %1\$s, coalesce(InternationalParticipants, 0) desc, coalesce(RegionalParticipants, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
+					group by %1\$s
+				) as nParticipants on c.ID = nParticipants.%1\$s
+				order by %2\$s, coalesce(InternationalParticipants, 0) desc, coalesce(RegionalParticipants, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
 			) x
-			where %3\$s
-		QUERY, <<<WINDOW
+			where %4\$s
+		QUERY, $type, <<<WINDOW
 			coalesce(InternationalGolds, 0) desc, coalesce(InternationalSilvers, 0) desc, coalesce(InternationalBronzes, 0) desc,
 			coalesce(RegionalGolds, 0) desc, coalesce(RegionalSilvers, 0) desc, coalesce(RegionalBronzes, 0) desc,
 			coalesce(NationalGolds, 0) desc, coalesce(NationalSilvers, 0) desc, coalesce(NationalBronzes, 0) desc
