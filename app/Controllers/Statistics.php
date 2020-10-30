@@ -188,7 +188,7 @@ class Statistics extends BaseController {
 
 		return view('statistics_province', [
 			'menu' => 'statistics',
-			'submenu' => '',
+			'submenu' => '/provinsi',
 			'province' => $province,
 			'medalsTable' => $medalsTable->generate(),
 			'table' => $table->generate()
