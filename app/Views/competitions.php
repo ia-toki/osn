@@ -10,7 +10,7 @@
 
 	<?php if ($submenu == '/internasional') : ?>
 		<div class="bp3-callout bp3-intent-warning section">
-			Kunjungi juga <a href="https://ioinformatics.org"><b>situs resmi IOI</b></a> dan <a href="https://stats.ioinformatics.org/results/IDN"><b>situs statistik Indonesia pada IOI</b></a>.
+			Kunjungi juga <a href="https://ioinformatics.org"><b>situs resmi IOI</b></a>.
 		</div>
 	<?php endif; ?>
 
