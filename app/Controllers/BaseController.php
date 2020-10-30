@@ -130,12 +130,9 @@ class BaseController extends Controller
 		array_values(array_filter([$competitionId, $competitionId, $competitionId, $competitionId, $competitionId, $id], 'strlen')))->getResultArray();
 	}
 
-	protected function getPersonMedals($id) {
+	protected function getPersonMedals($id, $name) {
 		return $this->db->query(sprintf(<<<QUERY
-			select ID, Name, `Rank`, InternationalBatch, NationalBatch,
-			InternationalGolds, InternationalSilvers, InternationalBronzes, InternationalParticipants,
-			RegionalGolds, RegionalSilvers, RegionalBronzes, RegionalParticipants,
-			NationalGolds, NationalSilvers, NationalBronzes, NationalParticipants
+			select *
 			from (
 				select c.ID as ID, Name, InternationalBatch, NationalBatch, rank() over (order by %1\$s) as `Rank`,
 				InternationalGolds, InternationalSilvers, InternationalBronzes, InternationalParticipants,
@@ -244,11 +241,11 @@ class BaseController extends Controller
 				) as nParticipants on c.ID = nParticipants.Person
 				order by %1\$s, coalesce(InternationalParticipants, 0) desc, coalesce(RegionalParticipants, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
 			) x
-			where `Rank` <= 100
+			where %3\$s
 		QUERY, <<<WINDOW
 			coalesce(InternationalGolds, 0) desc, coalesce(InternationalSilvers, 0) desc, coalesce(InternationalBronzes, 0) desc,
 			coalesce(RegionalGolds, 0) desc, coalesce(RegionalSilvers, 0) desc, coalesce(RegionalBronzes, 0) desc,
 			coalesce(NationalGolds, 0) desc, coalesce(NationalSilvers, 0) desc, coalesce(NationalBronzes, 0) desc
-		WINDOW, $id ? 'where ID = ?' : ''), [$id])->getResultArray();
+		WINDOW, $id ? 'where ID = ?' : '', $name ? "name like '%$name%' limit 100" : '`Rank` <= 100'), [$id])->getResultArray();
 	}
 }

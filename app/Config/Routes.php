@@ -40,6 +40,7 @@ $routes->get('/arsip', 'Archive::national');
 $routes->get('/arsip/kota', 'Archive::city');
 $routes->get('/arsip/provinsi', 'Archive::province');
 $routes->get('/statistik', 'Statistics::persons');
+$routes->post('/statistik', 'Statistics::persons');
 $routes->get('/statistik/nasional', 'Statistics::national');
 $routes->get('/statistik/provinsi', 'Statistics::provinces');
 $routes->get('/statistik/provinsi/(:alphanum)', 'Statistics::province/$1');

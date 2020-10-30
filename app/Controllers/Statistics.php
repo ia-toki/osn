@@ -200,7 +200,11 @@ class Statistics extends BaseController {
 		helper('medal');
 		helper('link');
 
-		$medals = $this->getPersonMedals(null);
+		$nameFilter = trim($this->request->getVar('name'));
+		if (strlen($nameFilter) < 3) {
+			$nameFilter = null;
+		}
+		$medals = $this->getPersonMedals(null, $nameFilter);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
@@ -231,7 +235,8 @@ class Statistics extends BaseController {
 		return view('statistics_persons', [
 			'menu' => 'statistics',
 			'submenu' => '/',
-			'table' => $table->generate()
+			'table' => $table->generate(),
+			'nameFilter' => $nameFilter
 		]);
 	}
 
@@ -269,7 +274,7 @@ class Statistics extends BaseController {
 			order by t.Alias asc
 		QUERY, [$id])->getResultArray();
 
-		$medals = $this->getPersonMedals($id);
+		$medals = $this->getPersonMedals($id, null);
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
