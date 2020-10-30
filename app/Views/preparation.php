@@ -2,8 +2,8 @@
 
 <?= $this->section('content') ?>
 <h2>Persiapan</h2>
-<p>Berikut ini adalah sumber-sumber yang dapat Anda manfaatkan untuk mempersiapkan diri menghadapi OSK/OSP/OSN bidang Komputer/Informatika (sejak 2020 disebut juga KSN-K, KSN-P, atau KSN), yang disusun oleh Ikatan Alumni TOKI.<p>
-<p>Ini bertujuan agar siswa-siswa memiliki kesempatan yang sama dalam berkompetisi, terutama yang mungkin belum memiliki akses fasilitas seperti guru, senior yang pernah menjuarai olimpiade, ataupun dana untuk mengikuti pelatihan KSN.</p>
+<p>Berikut ini adalah sumber-sumber yang dapat Anda manfaatkan untuk mempersiapkan diri menghadapi KSN-K, KSN-P, dan KSN bidang Informatika/Komputer, yang disusun oleh Ikatan Alumni TOKI.<p>
+<p>Dengan ini, diharapkan seluruh siswa memiliki kesempatan yang sama dalam berkompetisi, terutama yang mungkin belum memiliki akses fasilitas seperti guru, senior yang pernah menjuarai olimpiade, ataupun dana untuk mengikuti pelatihan KSN.</p>
 <hr />
 <div class="bp3-card subcontent">
 	<h3>Tingkat Kabupaten/Kota/Provinsi (KSN-K/KSN-P)</h3>

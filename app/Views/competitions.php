@@ -7,6 +7,12 @@
 		<a role="button" href="/kompetisi/regional" class="bp3-button <?= $submenu == '/regional' ? 'bp3-active' : '' ?>">Regional</a>
 		<a role="button" href="/kompetisi/internasional" class="bp3-button <?= $submenu == '/internasional' ? 'bp3-active' : '' ?>">Internasional</a>
 	</div>
+	
+	<?php if ($submenu == '/') : ?>
+		<div class="bp3-callout bp3-intent-warning section">
+			Ingin memperbaiki data? Laporkan pada <a href="http://github.com/ia-toki/ksn-web"><b>github.com/ia-toki/ksn-web</b></a>.
+		</div>
+	<?php endif; ?>
 
 	<?php if ($submenu == '/internasional') : ?>
 		<div class="bp3-callout bp3-intent-warning section">
