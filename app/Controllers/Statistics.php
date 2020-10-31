@@ -103,14 +103,11 @@ class Statistics extends BaseController {
 		$taskCount = 1;
 		$taskScores = array();
 		foreach ($submissions as $s) {
-			if (empty($taskScores[$s['CompetitionID']])) {
-				$taskScores[$s['CompetitionID']] = array();
+			if (empty($taskScores[$s['ContestantID']])) {
+				$taskScores[$s['ContestantID']] = array();
 			}
-			if (empty($taskScores[$s['CompetitionID']][$s['ContestantID']])) {
-				$taskScores[$s['CompetitionID']][$s['ContestantID']] = array();
-			}
-			$taskScores[$s['CompetitionID']][$s['ContestantID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
-			$taskCount = max($taskCount, count($taskScores[$s['CompetitionID']][$s['ContestantID']]));
+			$taskScores[$s['ContestantID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
+			$taskCount = max($taskCount, count($taskScores[$s['ContestantID']]));
 		}
 
 		$medals = $this->getProvinceMedals($id, null);
@@ -131,7 +128,7 @@ class Statistics extends BaseController {
 
 		$table = createTable();
 		$heading = array(
-			'Kompetisi',
+			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
 			'Sekolah',
@@ -161,8 +158,8 @@ class Statistics extends BaseController {
 			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz];
 
 			$tasks = 0;
-			if (isset($taskScores[$c['Competition']])) {
-				foreach ($taskScores[$c['Competition']][$c['ID']] as $t) {
+			if (isset($taskScores[$c['ID']])) {
+				foreach ($taskScores[$c['ID']] as $t) {
 					$row[] = ['data' => $t, 'class' => 'col-score ' . $clazz];
 					$tasks++;
 				}
@@ -242,11 +239,12 @@ class Statistics extends BaseController {
 		$school = $schools[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, p.ID as PersonID, p.Name as PersonName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, p.ID as PersonID, p.Name as PersonName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			left join Person p on p.ID = c.Person
 			left join Province pr on pr.ID = c.Province
+			left join School s on s.ID=c.School
 			where c.School = ?
 			order by comp.Year desc, c.Rank asc
 		QUERY, [$id])->getResultArray();
@@ -282,8 +280,8 @@ class Statistics extends BaseController {
 			'submenu' => '/sekolah',
 			'person' => $school,
 			'medalsTable' => $table->generate(),
-			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),
-			'regionalTable' => $this->getExternalStatistics('Regional', $contestants, $submissions),
+			'internationalTable' => $this->getExternalStatistics(false, 'International', $contestants, $submissions),
+			'regionalTable' => $this->getExternalStatistics(false, 'Regional', $contestants, $submissions),
 			'nationalTable' => $this->getNationalStatistics(false, $contestants, $submissions)
 		]);
 	}
@@ -385,17 +383,17 @@ class Statistics extends BaseController {
 			'submenu' => '/',
 			'person' => $person,
 			'medalsTable' => $table->generate(),
-			'internationalTable' => $this->getExternalStatistics('International', $contestants, $submissions),
-			'regionalTable' => $this->getExternalStatistics('Regional', $contestants, $submissions),
+			'internationalTable' => $this->getExternalStatistics(true, 'International', $contestants, $submissions),
+			'regionalTable' => $this->getExternalStatistics(true, 'Regional', $contestants, $submissions),
 			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions)
 		]);
 	}
 
-	private function getExternalStatistics($level, $contestants, $submissions) {
+	private function getExternalStatistics($isPerson, $level, $contestants, $submissions) {
 		$table = createTable();
 		$heading = array(
-			'Kompetisi',
-			'Sekolah',
+			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			$isPerson ? 'Sekolah' : 'Nama',
 			['data' => '#', 'class' => 'col-centered'],
 			'Medali'
 		);
@@ -411,7 +409,7 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
-				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz],
+				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz],
 				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
 			);
 
@@ -431,23 +429,27 @@ class Statistics extends BaseController {
 		$taskCount = 1;
 		$taskScores = array();
 		foreach ($submissions as $s) {
-			if (empty($taskScores[$s['CompetitionID']])) {
-				$taskScores[$s['CompetitionID']] = array();
+			if (empty($taskScores[$s['ContestantID']])) {
+				$taskScores[$s['ContestantID']] = array();
 			}
-			$taskScores[$s['CompetitionID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
-			$taskCount = max($taskCount, count($taskScores[$s['CompetitionID']]));
+			$taskScores[$s['ContestantID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
+			$taskCount = max($taskCount, count($taskScores[$s['ContestantID']]));
 		}
 
 		$table = createTable();
 		$heading = array(
-			'Kompetisi',
-			$isPerson ? 'Sekolah' : 'Nama',
-			['data' => 'Provinsi', 'class' => 'col-province'],
+			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			$isPerson ? 'Sekolah' : 'Nama'
+		);
+		if ($isPerson) {
+			$heading[] = ['data' => 'Provinsi', 'class' => 'col-province'];
+		}
+		$heading = array_merge($heading, array(
 			['data' => '#', 'class' => 'col-centered'],
 			['data' => 'Nilai', 'colspan' => $taskCount, 'class' => 'col-centered'],
 			['data' => 'Total', 'class' => 'col-centered'],
 			'Medali'
-		);
+		));
 		$table->setHeading($heading);
 
 		$rowCount = 0;
@@ -460,14 +462,16 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
-				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz],
-				['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz],
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
+				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz]
 			);
+			if ($isPerson) {
+				$row [] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
+			}
+			$row[] = ['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz];
 
 			$tasks = 0;
-			if (isset($taskScores[$c['Competition']])) {
-				foreach ($taskScores[$c['Competition']] as $t) {
+			if (isset($taskScores[$c['ID']])) {
+				foreach ($taskScores[$c['ID']] as $t) {
 					$row[] = ['data' => $t, 'class' => 'col-score ' . $clazz];
 					$tasks++;
 				}

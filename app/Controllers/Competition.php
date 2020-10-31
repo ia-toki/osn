@@ -94,10 +94,10 @@ class Competition extends BaseController {
 		$table = createTable();
 		$heading = array(
 			['data' => '#', 'class' => 'col-centered'],
-			'Nama'
+			'Nama',
+			'Sekolah'
 		);
 		if ($isNational) {
-			$heading[] = 'Sekolah';
 			$heading[] = ['data' => 'Provinsi', 'class' => 'col-province'];
 			foreach ($tasks as $t) {
 				$heading[] = ['data' => $t['Alias'], 'class' => 'col-centered'];
@@ -111,11 +111,11 @@ class Competition extends BaseController {
 			$clazz = getMedalClass($c['Medal']);
 
 			$row = array(
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['PersonID'], 'class' => 'col-rank ' . $clazz],
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
+				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz]
 			);
 			if ($isNational) {
-				$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz];
 				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 				foreach ($tasks as $t) {
 					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']], 'class' => 'col-score ' . $clazz];

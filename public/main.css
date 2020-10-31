@@ -273,6 +273,10 @@ table {
   text-align: center;
 }
 
+.col-competition-short {
+  width: 85px;
+}
+
 .col-batch {
   width: 85px;
   text-align: center;
