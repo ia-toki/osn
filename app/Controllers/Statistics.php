@@ -393,8 +393,8 @@ class Statistics extends BaseController {
 		$table = createTable();
 		$heading = array(
 			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
-			$isPerson ? 'Sekolah' : 'Nama',
 			['data' => '#', 'class' => 'col-centered'],
+			$isPerson ? 'Sekolah' : 'Nama',
 			'Medali'
 		);
 		$table->setHeading($heading);
@@ -409,8 +409,8 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
-				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz],
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz]
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz]
 			);
 
 			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
@@ -439,13 +439,13 @@ class Statistics extends BaseController {
 		$table = createTable();
 		$heading = array(
 			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			['data' => '#', 'class' => 'col-centered'],
 			$isPerson ? 'Sekolah' : 'Nama'
 		);
 		if ($isPerson) {
 			$heading[] = ['data' => 'Provinsi', 'class' => 'col-province'];
 		}
 		$heading = array_merge($heading, array(
-			['data' => '#', 'class' => 'col-centered'],
 			['data' => 'Nilai', 'colspan' => $taskCount, 'class' => 'col-centered'],
 			['data' => 'Total', 'class' => 'col-centered'],
 			'Medali'
@@ -462,12 +462,12 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
 				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz]
 			);
 			if ($isPerson) {
 				$row [] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 			}
-			$row[] = ['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz];
 
 			$tasks = 0;
 			if (isset($taskScores[$c['ID']])) {
