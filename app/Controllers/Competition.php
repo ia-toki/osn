@@ -145,7 +145,7 @@ class Competition extends BaseController {
 		$table->setHeading(
 			['data' => '#', 'class' => 'col-centered'],
 			'Provinsi',
-			createMedalHeading('Medali')
+			createMedalHeading('Nasional')
 		);
 
 		foreach ($medals as $m) {
