@@ -111,7 +111,7 @@ class Competition extends BaseController {
 			$clazz = getMedalClass($c['Medal']);
 
 			$row = array(
-				['data' => $c['PersonID'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
 				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz]
 			);
