@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOYMENT_HOST: ${{ secrets.DEPLOYMENT_HOST }}
+      DEPLOYMENT_KNOWN_HOSTS: ${{ secrets.DEPLOYMENT_KNOWN_HOSTS }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DEPLOYMENT_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.DEPLOYMENT_KNOWN_HOSTS }}
+      
+      - name: Rsync
+        run: rsync -avzh app/ root@${DEPLOYMENT_HOST}:/var/www/html/ksn/app
