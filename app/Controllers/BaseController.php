@@ -142,27 +142,13 @@ class BaseController extends Controller
 		return $this->db->query(sprintf(<<<QUERY
 			select *
 			from (
-				select c.ID as ID, Name, InternationalBatch, NationalBatch, rank() over (order by %2\$s) as `Rank`,
+				select c.ID as ID, Name, rank() over (order by %2\$s) as `Rank`,
 				InternationalGolds, InternationalSilvers, InternationalBronzes, InternationalParticipants,
 				RegionalGolds, RegionalSilvers, RegionalBronzes, RegionalParticipants,
 				NationalGolds, NationalSilvers, NationalBronzes, NationalParticipants
 				from (
 					select ID, Name from %1\$s %3\$s
 				) as c
-				left join (
-					select %1\$s, max(comp.Year) as InternationalBatch
-					from Contestant c
-					join Competition comp on comp.ID = c.Competition
-					where comp.Level <> 'National'
-					group by %1\$s
-				) as iBatch on c.ID = iBatch.%1\$s
-				left join (
-					select %1\$s, max(comp.Year) as NationalBatch
-					from Contestant c
-					join Competition comp on comp.ID = c.Competition
-					where comp.Level = 'National'
-					group by %1\$s
-				) as nBatch on c.ID = nBatch.%1\$s
 				left join (
 					select %1\$s, count(Medal) as InternationalGolds
 					from Contestant c

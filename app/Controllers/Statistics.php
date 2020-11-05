@@ -301,7 +301,6 @@ class Statistics extends BaseController {
 		$heading = array(
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
-			'Angkatan',
 			createMedalHeading('Internasional'),
 			createMedalHeading('Regional'),
 			createMedalHeading('Nasional')
@@ -312,7 +311,6 @@ class Statistics extends BaseController {
 			$table->addRow(
 				['data' => $m['Rank'], 'class' => 'col-rank'],
 				linkPerson($m['ID'], $m['Name']),
-				['data' => max($m['InternationalBatch'], 1 + $m['NationalBatch']), 'class' => 'col-batch'],
 				...createMedalCells($m, 'International', null),
 				...createMedalCells($m, 'Regional', null),
 				...createMedalCells($m, 'National', null)
