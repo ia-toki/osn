@@ -9,26 +9,8 @@
 	<h3>Tingkat Kabupaten/Kota/Provinsi (KSN-K/KSN-P)</h3>
 	<hr />
 	<h4>Materi Matematika/Logika</h4>
-
-	<table class="table table-striped table-bordered">
-		<thead>
-			<tr>
-				<th class="col-preparation-name">Materi</th>
-				<th>Bentuk</th>
-				<th class="col-preparation-by">Oleh</th>
-				<th>Catatan</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><a href="https://www.wardayacollege.com/matematika/">Wardaya College</a></td>
-				<td>Video</td>
-				<td>Anton Wardaya</td>
-				<td><p>Video pembelajaran matematika dasar. Tidak semua materi pada web tersebut akan diujikan. Pelajari bab-bab yang terkait seperti Aritmetika, Logika, dan Peluang.</p></td>
-			</tr>
-		</tbody>
-	</table>
-
+        <p>Disarankan untuk mempelajari matematika tingkat SMA dan berlatih soal-soal KSN-K/KSN-P tahun-tahun sebelumnya.</p>
+       
 	<h4>Materi Pemrograman Dasar</h4>
 
 	<table class="table table-striped table-bordered">
@@ -181,7 +163,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="http://binus.ac.id/binus-8000-beasiswa/">Widia Scholarship</a></td>
+				<td><a href="https://binus.ac.id/widia-scholarship/">Widia Scholarship</a></td>
 				<td>BINUS University</td>
 				<td><p>Beasiswa bagi pemenang olimpiade nasional dan internasional. Beasiswa berupa bantuan biaya-biaya kuliah.</p></td>
 			</tr>
