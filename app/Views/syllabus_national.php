@@ -6,7 +6,7 @@
 	<i>Terakhir diperbarui: 2020</i>
 </div>
 
-<p>Materi yang akan diujikan mengacu pada silabus IOI 2020 dengan berbagai penyesuaian.</p>
+<p>Materi KSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2020 dengan berbagai penyesuaian.</p>
 
 <ol>
 	<li><strong>Dasar-dasar Pemrograman</strong>

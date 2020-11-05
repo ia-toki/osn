@@ -9,26 +9,8 @@
 	<h3>Tingkat Kabupaten/Kota/Provinsi (KSN-K/KSN-P)</h3>
 	<hr />
 	<h4>Materi Matematika/Logika</h4>
-
-	<table class="table table-striped table-bordered">
-		<thead>
-			<tr>
-				<th class="col-preparation-name">Materi</th>
-				<th>Bentuk</th>
-				<th class="col-preparation-by">Oleh</th>
-				<th>Catatan</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><a href="https://www.wardayacollege.com/matematika/">Wardaya College</a></td>
-				<td>Video</td>
-				<td>Anton Wardaya</td>
-				<td><p>Video pembelajaran matematika dasar. Tidak semua materi pada web tersebut akan diujikan. Pelajari bab-bab yang terkait seperti Aritmetika, Logika, dan Peluang.</p></td>
-			</tr>
-		</tbody>
-	</table>
-
+        <p>Disarankan untuk mempelajari matematika tingkat SMA dan berlatih soal-soal KSN-K/KSN-P tahun-tahun sebelumnya.</p>
+       
 	<h4>Materi Pemrograman Dasar</h4>
 
 	<table class="table table-striped table-bordered">
@@ -52,12 +34,6 @@
 				<td>Video</td>
 				<td>Ikatan Alumni TOKI</td>
 				<td><p><i>Playlist</i> YouTube yang berisi video-video untuk memulai pemrograman dalam bahasa C++, mengikuti kurikulum kursus Pemrograman Dasar TLX.</p></td>
-			</tr>
-			<tr>
-				<td><a href="https://www.youtube.com/playlist?list=PLF82-I80PwDNKmeyYBe4CkEj7excOdy7f">Belajar C++</a></td>
-				<td>Video</td>
-				<td>Guntur Budi</td>
-				<td><p><i>Playlist</i> YouTube yang berisi video-video untuk memulai pemrograman dalam bahasa C++.</p></td>
 			</tr>
 		</tbody>
 	</table>
@@ -181,7 +157,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="http://binus.ac.id/binus-8000-beasiswa/">Widia Scholarship</a></td>
+				<td><a href="https://binus.ac.id/widia-scholarship/">Widia Scholarship</a></td>
 				<td>BINUS University</td>
 				<td><p>Beasiswa bagi pemenang olimpiade nasional dan internasional. Beasiswa berupa bantuan biaya-biaya kuliah.</p></td>
 			</tr>
