@@ -35,12 +35,6 @@
 				<td>Ikatan Alumni TOKI</td>
 				<td><p><i>Playlist</i> YouTube yang berisi video-video untuk memulai pemrograman dalam bahasa C++, mengikuti kurikulum kursus Pemrograman Dasar TLX.</p></td>
 			</tr>
-			<tr>
-				<td><a href="https://www.youtube.com/playlist?list=PLF82-I80PwDNKmeyYBe4CkEj7excOdy7f">Belajar C++</a></td>
-				<td>Video</td>
-				<td>Guntur Budi</td>
-				<td><p><i>Playlist</i> YouTube yang berisi video-video untuk memulai pemrograman dalam bahasa C++.</p></td>
-			</tr>
 		</tbody>
 	</table>
 
