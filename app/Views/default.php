@@ -21,7 +21,7 @@
 				<img src="/ksn-logo.png" class="header__logo">
 				<div class="bp3-navbar-heading header__title">Kompetisi Sains Nasional Bidang Informatika</div>
 				<span class="bp3-navbar-divider" />
-				<div class="header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
+				<div class="header-right header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
 			</div>
 			<div class="bp3-navbar-group bp3-align-right">
 				<img src="/toki-logo.png" class="header__logo">

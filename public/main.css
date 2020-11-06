@@ -157,7 +157,7 @@ table {
 }
 
 .header {
-  background-color: #444751 !important;
+  background-color: #202B33 !important;
   height: 60px !important;
 }
 
@@ -193,6 +193,12 @@ table {
 .header__logo {
   height: 40px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .header-right {
+    display: none !important;
+  }
 }
 
 .menubar {
