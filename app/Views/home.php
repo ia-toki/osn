@@ -2,12 +2,9 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-card home-info">
-  <p>KSN merupakan kompetisi tahunan tingkat SMA/sederajat yang diadakan oleh Pusat Prestasi Nasional, Kementerian Pendidikan dan Kebudayaan Indonesia. Salah satu bidang yang dilombakan di KSN merupakan bidang informatika/komputer. Pada bidang ini, siswa diuji kemampuan menyelesaikan masalah (problem solving) dan berpikir logis melalui soal-soal pemrograman. </p>
-  <p>Untuk dapat bertanding di KSN tingkat nasional, siswa harus dikirimkan melalui pihak sekolah di KSN tingkat kota terlebih dahulu. Kemudian, siswa-siswi terbaik tingkat kota akan ditandingkan di tingkat provinsi dan kemudian nasional. </p> 
-</div>
-<div class="bp3-card home-info">
-  <p>Situs ini merupakan pusat informasi mengenai <b>Kompetisi Sains Nasional (KSN) bidang Informatika</b>, yang terdiri atas KSN, KSN-P, dan KSN-K.</p>
-  <p>(Sebelum tahun 2020 disebut <b>OSN</b>, <b>OSP</b>, dan <b>OSK</b>.)</p>
+  <p><b>KSN</b> (Kompetisi Sains Nasional) merupakan kompetisi tahunan tingkat SMA/sederajat yang diadakan oleh <a href="https://pusatprestasinasional.kemdikbud.go.id/">Pusat Prestasi Nasional</a>, Kementerian Pendidikan dan Kebudayaan Indonesia. Salah satu bidang yang dilombakan di KSN merupakan bidang <b>informatika/komputer</b>. Pada bidang ini, siswa diuji kemampuan menyelesaikan masalah (<i>problem solving</i>) dan berpikir logis melalui soal-soal pemrograman. </p>
+  <p>Untuk dapat bertanding di KSN tingkat nasional, siswa harus dikirimkan melalui pihak sekolah ke KSN tingkat kota/kabupaten (<b>KSN-K</b>) terlebih dahulu. Kemudian, siswa-siswi terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>KSN-P</b>) dan kemudian nasional (<b>KSN</b>).</p> 
+  <p>(Sebelum tahun 2020, kompetisi ini disebut <b>OSK</b>, <b>OSP</b>, dan <b>OSN</b>.)</p>
 </div>
 <hr />
 <table>
