@@ -12,6 +12,17 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/core@3.35.0/lib/css/blueprint.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/icons@3.22.0/lib/css/blueprint-icons.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-182293493-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-182293493-1');
+	</script>
+
 </head>
 
 <body>
