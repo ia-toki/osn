@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 	<h2>Silabus</h2>
 	<div class="bp3-button-group section">
-		<a role="button" href="/silabus" class="bp3-button bp3-active">Tingkat Nasional (KSN)</a>
+		<a role="button" href="/silabus" class="bp3-button bp3-active">KSN</a>
   </div>
   
   <div class="bp3-card subcontent">
