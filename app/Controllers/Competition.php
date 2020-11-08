@@ -19,7 +19,7 @@ class Competition extends BaseController {
 			$table->addRow(
 				$competitionsCount-$i,
 				linkCompetitionInfo($c['ID'], $c['Name']),
-				linkProvince($c['ProvinceID'], $c['HostName']),
+				$c['ProvinceID'] ? linkProvince($c['ProvinceID'], $c['HostName']) : '-',
 				$c['City'],
 				['data' => date_format(date_create($c['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($c['DateEnd']), 'd M Y'), 'class' => 'col-centered'],
 				['data' => $c['Contestants'], 'class' => 'col-centered'],
