@@ -2,7 +2,11 @@
 
 <?= $this->section('subcontent') ?>
 	<h3>Materi Matematika/Logika</h3>
-	<p>Disarankan untuk mempelajari matematika tingkat SMA dan berlatih soal-soal KSN-K/KSN-P tahun-tahun sebelumnya.</p>
+	<ul>
+		<li>Kuasai mata pelajaran Matematika tingkat SMA, pada bab-bab <b>Logika Matematika</b>, <b>Kaidah Pencacahan</b>, dan <b>Peluang</b>.</li>
+		<li>Kuasai materi buku <a href="/data/pemrograman-kompetitif-dasar.pdf">Pemrograman Kompetitif Dasar</a> Bab 2: <b>Matematika Diskret Dasar</b>.</li>
+		<li>Kerjakan soal-soal KSN-K/KSN-P <a href="/arsip">tahun-tahun sebelumnya</a>.</li>
+	</ul>
   <hr />
 	<h3>Materi Pemrograman Dasar</h3>
 
@@ -27,6 +31,11 @@
 				<td>Video</td>
 				<td>Ikatan Alumni TOKI</td>
 				<td><p><i>Playlist</i> YouTube yang berisi video-video untuk memulai pemrograman dalam bahasa C++, mengikuti kurikulum kursus Pemrograman Dasar TLX.</p></td>
+			</tr>
+				<td><a href="https://projecteuler.net">Project Euler</a></td>
+				<td>Situs</td>
+				<td></td>
+				<td><p>Berisi soal-soal matematis yang diharapkan untuk diselesaikan menggunakan bantuan program. Cocok untuk melatih logika matematika sekaligus memperlancar memprogram.</p></td>
 			</tr>
 		</tbody>
 	</table>
