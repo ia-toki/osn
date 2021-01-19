@@ -3,10 +3,12 @@
 <?= $this->section('subcontent') ?>
 
 <div class="bp3-callout bp3-intent-warning section">
-	<i>Terakhir diperbarui: 2020</i>
+	<i>Terakhir diperbarui: 2021</i>
 </div>
 
-<p>Materi KSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2020 dengan berbagai penyesuaian.</p>
+<p>Materi KSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2021 dengan berbagai penyesuaian.</p>
+
+<p>Perubahan dengan silabus 2020 ditandai dengan <span style="color:red">warna merah</span>.
 
 <ol>
 	<li><strong>Dasar-dasar Pemrograman</strong>
@@ -83,6 +85,7 @@
 			<li><em>Stack</em> dan <em>queue</em></li>
 			<li><em>Binary heap</em></li>
 			<li><em>Disjoint set</em></li>
+			<li><span style="color:red"><em>Segment tree</em> (<em>point update range query</em>)</span></li>
 		</ul>
 	</li>
 	<li><strong>Graf dan Tree</strong>
@@ -92,8 +95,8 @@
 			<li>Graf berbobot dan graf tak berbobot</li>
 			<li>Representasi graf (<em>adjacency List</em>, <em>adjacency matrix</em>, <em>edge list</em>)</li>
 			<li>Penjelajahan graf (BFS, DFS, keterhubungan)</li>
-			<li><em>Shortest path</em> (algoritma Dijkstra, algoritma Bellman-Ford, algoritma Floyd-Warshall)</li>
-			<li><em>Minimum spanning tree</em> (algoritma Jarník-Prim, algoritma Kruskal)</li>
+			<li><em>Shortest path</em> (algoritme Dijkstra, algoritme Bellman-Ford, algoritme Floyd-Warshall)</li>
+			<li><em>Minimum spanning tree</em> (algoritme Jarník-Prim, algoritme Kruskal)</li>
 		</ul>
 	</li>
 	<li><strong>Geometri Dasar</strong>
@@ -103,6 +106,7 @@
 			<li>Titik, koordinat pada bidang Kartesius 2 dimensi</li>
 			<li>Jarak Euclidean</li>
 			<li>Teorema Pythagoras</li>
+			<li><span style="color:red"><em>Convex Hull</em> (algoritme Graham scan, algoritme Monotone chain)</span></li>
 		</ul>
 	</li>
 </ol>
