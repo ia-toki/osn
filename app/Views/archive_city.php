@@ -40,37 +40,37 @@
 			<td>OSK 2016</td>
 			<td><a href="/data/OSK2016.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM16">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2016">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2016">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2015</td>
 			<td><a href="/data/OSK2015.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM15">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2015">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2015">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2014</td>
 			<td><a href="/data/OSK2014.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM14">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2014">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2014">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2013</td>
 			<td><a href="/data/OSK2013.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM13">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2013">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2013">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2012</td>
 			<td><a href="/data/OSK2012.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM12">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2012">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2012">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2011</td>
 			<td><a href="/data/OSK2011.pdf">PDF</a></td>
 			<td><a href="https://www.kujawab.com/OSKKOM11">Kujawab.com</a></td>
-			<td><a href="https://tlx.toki.id/problems/osk-2011">Kerjakan di TLX</a></td>
+			<td><a href="https://tlx.toki.id/problems/osk-2011">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSK 2010</td>
