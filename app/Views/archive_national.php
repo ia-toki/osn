@@ -13,8 +13,14 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td>KSN 2021</td>
+			<td>-</td>
+			<td>-</td>
+			<td><a href="https://tlx.toki.id/problems/ksn-2021">TLX &nbsp;(+ Pembahasan)</a></td>
+		</tr>
+		<tr>
 			<td>KSN 2020</td>
-			<td><a href="/data/KSN2020.pdf">PDF</a></td>
+			<td>-</td>
 			<td>-</td>
 			<td><a href="https://tlx.toki.id/problems/ksn-2020">TLX &nbsp;(+ Pembahasan)</a></td>
 		</tr>
