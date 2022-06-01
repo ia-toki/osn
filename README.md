@@ -1,4 +1,4 @@
-# ksn-web
+# osn-web
 
 - `cp .env env`
 - Update db config

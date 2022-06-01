@@ -6,14 +6,14 @@
 	<i>Terakhir diperbarui: 2021</i>
 </div>
 
-<p>Materi KSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2021 dengan berbagai penyesuaian.</p>
+<p>Materi OSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2021 dengan berbagai penyesuaian.</p>
 
 <p>Perubahan dengan silabus 2020 ditandai dengan <span style="color:red">warna merah</span>.
 
 <ol>
 	<li><strong>Dasar-dasar Pemrograman</strong>
 		<ul>
-			<li>Sintaks dan semantik dasar dari bahasa yang diperbolehkan pada KSN yang bersangkutan</li>
+			<li>Sintaks dan semantik dasar dari bahasa yang diperbolehkan pada OSN yang bersangkutan</li>
 			<li>Variabel, tipe data, ekspresi, dan <em>assignment</em></li>
 			<li>Masukan dan keluaran dasar</li>
 			<li>Percabangan dan perulangan</li>

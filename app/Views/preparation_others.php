@@ -2,7 +2,7 @@
 
 <?= $this->section('subcontent') ?>
 	<h3>Forum Diskusi</h3>
-	<p>Media untuk diskusi tentang ide penyelesaian soal dan seputar kompetisi pemrograman.</p>
+	<p>Media untuk diskusi tentang ide penyelesaian soal dan seputar olimpiade pemrograman.</p>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>

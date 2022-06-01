@@ -1,11 +1,11 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content') ?>
-	<h2>Kompetisi</h2>
+	<h2>Olimpiade</h2>
 	<div class="bp3-button-group section">
-		<a role="button" href="/kompetisi" class="bp3-button <?= $submenu == '/' ? 'bp3-active' : '' ?>">Nasional</a>
-		<a role="button" href="/kompetisi/regional" class="bp3-button <?= $submenu == '/regional' ? 'bp3-active' : '' ?>">Regional</a>
-		<a role="button" href="/kompetisi/internasional" class="bp3-button <?= $submenu == '/internasional' ? 'bp3-active' : '' ?>">Internasional</a>
+		<a role="button" href="/olimpiade" class="bp3-button <?= $submenu == '/' ? 'bp3-active' : '' ?>">Nasional</a>
+		<a role="button" href="/olimpiade/regional" class="bp3-button <?= $submenu == '/regional' ? 'bp3-active' : '' ?>">Regional</a>
+		<a role="button" href="/olimpiade/internasional" class="bp3-button <?= $submenu == '/internasional' ? 'bp3-active' : '' ?>">Internasional</a>
 	</div>
 	
 	<?php if ($submenu == '/internasional') : ?>

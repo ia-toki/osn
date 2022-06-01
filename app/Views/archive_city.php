@@ -5,7 +5,7 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th class="col-archive-year">Kompetisi</th>
+			<th class="col-archive-year">Olimpiade</th>
 			<th>Soal</th>
 			<th>Pembahasan</th>
 			<th>Latihan</th>

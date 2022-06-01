@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>KSN Informatika</title>
+	<title>OSN Informatika</title>
 
-	<link rel="shortcut icon" href="/ksn-logo.png">
+	<link rel="shortcut icon" href="/osn-logo.png">
 	<link rel="stylesheet" href="/main.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
@@ -30,7 +30,7 @@
 		<div class="header__wrapper">
 			<div class="bp3-navbar-group bp3-align-left">
 				<img src="/ksn-logo.png" class="header__logo">
-				<div class="bp3-navbar-heading header__title">Kompetisi Sains Nasional Bidang Informatika</div>
+				<div class="bp3-navbar-heading header__title">Olimpiade Sains Nasional Bidang Informatika</div>
 				<span class="bp3-navbar-divider" />
 				<div class="header-right header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
 			</div>
@@ -55,7 +55,7 @@
             <a href="/silabus">Silabus</a>
 					</li>
 					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'competition' ? 'true' : 'false' ?>">
-            <a href="/kompetisi">Kompetisi</a>
+            <a href="/olimpiade">Olimpiade</a>
           </li>
 					<li class="bp3-tab" role="tab" aria-selected="<?= $menu == 'archive' ? 'true' : 'false' ?>">
             <a href="/arsip">Arsip Soal</a>

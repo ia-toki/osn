@@ -128,7 +128,7 @@ class Statistics extends BaseController {
 
 		$table = createTable();
 		$heading = array(
-			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			['data' => 'Olimpiade', 'class' => 'col-competition-short'],
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
 			'Sekolah',
@@ -390,7 +390,7 @@ class Statistics extends BaseController {
 	private function getExternalStatistics($isPerson, $level, $contestants, $submissions) {
 		$table = createTable();
 		$heading = array(
-			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			['data' => 'Olimpiade', 'class' => 'col-competition-short'],
 			['data' => '#', 'class' => 'col-centered'],
 			$isPerson ? 'Sekolah' : 'Nama',
 			'Medali'
@@ -436,7 +436,7 @@ class Statistics extends BaseController {
 
 		$table = createTable();
 		$heading = array(
-			['data' => 'Kompetisi', 'class' => 'col-competition-short'],
+			['data' => 'Olimpiade', 'class' => 'col-competition-short'],
 			['data' => '#', 'class' => 'col-centered'],
 			$isPerson ? 'Sekolah' : 'Nama'
 		);
