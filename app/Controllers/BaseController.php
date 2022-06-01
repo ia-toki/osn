@@ -51,7 +51,7 @@ class BaseController extends Controller
 			%s
 			%s
 			order by Year desc
-		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level], 'strlen')))->getResultArray();
+		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level])))->getResultArray();
 	}
 
 	protected function getNationalMedals() {
@@ -127,7 +127,7 @@ class BaseController extends Controller
 			where 1 %2\$s
 			order by %3\$s, coalesce(Participants, 0) desc, Name asc
 		QUERY, $competitionId ? 'and Competition = ?' : '', $id ? 'and p.ID = ?' : '', 'coalesce(Golds, 0) desc, coalesce(Silvers, 0) desc, coalesce(Bronzes, 0) desc'),
-		array_values(array_filter([$competitionId, $competitionId, $competitionId, $competitionId, $competitionId, $id], 'strlen')))->getResultArray();
+		array_values(array_filter([$competitionId, $competitionId, $competitionId, $competitionId, $competitionId, $id])))->getResultArray();
 	}
 
 	protected function getPersonMedals($id, $name) {

@@ -189,7 +189,7 @@ class Statistics extends BaseController {
 		helper('medal');
 		helper('link');
 
-		$nameFilter = trim($this->request->getVar('name'));
+		$nameFilter = trim((string) $this->request->getVar('name'));
 		if (strlen($nameFilter) < 3) {
 			$nameFilter = null;
 		}
@@ -291,7 +291,7 @@ class Statistics extends BaseController {
 		helper('medal');
 		helper('link');
 
-		$nameFilter = trim($this->request->getVar('name'));
+		$nameFilter = trim((string) $this->request->getVar('name'));
 		if (strlen($nameFilter) < 3) {
 			$nameFilter = null;
 		}
