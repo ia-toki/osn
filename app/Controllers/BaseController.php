@@ -65,6 +65,7 @@ class BaseController extends Controller
 				from Contestant c
 				join Competition comp on comp.ID = c.Competition
 				where Medal = 'G'
+				and TeamNo = 1
 				group by comp.Level
 			) as golds on c.Level = golds.Level
 			left join (
@@ -72,6 +73,7 @@ class BaseController extends Controller
 				from Contestant c
 				join Competition comp on comp.ID = c.Competition
 				where Medal = 'S'
+				and TeamNo = 1
 				group by comp.Level
 			) as silvers on c.Level = silvers.Level
 			left join (
@@ -79,6 +81,7 @@ class BaseController extends Controller
 				from Contestant c
 				join Competition comp on comp.ID = c.Competition
 				where Medal = 'B'
+				and TeamNo = 1
 				group by comp.Level
 			) as bronzes on c.Level = bronzes.Level
 			left join (
@@ -86,6 +89,7 @@ class BaseController extends Controller
 				from Contestant c
 				join Competition comp on comp.ID = c.Competition
 				where Medal = ''
+				and TeamNo = 1
 				group by comp.Level
 			) as participants on c.Level = participants.Level
 			order by Level asc
