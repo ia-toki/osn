@@ -239,7 +239,7 @@ class Statistics extends BaseController {
 		$school = $schools[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, p.ID as PersonID, p.Name as PersonName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, TeamNo, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, p.ID as PersonID, p.Name as PersonName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			left join Person p on p.ID = c.Person
@@ -341,7 +341,7 @@ class Statistics extends BaseController {
 		$person = $persons[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, TeamNo, Competition, comp.Level as CompetitionLevel, comp.ShortName as CompetitionName, s.ID as SchoolID, s.Name as SchoolName, pr.ID as ProvinceID, pr.Name as ProvinceName, c.Rank as 'Rank', Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			left join School s on s.ID = c.School
@@ -407,7 +407,7 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['TeamNo'] == 1 ? $c['Rank'] : '', 'class' => 'col-rank ' . $clazz],
 				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz]
 			);
 
@@ -460,7 +460,7 @@ class Statistics extends BaseController {
 
 			$row = array(
 				['data' => linkCompetition($c['Competition'], $c['CompetitionName']), 'class' => $clazz],
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['TeamNo'] == 1 ? $c['Rank'] : '', 'class' => 'col-rank ' . $clazz],
 				['data' => $isPerson ? linkSchool($c['SchoolID'], $c['SchoolName']) : linkPerson($c['PersonID'], $c['PersonName']), 'class' => $clazz]
 			);
 			if ($isPerson) {

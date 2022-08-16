@@ -60,7 +60,7 @@ class Competition extends BaseController {
 		$isNational = $data['isNational'];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Score, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
 			left join School s on s.ID = c.School
@@ -111,7 +111,7 @@ class Competition extends BaseController {
 			$clazz = getMedalClass($c['Medal']);
 
 			$row = array(
-				['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz],
+				['data' => $c['TeamNo'] == 1 ? $c['Rank'] : '', 'class' => 'col-rank ' . $clazz],
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
 				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz]
 			);
