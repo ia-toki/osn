@@ -3,12 +3,10 @@
 <?= $this->section('subcontent') ?>
 
 <div class="bp3-callout bp3-intent-warning section">
-	<i>Terakhir diperbarui: 2021</i>
+	<i>Terakhir diperbarui: 2022</i>
 </div>
 
-<p>Materi OSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2021 dengan berbagai penyesuaian.</p>
-
-<p>Perubahan dengan silabus 2020 ditandai dengan <span style="color:red">warna merah</span>.
+<p>Materi OSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2022 dengan berbagai penyesuaian.</p>
 
 <ol>
 	<li><strong>Dasar-dasar Pemrograman</strong>
@@ -85,7 +83,7 @@
 			<li><em>Stack</em> dan <em>queue</em></li>
 			<li><em>Binary heap</em></li>
 			<li><em>Disjoint set</em></li>
-			<li><span style="color:red"><em>Segment tree</em> (<em>point update range query</em>)</span></li>
+			<li><em>Segment tree</em> (<em>point update range query</em>)</li>
 		</ul>
 	</li>
 	<li><strong>Graf dan Tree</strong>
@@ -106,7 +104,7 @@
 			<li>Titik, koordinat pada bidang Kartesius 2 dimensi</li>
 			<li>Jarak Euclidean</li>
 			<li>Teorema Pythagoras</li>
-			<li><span style="color:red"><em>Convex Hull</em> (algoritme Graham scan, algoritme Monotone chain)</span></li>
+			<li><em>Convex Hull</em> (algoritme Graham scan, algoritme Monotone chain)</li>
 		</ul>
 	</li>
 </ol>
