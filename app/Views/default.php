@@ -29,7 +29,7 @@
 	<nav class="bp3-navbar bp3-dark header">
 		<div class="header__wrapper">
 			<div class="bp3-navbar-group bp3-align-left">
-				<img src="/ksn-logo.png" class="header__logo">
+				<img src="/osn-logo.png" class="header__logo">
 				<div class="bp3-navbar-heading header__title">Olimpiade Sains Nasional Bidang Informatika</div>
 				<span class="bp3-navbar-divider" />
 				<div class="header-right header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
