@@ -49,17 +49,17 @@
 				<td><p>Jalur penerimaan mahasiswa baru yang dikhususkan bagi siswa berprestasi.</p></td>
 			</tr>
 			<tr>
-				<td><a href="http://um.ugm.ac.id/v.2015/id_home.php?l=aWRfcGFnZSMxNTEyMDUjSmFsdXIgUEJVQiMxI1Byb2dyYW0gU2FyamFuYQ==">Penelusuran Bibit Unggul Berprestasi</a></td>
+				<td><a href="https://um.ugm.ac.id/penelusuran-bibit-unggul-berprestasi-pbub-2022/">Penelusuran Bibit Unggul Berprestasi</a></td>
 				<td>Universitas Gadjah Mada</td>
 				<td><p>Jalur penerimaan mahasiswa baru yang dikhususkan bagi penerima medali olimpiade nasional dan internasional.</p></td>
 			</tr>
 			<tr>
-				<td><a href="https://www.ui.ac.id/pengantar-pendaftaran/program-olimpiade-sains.html">Program Olimpiade Sains</a></td>
+				<td><a href="https://penerimaan.ui.ac.id/period/requirement/2961">Program Olimpiade Sains</a></td>
 				<td>Universitas Indonesia</td>
 				<td><p>Jalur penerimaan mahasiswa baru yang dikhususkan bagi penerima medali olimpiade nasional dan internasional.</p></td>
 			</tr>
 			<tr>
-				<td><a href="https://www.ui.ac.id/pengantar-pendaftaran/program-olimpiade-sains.html">Beasiswa Olimpiade Sains</a></td>
+				<td><a href="https://www.umn.ac.id/pendaftaran/#jalur-beasiswa">Beasiswa Olimpiade Sains</a></td>
 				<td>Universitas Multimedia Nusantara</td>
 				<td><p>Bebas tes masuk bagi seluruh peserta OSN, serta pembebasan uang pangkal bagi pemeroleh medali.</p></td>
 			</tr>
