@@ -6,7 +6,7 @@
 	<i>Terakhir diperbarui: 2022</i>
 </div>
 
-<p>Materi OSN bidang informatika/komputer yang akan diujikan mengacu pada silabus IOI 2022 dengan berbagai penyesuaian.</p>
+<p>Materi OSN bidang informatika/komputer yang akan diujikan mengacu pada <a href="https://ioinformatics.org/page/syllabus/12">silabus IOI 2022</a> dengan berbagai penyesuaian.</p>
 
 <ol>
 	<li><strong>Dasar-dasar Pemrograman</strong>
