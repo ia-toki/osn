@@ -15,12 +15,12 @@
 			<tr>
 				<td><a href="https://www.facebook.com/groups/olimpinfo/">Olimpiade Informatika Indonesia</a></td>
 				<td>Grup Facebook</td>
-				<td><p>Grup yang berisikan para alumni serta sesama peserta KSN. Anda dapat bertanya hal-hal yang berkaitan dengan KSN di sini.</p></td>
+				<td><p>Grup yang berisikan para alumni serta sesama peserta OSN. Anda dapat bertanya hal-hal yang berkaitan dengan OSN di sini.</p></td>
 			</tr>
 			<tr>
 				<td><a href="http://line.me/ti/p/%40xtf2128i">Olimpiade Informatika Indonesia (@olimpinfo)</a></td>
 				<td>Akun resmi LINE</td>
-				<td><p>Akun yang membagikan informasi-informasi seputar KSN. Anda dapat bertanya kepada admin melalui <i>chat</i> personal.</p></td>
+				<td><p>Akun yang membagikan informasi-informasi seputar OSN. Anda dapat bertanya kepada admin melalui <i>chat</i> personal.</p></td>
 			</tr>
 		</tbody>
 	</table>
@@ -28,7 +28,7 @@
 	<hr />
 
 	<h3>Beasiswa dan Jalur Kuliah</h3>
-	<p>Beberapa beasiswa dan jalur kuliah yang ditawarkan universitas dan perguruan tinggi di Indonesia bagi para peraih medali KSN.</p>
+	<p>Beberapa beasiswa dan jalur kuliah yang ditawarkan universitas dan perguruan tinggi di Indonesia bagi para peraih medali OSN.</p>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
@@ -61,7 +61,7 @@
 			<tr>
 				<td><a href="https://www.ui.ac.id/pengantar-pendaftaran/program-olimpiade-sains.html">Beasiswa Olimpiade Sains</a></td>
 				<td>Universitas Multimedia Nusantara</td>
-				<td><p>Bebas tes masuk bagi seluruh peserta KSN, serta pembebasan uang pangkal bagi pemeroleh medali.</p></td>
+				<td><p>Bebas tes masuk bagi seluruh peserta OSN, serta pembebasan uang pangkal bagi pemeroleh medali.</p></td>
 			</tr>
 		</tbody>
 	</table>

@@ -33,7 +33,7 @@
 				<td>Buku</td>
 				<td>Indonesia</td>
 				<td>Ikatan Alumni TOKI</td>
-				<td><p>Buku persiapan KSN, berfokus pada algoritma-algoritma yang masuk dalam silabus KSN.</p></td>
+				<td><p>Buku persiapan OSN, berfokus pada algoritma-algoritma yang masuk dalam silabus OSN.</p></td>
 			</tr>
 			<tr>
 				<td><a href="https://cses.fi/book.html">Competitive Programmer's Handbook</a></td>
