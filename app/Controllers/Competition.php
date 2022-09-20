@@ -66,7 +66,7 @@ class Competition extends BaseController {
 			left join School s on s.ID = c.School
 			left join Province pr on pr.ID = c.Province
 			where Competition = ?
-			order by -c.Rank desc, name asc
+			order by -c.Rank desc, ProvinceName asc, SchoolName asc, Name asc
 		QUERY, [$id])->getResultArray();
 
 		$tasks = $this->db->query(<<<QUERY
