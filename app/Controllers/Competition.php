@@ -202,7 +202,8 @@ class Competition extends BaseController {
 		$data = [
 			'menu' => 'competition',
 			'competition' => $competition,
-			'isNational' => $competition['Level'] == 'National'
+			'isNational' => $competition['Level'] == 'National',
+			'isFinished' => $competition['Finished'] == 'Y'
 		];
 
 		$competitions = $this->db->query(<<<QUERY
