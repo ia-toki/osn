@@ -187,12 +187,18 @@ table {
   font-size: 14px;
   line-height: 24px;
   margin-left: 15px;
-  width: 300px;
+  width: 350px;
 }
 
 .header__logo {
   height: 40px;
   margin-right: 10px;
+}
+
+.header__flag {
+  height: 16px;
+  margin-top: -5px;
+  margin-right: 2px;
 }
 
 @media only screen and (max-width: 1024px) {

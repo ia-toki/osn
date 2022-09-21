@@ -6,7 +6,7 @@
 	<title>OSN Informatika</title>
 
 	<link rel="shortcut icon" href="/osn-logo.png">
-	<link rel="stylesheet" href="/main.css">
+	<link rel="stylesheet" href="/main2.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/core@3.35.0/lib/css/blueprint.css" />
@@ -32,7 +32,7 @@
 				<img src="/osn-logo.png" class="header__logo">
 				<div class="bp3-navbar-heading header__title">Olimpiade Sains Nasional Bidang Informatika</div>
 				<span class="bp3-navbar-divider" />
-				<div class="header-right header__subtitle">Tim Olimpiade Komputer Indonesia (TOKI)</div>
+				<div class="header-right header__subtitle"><img src="/id-flag.png" class="header__flag"> Indonesian National Olympiad in Informatics</div>
 			</div>
 			<div class="bp3-navbar-group bp3-align-right">
 				<img src="/toki-logo.png" class="header__logo">
