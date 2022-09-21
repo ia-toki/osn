@@ -2,9 +2,11 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-card home-info">
-  <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh <a href="https://pusatprestasinasional.kemdikbud.go.id/">Pusat Prestasi Nasional</a>, Kementerian Pendidikan dan Kebudayaan Indonesia. Salah satu bidang yang dilombakan di OSN merupakan bidang <b>informatika/komputer</b>. Pada bidang ini, siswa diuji kemampuan menyelesaikan masalah (<i>problem solving</i>) dan berpikir logis melalui soal-soal pemrograman. </p>
+  <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh <a href="https://pusatprestasinasional.kemdikbud.go.id/">Pusat Prestasi Nasional</a>, Kementerian Pendidikan dan Kebudayaan Indonesia. Bidang <b>informatika/komputer</b> merupakan salah satu bidang yang dilombakan. Pada bidang ini, siswa diuji kemampuan menyelesaikan masalah (<i>problem solving</i>) dan berpikir logis melalui soal-soal pemrograman. </p>
   <p>Untuk dapat bertanding di OSN tingkat nasional, siswa harus dikirimkan melalui pihak sekolah ke OSN tingkat kota/kabupaten (<b>OSN-K</b>) terlebih dahulu. Kemudian, siswa-siswi terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>OSN-P</b>) dan kemudian nasional (<b>OSN</b>).</p> 
-  <p>(Pada tahun 2020 dan 2021, olimpiade ini disebut <b>KSN-K</b>, <b>KSN-P</b>, dan <b>KSN</b>. Sebelum tahun 2020, olimpiade ini disebut <b>OSK</b>, <b>OSP</b>, dan <b>OSN</b>.)</p>
+</div>
+<div class="bp3-card home-info">
+  <p>(Sebelum tahun 2020, rangkaian olimpiade ini disebut <b>OSK</b>, <b>OSP</b>, dan <b>OSN</b>. Khusus tahun 2020 - 2021, rangkaian olimpiade ini disebut <b>KSN-K</b>, <b>KSN-P</b>, dan <b>KSN</b>. )</p>
 </div>
 <hr />
 <table>
