@@ -18,5 +18,9 @@
 				<?php endif ?>
 			</tbody>
 		</table>
+
+		<?php if (file_exists(APPPATH . 'Views/' . $competition['ID'] . '/info.php')): ?>
+			<?= $this->include($competition['ID'] . '/info'); ?>
+		<?php endif; ?>
 	</div>
 <?= $this->endSection() ?>

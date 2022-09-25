@@ -50,6 +50,22 @@ class Competition extends BaseController {
 		]));
 	}
 
+	public function rules($id) {
+		$data = $this->getCompetition($id);
+
+		return view('competition_rules', array_merge($data, [
+			'submenu' => '/peraturan',
+		]));
+	}
+
+	public function spec($id) {
+		$data = $this->getCompetition($id);
+
+		return view('competition_spec', array_merge($data, [
+			'submenu' => '/spesifikasi',
+		]));
+	}
+
 	public function results($id) {
 		helper('score');
 		helper('medal');

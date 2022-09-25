@@ -32,7 +32,6 @@ h2 {
 h3 {
   font-size: 18px !important;
   font-weight: bold !important;
-  line-height: 9px !important;
   margin-bottom: 15px !important;
 }
 
@@ -265,6 +264,7 @@ table {
 
 .section {
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .section-cell {
