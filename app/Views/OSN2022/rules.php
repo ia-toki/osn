@@ -1,5 +1,5 @@
 <div class="bp3-card">
-    <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN Informatika 2021</a> ditandai <span style="color:red">warna merah</span>.</p>
+    <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN 2021</a> ditandai <span style="color:red">warna merah</span>.</p>
 </div>
 
 <div class="bp3-card">
