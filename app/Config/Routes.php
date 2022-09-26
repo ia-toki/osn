@@ -52,7 +52,6 @@ $routes->get('/statistik/sekolah/(:alphanum)', 'Statistics::school/$1');
 $routes->get('/statistik/peserta/(:alphanum)', 'Statistics::person/$1');
 $routes->get('/(:alphanum)', 'Competition::info/$1');
 $routes->get('/(:alphanum)/peraturan', 'Competition::rules/$1');
-$routes->get('/(:alphanum)/spesifikasi', 'Competition::spec/$1');
 $routes->get('/(:alphanum)/hasil', 'Competition::results/$1');
 $routes->get('/(:alphanum)/provinsi', 'Competition::provinces/$1');
 

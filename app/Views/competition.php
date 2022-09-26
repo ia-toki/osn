@@ -15,7 +15,6 @@
 		<div class="bp3-button-group section">
 			<a role="button" href="/<?= $competition['ID'] ?>" class="bp3-button <?= $submenu == '' ? 'bp3-active' : '' ?>">Informasi</a>
 			<a role="button" href="/<?= $competition['ID'] ?>/peraturan" class="bp3-button <?= $submenu == '/peraturan' ? 'bp3-active' : '' ?>">Peraturan</a>
-			<a role="button" href="/<?= $competition['ID'] ?>/spesifikasi" class="bp3-button <?= $submenu == '/spesifikasi' ? 'bp3-active' : '' ?>">Spesifikasi</a>
 		</div>
 	<?php endif; ?>
 	<div class="bp3-button-group section">
