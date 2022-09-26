@@ -20,6 +20,7 @@
 		</table>
 
 		<?php if (file_exists(APPPATH . 'Views/' . $competition['ID'] . '/info.php')): ?>
+			<hr />
 			<?= $this->include($competition['ID'] . '/info'); ?>
 		<?php endif; ?>
 	</div>
