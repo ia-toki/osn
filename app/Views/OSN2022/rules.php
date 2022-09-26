@@ -2,8 +2,6 @@
     <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN Informatika 2021</a> ditandai <span style="color:red">warna merah</span>.</p>
 </div>
 
-<br />
-
 <div class="bp3-card">
     <h3 id="a-teknis-umum">A. Teknis Umum</h3>
 
@@ -237,8 +235,6 @@
     <li>Peserta yang terbukti berlaku curang akan <strong>didiskualifikasi</strong>.</li>
     </ol>
 </div>
-
-<br />
 
 <div class="bp3-card">
     <h3 id="perangkat-yang-harus-disiapkan-oleh-peserta">L. Perangkat yang Harus Disiapkan oleh Peserta</h3>
