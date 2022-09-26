@@ -3,7 +3,8 @@
 <?= $this->section('content') ?>
 <div class="bp3-card home-info">
   <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh <a href="https://pusatprestasinasional.kemdikbud.go.id/">Pusat Prestasi Nasional</a>, Kementerian Pendidikan dan Kebudayaan Indonesia. Bidang <b>informatika/komputer</b> merupakan salah satu bidang yang dilombakan. Pada bidang ini, siswa diuji kemampuan menyelesaikan masalah (<i>problem solving</i>) dan berpikir logis melalui soal-soal pemrograman. </p>
-  <p>Untuk dapat bertanding di OSN tingkat nasional, siswa harus dikirimkan melalui pihak sekolah ke OSN tingkat kota/kabupaten (<b>OSN-K</b>) terlebih dahulu. Kemudian, siswa-siswi terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>OSN-P</b>) dan kemudian nasional (<b>OSN</b>).</p> 
+  <p>Untuk dapat bertanding di OSN tingkat nasional, siswa harus dikirimkan melalui pihak sekolah ke OSN tingkat kota/kabupaten (<b>OSN-K</b>) terlebih dahulu. Kemudian, para siswa terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>OSN-P</b>) dan kemudian nasional (<b>OSN</b>).</p> 
+  <p>Para medalis OSN Informatika akan diseleksi lebih lanjut untuk memilih 4 siswa yang akan mewakili Indonesia pada ajang <a href="https://ioinformatics.org/"><strong>International Olympiad in Informatics</strong></a> (<strong>IOI</strong>).</p>
 </div>
 <div class="bp3-card home-info">
   <p>(Sebelum tahun 2020, rangkaian olimpiade ini disebut <b>OSK</b>, <b>OSP</b>, dan <b>OSN</b>. Khusus tahun 2020 - 2021, rangkaian olimpiade ini disebut <b>KSN-K</b>, <b>KSN-P</b>, dan <b>KSN</b>. )</p>
