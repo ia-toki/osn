@@ -1,5 +1,5 @@
 <div class="bp3-card">
-    <p>Perbedaan dengan <a href="/KSN2020/peraturan">Peraturan KSN Informatika 2020</a> ditandai <span style="color:red">warna merah</span>.</p>
+    <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN Informatika 2021</a> ditandai <span style="color:red">warna merah</span>.</p>
 </div>
 
 <br />
@@ -8,12 +8,11 @@
     <h3 id="a-teknis-umum">A. Teknis Umum</h3>
 
     <ol>
-    <li>KSN 2021 Bidang Informatika terdiri atas <strong>1 hari uji coba</strong> dan <strong>2 hari kompetisi</strong>.</li>
+    <li>OSN 2022 Bidang Informatika terdiri atas <strong>1 hari uji coba</strong> dan <strong>2 hari kompetisi</strong>.</li>
     <li>Hasil pada hari uji coba <strong>tidak</strong> termasuk dalam penilaian.</li>
     <li>Pada setiap hari kompetisi, terdapat <strong>3 buah soal</strong> yang diujikan selama <strong>5 jam</strong>.</li>
-    <li>Setiap peserta mendapatkan jatah sebanyak <strong>50 kali pengumpulan</strong> untuk setiap soal.
-    <span style="color:red">Jatah ini bisa saja ditambahkan untuk beberapa soal tertentu</span>.</li>
-    <li>Bahasa pemrograman yang diperbolehkan adalah <span style="color:red"><strong>C</strong> dan <strong>C++</strong></span>.</li>
+    <li>Setiap peserta mendapatkan jatah sebanyak <strong>50 kali pengumpulan</strong> untuk setiap soal. Jatah ini bisa saja ditambahkan untuk beberapa soal tertentu.</li>
+    <li>Bahasa pemrograman yang diperbolehkan adalah <span style="color:red"><strong>C++</strong></span>.</li>
     <li>Selama kompetisi, peserta hanya dapat melihat nilainya sendiri.</li>
     </ol>
 
@@ -123,7 +122,7 @@
     <h3 id="e-sistem-grading">E. Sistem Grading</h3>
 
     <ol>
-    <li>Sistem <em>grading</em> yang digunakan adalah <a href="https://tlx.toki.id">TLX</a>.</li>
+    <li>Sistem <em>grading</em> yang digunakan adalah <span style="color:red"><strong>sistem serupa</strong></span> <a href="https://tlx.toki.id">TLX</a>.</li>
     <li>Besarnya berkas <em>source code</em> yang boleh dikumpulkan untuk setiap soal maksimum <strong>300 KB</strong>.</li>
     <li>Untuk setiap kasus uji, balasan <em>grader</em> yang mungkin adalah:
         <ol>
@@ -184,7 +183,7 @@
     <li>Peserta tidak diperbolehkan <strong>mengakses materi fisik maupun digital apa pun</strong>, seperti <em>template</em> kode, <em>cheatsheet</em>, materi pemrograman dalam bentuk buku/PDF, dan lain-lain.</li>
     <li>Seluruh kode yang di-submit peserta, harus merupakan kode yang <strong>ditulis sendiri oleh peserta selama kompetisi berjalan</strong>. Tidak diperbolehkan melakukan <em>copy-paste</em> kode yang pernah ditulis sebelum kontes.</li>
     <li>Selain <em>web browser</em>, peserta diperbolehkan menggunakan <strong>perangkat lunak apapun yang tidak terhubung pada internet</strong>, selama tidak melanggar aturan lainnya. Misalnya: <em>text editor</em>, <em>compiler</em>, aplikasi kalkulator, <em>spreadsheet</em>, <em>Minesweeper</em>, <em>Paint</em>.</li>
-    <li>Peserta diperbolehkan menggunakan <strong>alat tulis</strong> dan <strong>kertas corat-coret apa pun</strong> untuk mengerjakan soal.</li>
+    <li>Peserta diperbolehkan menggunakan <strong>alat tulis</strong> dan <span style="color:red"><strong>kertas kosong</strong></span> untuk mengerjakan soal.</li>
     <li>Klarifikasi terkait soal hanya boleh ditanyakan kepada juri dan harus melalui sistem kompetisi.</li>
     <li>Peserta <strong>tidak diperbolehkan menyebarluaskan atau mendiskusikan soal dan solusinya</strong>, selama kompetisi berlangsung, sampai 16 jam sesudah kontes berakhir setiap harinya.</li>
     </ol>
@@ -204,7 +203,7 @@
     <li>Peserta diharuskan menyalakan mode <strong>video dan audio</strong>.</li>
     <li>Perangkat berkamera yang tersambung wajib diletakkan berjarak 1 - 1,2 meter, pada posisi yang memungkinkan untuk:
         <ul>
-        <li>Memantau lingkungan tempat peserta lomba KSN berada</li>
+        <li>Memantau lingkungan tempat peserta lomba OSN berada</li>
         <li>Memantau aktivitas layar komputer yang digunakan oleh peserta</li>
         <li>Menampakkan wajah dan badan peserta</li>
         </ul>
@@ -212,8 +211,9 @@
     <li>Peserta diharuskan meletakkan <strong>jam dinding atau jam meja</strong> yang memperlihatkan waktu berjalan pada posisi yang dapat tertangkap kamera Zoom.</li>
     <li>Peserta tidak diperbolehkan menggunakan <strong>alat komunikasi apa pun</strong>, seperti HP (kecuali untuk pengawasan Zoom).</li>
     <li>Peserta tidak diperbolehkan menggunakan <strong>perangkat yang terhubung pada telinga</strong>, seperti headset.</li>
-    <li>Peserta dibebaskan untuk <strong>makan/minum</strong> selama kompetisi.</li>
+    <li>Peserta dibebaskan untuk <strong>makan/minum</strong> selama kompetisi<span style="color:red"><strong>, selama masih terlihat pada kamera Zoom</strong></span>.</li>
     <li>Selama kompetisi, peserta diperbolehkan meninggalkan ruangan untuk <strong>ke kamar kecil/menjalankan ibadah</strong>. Komputer peserta harus tetap terlihat pada Zoom selama peserta meninggalkan ruangan. Peserta dihimbau untuk tidak berlama-lama meninggalkan ruangan. Selain itu, peserta harus tetap berada di depan komputer/laptop selama kompetisi berlangsung.</li>
+    <li><span style="color:red"><strong>Selama kompetisi, peserta tidak diperbolehkan menyimpan, menyalin, atau mengambil <i>screenshot</i> soal. Arsip soal nantinya akan diumumkan pada waktunya secara resmi oleh Puspresnas dan dapat diunduh pada <a href="/arsip">Arsip Soal</a>.</strong></span></li>
     </ol>
 
     <hr />
@@ -258,13 +258,12 @@
 
     <ul>
     <li><a href="https://www.digitalocean.com/docs/droplets/resources/choose-plan/#droplet-plans">DigitalOcean CPU-optimized dedicated droplet</a>, Intel Xeon Skylake 2 cores @ 2.7 GHz</li>
-    <li>4 GB RAM</li>
-    <li>Ubuntu 20.04 LTS</li>
+    <li>2 GB RAM</li>
     </ul>
 
     <p><b>Kompilator C/C++</b></p>
 
     <ul>
-    <li>g++ 9.3 (C++11 / C++17)</li>
+    <li>g++ <span style="color:red"><strong>9.4</strong></span> (C++11 / C++17 <span style="color:red"><strong>/ C++20</strong></span>)</li>
     </ul>
 </div>
