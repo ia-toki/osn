@@ -80,7 +80,7 @@
         <li>Rumus penilaian bervariasi untuk setiap soal, dan akan dinyatakan secara eksplisit pada soal.</li>
         <li>Contoh soal:
             <ul>
-            <li><em>Batch</em>: <a href="https://tlx.toki.id/problems/osn-2012/2D">Membaca, OSN 2012</a>.</li>
+            <li><em>Batch</em>: <a href="https://tlx.toki.id/problems/osn-2013/0C">Tukar-Tukar, OSN 2013</a>.</li>
             <li><em>Interactive</em>: <a href="https://tlx.toki.id/problems/ksn-2020/2C">Mencari Bola, KSN 2020</a>.</li>
             <li><em>Output-only</em>: <a href="https://tlx.toki.id/problems/ksn-2020/1A">Pertahanan Negara, KSN 2020</a>.</li>
             </ul>
