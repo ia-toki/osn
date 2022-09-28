@@ -58,6 +58,14 @@ class Competition extends BaseController {
 		]));
 	}
 
+	public function openContest($id) {
+		$data = $this->getCompetition($id);
+
+		return view('competition_open', array_merge($data, [
+			'submenu' => '/open',
+		]));
+	}
+
 	public function results($id) {
 		helper('score');
 		helper('medal');

@@ -54,6 +54,7 @@ $routes->get('/(:alphanum)', 'Competition::info/$1');
 $routes->get('/(:alphanum)/peraturan', 'Competition::rules/$1');
 $routes->get('/(:alphanum)/hasil', 'Competition::results/$1');
 $routes->get('/(:alphanum)/provinsi', 'Competition::provinces/$1');
+$routes->get('/(:alphanum)/open', 'Competition::openContest/$1');
 
 /**
  * --------------------------------------------------------------------

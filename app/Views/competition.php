@@ -24,6 +24,12 @@
 		<?php endif; ?>
 	</div>
 
+	<?php if ($isNational) : ?>
+		<div class="bp3-button-group section">
+			<a role="button" href="/<?= $competition['ID'] ?>/open" class="bp3-button <?= $submenu == '/open' ? 'bp3-active' : '' ?>">Open Contest</a>
+		</div>
+	<?php endif; ?>
+
 	<?= $this->renderSection('subcontent') ?>
 
 <?= $this->endSection() ?>
