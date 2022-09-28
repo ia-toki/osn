@@ -1,6 +1,13 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content') ?>
+<div class="bp3-callout bp3-intent-primary home-info">
+  <p>Olimpiade yang akan/sedang berlangsung: <a href="/OSN2022"><strong>Olimpiade Sains Nasional 2022 Bidang Informatika</strong></a>.</p>
+  <p>Medalis akan diseleksi lebih lanjut untuk memilih perwakilan Indonesia pada <a href="https://ioi2023.hu"><strong>International Olympiad in Informatics 2023</strong></a> di Hungaria.</p>
+  <hr />
+  <p><i><strong>International</strong> students: we are pleased to invite you to participate in the mirror contest, <a href="/OSN2022/open"><strong>Indonesian NOI (National Olympiad in Informatics) Open Contest 2022</strong></a>!</i></p>
+</div>
+
 <div class="bp3-card home-info">
   <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh <a href="https://pusatprestasinasional.kemdikbud.go.id/"><strong>Pusat Prestasi Nasional</strong></a>, Kemendikbudristek Republik Indonesia, dan <a href="https://alumni.toki.id"><strong>Ikatan Alumni TOKI</strong></a> (Tim Olimpiade Komputer Indonesia).</p>
   <p>Bidang <b>informatika</b>/komputer merupakan salah satu bidang yang dilombakan, yang menguji penyelesaian masalah (<i>problem solving</i>) melalui soal-soal pemrograman <i>(<strong>competitive programming</strong>)</i>.</p>
