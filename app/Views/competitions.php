@@ -14,11 +14,5 @@
 		</div>
 	<?php endif; ?>
 
-	<?php if ($submenu == '/regional') : ?>
-		<div class="bp3-callout bp3-intent-warning section">
-			Kunjungi juga <a href="http://apio-olympiad.org"><b>situs resmi APIO</b></a>.
-		</div>
-	<?php endif; ?>
-
 	<?= $table ?>
 <?= $this->endSection() ?>
