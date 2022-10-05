@@ -74,6 +74,7 @@ class Competition extends BaseController {
 		$data = $this->getCompetition($id);
 		$competition = $data['competition'];
 		$isNational = $data['isNational'];
+		$isFinished = $data['isFinished'];
 
 		$contestants = $this->db->query(<<<QUERY
 			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Score, Medal
@@ -134,7 +135,14 @@ class Competition extends BaseController {
 			if ($isNational) {
 				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 				foreach ($tasks as $t) {
-					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz];
+					$score = $taskScores[$c['ID']][$t['Alias']] ?? null;
+
+					$style = '';
+					if (!$isFinished) {
+						$style = 'background-color: ' . $this->getScoreColor($score, 1);
+					}
+
+					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
 				}
 				$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']), 'class' => 'col-score ' . $clazz];
 			}
@@ -238,5 +246,13 @@ class Competition extends BaseController {
 		}
 
 		return $data;
+	}
+
+	private function getScoreColor($score, $problemCount) {
+		if ($score == null) {
+		  return 'inherit';
+		}
+		$hue = ($score * 120.0) / (100.0 * $problemCount);
+		return 'hsl(' . $hue . ', 80%, 60%)';
 	}
 }
