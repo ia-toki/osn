@@ -2,10 +2,8 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary home-info">
-  <p>Olimpiade yang akan/sedang berlangsung: <a href="/OSN2022"><strong>Olimpiade Sains Nasional 2022 Bidang Informatika</strong></a>.</p>
+  <p>Olimpiade yang baru saja selesai: <a href="/OSN2022"><strong>Olimpiade Sains Nasional 2022 Bidang Informatika</strong></a>.</p>
   <p>Medalis akan diseleksi lebih lanjut untuk memilih perwakilan Indonesia pada <a href="https://ioi2023.hu"><strong>International Olympiad in Informatics 2023</strong></a> di Hungaria.</p>
-  <hr />
-  <p><i><strong>International</strong> students: we are pleased to invite you to participate in the mirror contest, <a href="/OSN2022/open"><strong>Indonesian NOI (National Olympiad in Informatics) Open Contest 2022</strong></a>!</i></p>
 </div>
 
 <div class="bp3-card home-info">
