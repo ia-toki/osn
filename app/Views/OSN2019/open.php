@@ -2,11 +2,11 @@
     <h3 id="preface">Preface</h3>
 
     <ul>
-        <li><strong>TOKI KSN Open Contest 2021</strong> is an open competition mirroring the National Science Olympiad in Informatics 2021 in Indonesia (<strong>KSN 2021 Bidang Informatika</strong> in Bahasa Indonesia).</li>
-        <li>KSN Informatika is a national olympiad in informatics for high school students. It is one of the stages required for Indonesian students to represent Indonesia in IOI (International Olympiad in Informatics)</li>
-        <li>The problemset is the same as the problemset in KSN 2021 Bidang Informatika and will be given in both Bahasa Indonesia and English.</li>
+        <li><strong>TOKI OSN Open Contest 2019</strong> is an open competition mirroring the National Science Olympiad in Informatics 2019 in Indonesia (<strong>OSN Informatika 2019</strong> in Bahasa).</li>
+        <li>OSN Informatika is a national olympiad in informatics for high school students. It is one of the stages required for Indonesian students to represent Indonesia in IOI (International Olympiad in Informatics)</li>
+        <li>The problemset is the same as the problemset in OSN Informatika 2019 and will be given in Bahasa Indonesia and English.</li>
         <li>The contest will be held on <a href="https://tlx.toki.id/contests">TLX (TOKI Online Judge)</a> (you may need to register for a TLX account if you do not have one).</li>
-        <li>If you have any questions please contact <a href="mailto:sc-ksn-2021@googlegroups.com">sc-ksn-2021@googlegroups.com</a>.</li>
+        <li>If you have any questions please contact <a href="mailto:sc-osn-2019@googlegroups.com">sc-osn-2019@googlegroups.com</a>.</li>
     </ul>
 
     <hr />
@@ -17,8 +17,8 @@
         <li>There will be <strong>one trial session</strong> and <strong>2 (two) competition days</strong>.</li>
         <li>Result of the trial session does <strong>not</strong> affect scoring.</li>
         <li>There will be <strong>3 (three) problems</strong> on each day to be solved in <strong>5 (five) hours</strong>.</li>
-        <li>Each contestant may submit up to <strong>50 submissions</strong> for each problem. This limit may be increased for some problems.</li>
-        <li>The supported programming languages are <strong>C and C++</strong>.</li>
+        <li>Each contestant may submit up to <strong>50 submissions</strong> for each problem.</li>
+        <li>The supported programming languages are <strong>C, C++, and Pascal</strong>.</li>
         <li>During the competition, each contestant can only see their own scores.</li>
     </ul>
 
@@ -29,14 +29,14 @@
     <ul>
         <li>The contests will be held at the following time ranges:
             <ul>
-                <li><strong>Day 0</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+KSN+Open+Contest+2021+Day+0&amp;iso=20211107T1600&amp;p1=108&amp;ah=16&amp;am=30">7 November 2021 09:00 - 8 November 2021 01:30 UTC</a> (trial session)</li>
-                <li><strong>Day 1</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+KSN+Open+Contest+2021+Day+1&amp;iso=20211108T1330&amp;p1=108&amp;ah=19&amp;am=00">8 November 2021 06:30 - 9 November 2021 01:30 UTC</a></li>
-                <li><strong>Day 2</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+KSN+Open+Contest+2021+Day+2&amp;iso=20211109T1330&amp;p1=108&amp;ah=19&amp;am=00">9 November 2021 06:30 - 10 November 2021 01:30 UTC</a></li>
+                <li><strong>Day 0</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+OSN+Open+Contest+2019+Day+0&amp;iso=20190701T1535&amp;p1=108&amp;ah=14&amp;am=30">1 July 2019 08:35 - 23:05 UTC</a> (trial session)</li>
+                <li><strong>Day 1</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+OSN+Open+Contest+2019+Day+1&amp;iso=20190702T0935&amp;p1=108&amp;ah=20&amp;am=30">2 July 2019 02:35 - 23:05 UTC</a></li>
+                <li><strong>Day 2</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+OSN+Open+Contest+2019+Day+2&amp;iso=20190703T0935&amp;p1=108&amp;ah=20&amp;am=30">3 July 2019 02:35 - 23:05 UTC</a></li>
             </ul>
         </li>
         <li>Each contestant can select <strong>any 5-hour window</strong> within the time range to do the contest for each competition day.</li>
         <li>All three contests are now available on <a href="https://tlx.toki.id/contests">TLX</a>. Please register in those contests.</li>
-        <li>Each contestant may start the contest any time within the time range, by clicking the “start” button.</li>
+        <li>Each contestant may start the contest any time within the time range, by clicking the timer button.</li>
         <li>There will be no additional time given if a contestant starts the contest in less than 5 hours before the contest ends.</li>
         <li>The open contest does not support clarifications, but all important announcements from the original contest will be broadcast as well.</li>
     </ul>
@@ -52,14 +52,14 @@
                 <li>The most common problem type.</li>
                 <li>Given an input, contestants write a program that reads input from <strong>stdin</strong> and writes output to <strong>stdout</strong>.</li>
                 <li>The program must run within the given time and memory limits.</li>
-                <li>Example: <a href="https://tlx.toki.id/problems/osn-2018/1C">Online Ojek, OSN 2018</a></li>
+                <li>Example: <a href="https://training.ia-toki.org/problemsets/91/problems/469/">Pekanbaru Defense, OSN 2017</a></li>
             </ul>
         </li>
         <li><strong>Interactive</strong> problems:
             <ul>
                 <li>Contestants write a program that interacts with judge's program: judge's program writes to <strong>stdout</strong> and is given as the <strong>stdin</strong> for contestant's program, then contestant's program writes to <strong>stdout</strong> and is given as the <strong>stdin</strong> for judge's program, and the interaction continues until a given goal is reached.</li>
                 <li>Contestant's program must output the answer within the given time and memory limits.</li>
-                <li>Example: <a href="https://tlx.toki.id/problems/osn-2019/2B">Detecting Gold, OSN 2019</a></li>
+                <li>Example: <a href="https://training.ia-toki.org/problemsets/91/problems/471/">Lands and Glaciers, OSN 2017</a></li>
             </ul>
         </li>
         <li><strong>Output-only</strong> problems:
@@ -67,7 +67,7 @@
                 <li>Contestants will be given all the input test cases.</li>
                 <li>Contestants submit <strong>output</strong> for each input test case.</li>
                 <li>Contestants <strong>do not have to</strong> write a program; the outputs may be solved manually.</li>
-                <li>Example: <a href="https://tlx.toki.id/problems/osn-2019/1C">OSN Excursion, OSN 2019</a>.</li>
+                <li>Example: <a href="https://training.ia-toki.org/problemsets/54/problems/259/">Tourism in Palembang, OSN 2016</a>.</li>
             </ul>
         </li>
     </ul>
@@ -78,9 +78,7 @@
 
     <ul>
         <li>There are two types of scoring: <strong>standard</strong> and <strong>creative</strong>.</li>
-        <li>
-            <p>Creative problems will be stated explicitly in the problem description.</p>
-        </li>
+        <li>Creative problems will be stated explicitly in the problem description.</li>
         <li><strong>Standard</strong> scoring:
             <ul>
                 <li>For batch and interactive problems:
@@ -105,9 +103,9 @@
                 <li>The scoring formula will vary for each problem and will be explicitly stated in the problem description.</li>
                 <li>Example:
                     <ul>
-                        <li>Batch: <a href="https://tlx.toki.id/problems/osn-2012-2/D">Membaca, OSN 2012</a>.</li>
-                        <li>Interactive: <a href="https://tlx.toki.id/problems/ksn-2020/2C">Finding Balls, KSN 2020</a>.</li>
-                        <li>Output-only: <a href="https://tlx.toki.id/problems/ksn-2020/1A">National Defence, KSN 2020</a>.</li>
+                        <li>Batch: <a href="https://training.ia-toki.org/problemsets/45/problems/224/">Membaca, OSN 2012</a>.</li>
+                        <li>Interactive: <a href="https://training.ia-toki.org/problemsets/39/problems/202/">Cat Rumah, OSN 2014</a>.</li>
+                        <li>Output-only: <a href="https://training.ia-toki.org/problemsets/54/problems/259/">Tourism in Palembang, OSN 2016</a>.</li>
                     </ul>
                 </li>
             </ul>
