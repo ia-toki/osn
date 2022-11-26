@@ -14,6 +14,7 @@
 	<?php if ($isNational) : ?>
 		<div class="bp3-button-group section">
 			<a role="button" href="/<?= $competition['ID'] ?>" class="bp3-button <?= $submenu == '' ? 'bp3-active' : '' ?>">Informasi</a>
+			<a role="button" href="/<?= $competition['ID'] ?>/silabus" class="bp3-button <?= $submenu == '/silabus' ? 'bp3-active' : '' ?>">Silabus</a>
 			<a role="button" href="/<?= $competition['ID'] ?>/peraturan" class="bp3-button <?= $submenu == '/peraturan' ? 'bp3-active' : '' ?>">Peraturan</a>
 		</div>
 	<?php endif; ?>

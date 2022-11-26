@@ -50,6 +50,14 @@ class Competition extends BaseController {
 		]));
 	}
 
+	public function syllabus($id) {
+		$data = $this->getCompetition($id);
+
+		return view('competition_syllabus', array_merge($data, [
+			'submenu' => '/silabus',
+		]));
+	}
+
 	public function rules($id) {
 		$data = $this->getCompetition($id);
 

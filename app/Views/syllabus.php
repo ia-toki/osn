@@ -6,7 +6,5 @@
 		<a role="button" href="/silabus" class="bp3-button bp3-active">OSN</a>
   </div>
   
-  <div class="bp3-card subcontent">
-		<?= $this->renderSection('subcontent') ?>
-	</div>
+	<?= $this->renderSection('subcontent') ?>
 <?= $this->endSection() ?>
