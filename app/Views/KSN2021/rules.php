@@ -1,6 +1,8 @@
-<div class="bp3-card">
+<div class="bp3-callout bp3-intent-warning">
     <p>Perbedaan dengan <a href="/KSN2020/peraturan">Peraturan KSN 2020</a> ditandai <span style="color:red">warna merah</span>.</p>
 </div>
+
+<br />
 
 <div class="bp3-card">
     <h3 id="a-teknis-umum">A. Teknis Umum</h3>

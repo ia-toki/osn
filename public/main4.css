@@ -139,6 +139,7 @@ table {
 
 .bp3-callout {
   font-size: 13px !important;
+  padding-bottom: 1px !important;
 }
 
 .clearfix::after {
@@ -350,15 +351,8 @@ table {
   background-color: rgba(217, 130, 43, 0.15) !important;
 }
 
-.home-info {
-  margin: 20px 5px;
-}
-
 .home-footer {
-  margin-top: 70px;
   margin-bottom: 0px;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
 .col-preparation-name {

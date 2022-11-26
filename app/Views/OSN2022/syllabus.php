@@ -1,6 +1,8 @@
-<div class="bp3-card">
-	<p>Tidak ada perbedaan dengan <a href="/KSN2021/silabus">Silabus KSN 2021</a>.</p>
+<div class="bp3-callout bp3-intent-primary">
+	<p>Tidak terdapat perbedaan dengan <a href="/KSN2021/silabus">Silabus KSN 2021</a>.</p>
 </div>
+
+<br />
 
 <div class="bp3-card">
     <p>Mengacu pada <a href="https://ioinformatics.org/page/syllabus/12">silabus IOI 2022</a> dengan berbagai penyesuaian.</p>

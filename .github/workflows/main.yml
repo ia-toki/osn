@@ -21,5 +21,8 @@ jobs:
           key: ${{ secrets.DEPLOYMENT_PRIVATE_KEY }}
           known_hosts: ${{ secrets.DEPLOYMENT_KNOWN_HOSTS }}
       
-      - name: Rsync
+      - name: Rsync app/
         run: rsync -avzh app/ root@${DEPLOYMENT_HOST}:/var/www/html/ksn/app
+
+      - name: Rsync public/
+        run: rsync -avzh public/ root@${DEPLOYMENT_HOST}:/var/www/html/ksn/public

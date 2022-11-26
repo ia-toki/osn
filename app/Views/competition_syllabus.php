@@ -5,7 +5,7 @@
 		<?= $this->include($competition['ID'] . '/syllabus'); ?>
 	<?php else: ?>
 		<div class="bp3-callout bp3-intent-danger">
-			<em>Informasi tidak tersedia.</em>
+			<p><em>Informasi tidak tersedia.</em></p>
 		</div>
 	<?php endif; ?>
 <?= $this->endSection() ?>

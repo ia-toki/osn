@@ -1,6 +1,8 @@
-<div class="bp3-card">
-	<p>Tidak ada perbedaan dengan <a href="/OSN2018/silabus">Silabus OSN 2018</a>.</p>
+<div class="bp3-callout bp3-intent-primary">
+	<p>Tidak terdapat perbedaan dengan <a href="/OSN2018/silabus">Silabus OSN 2018</a>.</p>
 </div>
+
+<br />
 
 <div class="bp3-card">
 	<p>Mengacu pada silabus IOI 2019</a> dengan berbagai penyesuaian.</p>

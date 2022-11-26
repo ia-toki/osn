@@ -1,6 +1,8 @@
-<div class="bp3-card">
+<div class="bp3-callout bp3-intent-warning">
 	<p>Perbedaan dengan <a href="/KSN2020/silabus">Silabus KSN 2020</a> ditandai <span style="color:red">warna merah</span>.</p>
 </div>
+
+<br />
 
 <div class="bp3-card">
 	<p>Mengacu pada silabus IOI 2021</a> dengan berbagai penyesuaian.</p>
