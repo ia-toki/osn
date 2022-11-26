@@ -74,7 +74,7 @@
 		<hr />
 		<div class="bp3-callout home-footer">
 			<p><small><i>Situs ini dikelola oleh <a href="https://alumni.toki.id"><b>Ikatan Alumni Tim Olimpiade Komputer Indonesia</b></a> (IA TOKI).</small></i>
-			<i><small>Ingin memperbaiki informasi/data? Laporkan pada <a href="http://github.com/ia-toki/osn-web"><b>github.com/ia-toki/osn-web</b></a></small></i>.</p>
+			<i><small>Ingin memperbaiki informasi/data? Laporkan pada <a href="http://github.com/ia-toki/osn"><b>github.com/ia-toki/osn</b></a></small></i>.</p>
 		</div>
 	</div>
 </body>
