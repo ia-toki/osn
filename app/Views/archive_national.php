@@ -13,6 +13,12 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td>OSN 2022</td>
+			<td>-</td>
+			<td>-</td>
+			<td><a href="https://tlx.toki.id/problems/osn-2022">TLX &nbsp;(+ Pembahasan)</a></td>
+		</tr>
+		<tr>
 			<td>KSN 2021</td>
 			<td>-</td>
 			<td><a href="https://docs.google.com/presentation/d/1ZvDBHjdHDLE2z2smygAP-po1peWPzxFGoYqDzoRDTzg/">GSlides</td>
