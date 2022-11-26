@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>OSN Informatika</title>
+	<title>OSN Bidang Informatika</title>
 
 	<link rel="shortcut icon" href="/osn-logo.png">
 	<link rel="stylesheet" href="/main4.css">

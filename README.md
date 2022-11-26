@@ -1,4 +1,4 @@
-# OSN Informatika
+# OSN Bidang Informatika
 
 ## Dev Setup
 
