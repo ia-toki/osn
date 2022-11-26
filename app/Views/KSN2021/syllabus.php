@@ -1,5 +1,5 @@
 <div class="bp3-callout bp3-intent-warning">
-	<p>Perbedaan dengan <a href="/KSN2020/silabus">Silabus KSN 2020</a> ditandai <span style="color:red">warna merah</span>.</p>
+	<p>Perbedaan dengan <a href="/KSN2020/silabus">Silabus KSN 2020</a> ditandai dengan <span style="color:red">warna merah</span>.</p>
 </div>
 
 <br />

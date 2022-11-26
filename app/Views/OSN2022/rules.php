@@ -1,5 +1,5 @@
 <div class="bp3-callout bp3-intent-warning">
-    <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN 2021</a> ditandai <span style="color:red">warna merah</span>.</p>
+    <p>Perbedaan dengan <a href="/KSN2021/peraturan">Peraturan KSN 2021</a> ditandai dengan <span style="color:red">warna merah</span>.</p>
 </div>
 
 <br />
@@ -259,7 +259,7 @@
     <li>2 GB RAM</li>
     </ul>
 
-    <p><b>Kompilator C/C++</b></p>
+    <p><b>Kompilator C++</b></p>
 
     <ul>
     <li>g++ <span style="color:red"><strong>9.4</strong></span> (C++11 / C++17 <span style="color:red"><strong>/ C++20</strong></span>)</li>

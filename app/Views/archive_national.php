@@ -15,13 +15,13 @@
 		<tr>
 			<td>KSN 2021</td>
 			<td>-</td>
-			<td>-</td>
+			<td><a href="https://docs.google.com/presentation/d/1ZvDBHjdHDLE2z2smygAP-po1peWPzxFGoYqDzoRDTzg/">GSlides</td>
 			<td><a href="https://tlx.toki.id/problems/ksn-2021">TLX &nbsp;(+ Pembahasan)</a></td>
 		</tr>
 		<tr>
 			<td>KSN 2020</td>
 			<td>-</td>
-			<td>-</td>
+			<td><a href="https://docs.google.com/presentation/d/1NrPtZ5zKC443hjPsu0EByZqKIhWy5aPMPN6fEHvGqjc/">GSlides</td>
 			<td><a href="https://tlx.toki.id/problems/ksn-2020">TLX &nbsp;(+ Pembahasan)</a></td>
 		</tr>
 		<tr>
