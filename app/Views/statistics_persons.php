@@ -11,7 +11,7 @@
 			
 	<?php else : ?>
 		<div class="bp3-callout bp3-intent-warning section">
-			Hanya menampilkan 100 peringkat teratas.
+			<p>Hanya menampilkan 100 peringkat teratas.</p>
 		</div>
 	<?php endif; ?>
 	<?= $table ?>

@@ -1,5 +1,5 @@
 <div class="bp3-callout bp3-intent-warning">
-    *Medals are according to the official contest cutoffs.
+    <p>*Medals are according to the official contest cutoffs.</p>
 </div>
 
 <br />
