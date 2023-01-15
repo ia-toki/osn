@@ -30,6 +30,7 @@
 				'ISR' => 'Israel',
 				'ITA' => 'Italy',
 				'JPN' => 'Japan',
+				'KOR' => 'South Korea',
 				'LUX' => 'Luxembourg',
 				'MDA' => 'Moldova',
 				'MKD' => 'Macedonia',
