@@ -6,7 +6,7 @@
 		<table class="table table-bordered table-competition-info">
 			<tbody>
 				<tr><th>Tempat</th><td><?= $competition['City'] ?><?= $competition['HostName'] ? ', ' . $competition['HostName'] : '' ?></td></tr>
-				<tr><th>Waktu</th><td> <?= date_format(date_create($competition['DateBegin']), 'd M Y') . ' &ndash; ' . date_format(date_create($competition['DateEnd']), 'd M Y') ?></td></tr>
+				<tr><th>Waktu</th><td> <?= $dates ?></td></tr>
 				<?php if ($competition['Contestants']) : ?>
 					<tr><th>Peserta</th><td><?= $competition['Contestants'] ?></td></tr>
 				<?php endif ?>
