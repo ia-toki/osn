@@ -28,6 +28,14 @@ function getMedalName($medal) {
 	return $map[$medal];
 }
 
+function getMedalNameEnglish($medal) {
+	if (!$medal) {
+		return '';
+	}
+	$map = array('G' => 'Gold', 'S' => 'Silver', 'B' => 'Bronze');
+	return $map[$medal];
+}
+
 function createMedalHeading($prefix) {
 	return ['data' => $prefix, 'class' => 'col-centered', 'colspan' => '4'];
 }

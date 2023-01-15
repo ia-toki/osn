@@ -6,3 +6,12 @@ function formatScore($score, $precision) {
 	}
 	return $score;
 }
+
+function getScoreCss($score) {
+	if ($score == '') {
+		return '';
+	}
+
+	$hue = $score * 120.0 / 100.0;
+	return 'background-color: hsl(' . $hue . ', 80%, 60%)';
+}

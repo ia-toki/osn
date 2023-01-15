@@ -53,20 +53,6 @@
 				'USA' => 'United States of America',
 				'VNM' => 'Viet Nam',
 			];
-			$medals = [
-				'G' => 'Gold',
-				'S' => 'Silver',
-				'B' => 'Bronze',
-			];
-
-			function get_score_css($score) {
-				if ($score == '') {
-					return '';
-				}
-
-				$hue = $score * 120.0 / 100.0;
-				return 'background-color: hsl(' . $hue . ', 80%, 60%)';
-			}
 		?>
 
 		<div class="bp3-callout bp3-intent-warning">
@@ -103,13 +89,13 @@
 
 						<?php foreach ($problems as $problem): ?>
 							<?php $score = array_shift($row); ?>
-							<td class="col-score" style="<?= get_score_css($score) ?>"><?= $score ?></td>
+							<td class="col-score" style="<?= getScoreCss($score) ?>"><?= $score ?></td>
 						<?php endforeach; ?>
 
 						<td class="col-score"><?= array_shift($row) ?></td>
 						<td><?php
 							$medal = array_shift($row);
-							echo isset($medals[$medal]) ? $medals[$medal] : $medal;
+							echo getMedalNameEnglish($medal);
 						?></td>
 					</tr>
 				<?php endwhile; ?>

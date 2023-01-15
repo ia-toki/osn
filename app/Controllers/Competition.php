@@ -76,6 +76,9 @@ class Competition extends BaseController {
 	}
 
 	public function openContestResults($id) {
+		helper('medal');
+		helper('score');
+
 		$data = $this->getCompetition($id);
 
 		return view('competition_open_results', array_merge($data, [
@@ -156,7 +159,7 @@ class Competition extends BaseController {
 
 					$style = '';
 					if (!$isFinished) {
-						$style = 'background-color: ' . $this->getScoreColor($score, 1);
+						$style = getScoreCss($score);
 					}
 
 					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
@@ -266,13 +269,5 @@ class Competition extends BaseController {
 		}
 
 		return $data;
-	}
-
-	private function getScoreColor($score, $problemCount) {
-		if ($score == null) {
-		  return 'inherit';
-		}
-		$hue = ($score * 120.0) / (100.0 * $problemCount);
-		return 'hsl(' . $hue . ', 80%, 60%)';
 	}
 }
