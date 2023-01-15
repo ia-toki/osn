@@ -80,7 +80,7 @@
 					<th class="col-rank">#</th>
 					<th class="col-name">TLX Username</th>
 					<th class="col-name">Name</th>
-					<th class="col-province">Country</th>
+					<th class="col-country">Country</th>
 					<?php foreach ($problems as $problem): ?>
 						<th class="col-centered"><?= $problem ?></th>
 					<?php endforeach; ?>

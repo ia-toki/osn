@@ -304,6 +304,10 @@ table {
   width: 150px;
 }
 
+.col-country {
+  width: 170px;
+}
+
 .col-score {
   width: 40px;
   text-align: right;
