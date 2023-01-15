@@ -3,6 +3,7 @@
 class Competition extends BaseController {
 	public function listNational() {
 		helper('link');
+		helper('date');
 
 		$competitions = $this->getCompetitions(null, 'National');
 
@@ -21,7 +22,7 @@ class Competition extends BaseController {
 				linkCompetitionInfo($c['ID'], $c['Name']),
 				$c['ProvinceID'] ? linkProvince($c['ProvinceID'], $c['HostName']) : '-',
 				$c['City'],
-				['data' => $this->getCompetitionDates(date_create($c['DateBegin']), date_create($c['DateEnd'])), 'class' => 'col-centered'],
+				['data' => formatDateRange($c['DateBegin'], $c['DateEnd']), 'class' => 'col-centered'],
 				['data' => $c['Contestants'], 'class' => 'col-centered'],
 				['data' => $c['Provinces'], 'class' => 'col-centered']
 			);
@@ -232,6 +233,8 @@ class Competition extends BaseController {
 	}
 
 	private function getCompetition($id) {
+		helper('date');
+
 		$competitions = $this->getCompetitions($id, null);
 
 		if (empty($competitions)) {
@@ -244,7 +247,7 @@ class Competition extends BaseController {
 			'competition' => $competition,
 			'isNational' => $competition['Level'] == 'National',
 			'isFinished' => $competition['Finished'] == 'Y',
-			'dates' => $this->getCompetitionDates(date_create($competition['DateBegin']), date_create($competition['DateEnd'])),
+			'dates' => formatDateRange($competition['DateBegin'], $competition['DateEnd']),
 		];
 
 		$competitions = $this->db->query(<<<QUERY
@@ -271,22 +274,5 @@ class Competition extends BaseController {
 		}
 		$hue = ($score * 120.0) / (100.0 * $problemCount);
 		return 'hsl(' . $hue . ', 80%, 60%)';
-	}
-
-	private function getCompetitionDates($beginDate, $endDate) {
-		setlocale(LC_TIME, 'id_ID');
-
-		$beginMonth = $beginDate->format('F');
-		$beginDay = $beginDate->format('j');
-		$beginYear = $beginDate->format('Y');
-
-		$endMonth = $endDate->format('F');
-		$endDay = $endDate->format('j');
-
-		if ($beginMonth == $endMonth) {
-			return $beginDay . '&ndash;' . $endDay . ' ' . $endMonth . ' ' . $beginYear;
-		}
- 
-		return $beginDay . ' ' . $beginMonth . ' &ndash; ' . $endDay . ' ' . $endMonth . ' ' . $beginYear;
 	}
 }
