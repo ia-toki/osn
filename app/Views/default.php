@@ -35,8 +35,8 @@
 				<div class="header-right header__subtitle"><img src="/id-flag.png" class="header__flag"> Indonesian National Olympiad in Informatics</div>
 			</div>
 			<div class="bp3-navbar-group bp3-align-right">
-				<img src="/toki-logo.png" class="header__logo">
 				<img src="/tut-wuri-logo.png" class="header__logo">
+				<img src="/toki-logo.png" class="header__logo">
 			</div>
 		</div>
   </nav>
