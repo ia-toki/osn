@@ -350,6 +350,14 @@ table {
   max-width: 600px !important;
 }
 
+.table-competition-info th {
+  width: 140px;
+}
+
+.col-committee-chair {
+  width: 90px;
+}
+
 .home-card {
   height: 150px;
   background-color: rgba(217, 130, 43, 0.15) !important;

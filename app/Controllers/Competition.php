@@ -44,7 +44,27 @@ class Competition extends BaseController {
 	}
 
 	public function info($id) {
+		helper('link');
+
 		$data = $this->getCompetition($id);
+		$committee = $this->getCompetitionCommittee($id);
+
+		$data['committee'] = array();
+		foreach ($committee as $c) {
+			$role = $c['Role'];
+			if (!isset($data['committee'][$role])) {
+				$data['committee'][$role] = [
+					'chair' => '',
+					'members' => array(),
+				];
+			}
+			$entry = linkPerson($c['PersonID'], $c['PersonName']);
+			if ($c['Chair'] == 'Y') {
+				$data['committee'][$role]['chair'] = $entry;
+			} else {
+				$data['committee'][$role]['members'][] = $entry;
+			}
+		}
 
 		return view('competition_info', array_merge($data, [
 			'submenu' => '',

@@ -191,6 +191,19 @@ INSERT INTO `Task` (`ID`, `Name`, `Alias`, `Competition`, `DayNo`, `TaskNo`, `Ma
 (54, 'Penyebaran Hoaks', '2C', 'OSN2019', 2, 6, '100.00', 0);
 
 --
+-- Table structure for table `Committee`
+--
+
+CREATE TABLE `Committee` (
+  `ID` int NOT NULL,
+  `Person` int NOT NULL,
+  `Role` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `Chair` char(1) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'N',
+  `Competition` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+
+--
 -- Indexes for dumped tables
 --
 
@@ -251,6 +264,15 @@ ALTER TABLE `Task`
   ADD KEY `Competition` (`Competition`) USING BTREE;
 
 --
+-- Indexes for table `Committee`
+--
+ALTER TABLE `Committee`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Competition_Person_Role` (`Competition`,`Person`,`Role`) USING BTREE,
+  ADD KEY `Person` (`Person`),
+  ADD KEY `Competition` (`Competition`) USING BTREE;
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -285,6 +307,12 @@ ALTER TABLE `Task`
   MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
+-- AUTO_INCREMENT for table `Committee`
+--
+ALTER TABLE `Committee`
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -315,6 +343,13 @@ ALTER TABLE `Submission`
 --
 ALTER TABLE `Task`
   ADD CONSTRAINT `Task_ibfk_1` FOREIGN KEY (`Competition`) REFERENCES `Competition` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Committee`
+--
+ALTER TABLE `Committee`
+  ADD CONSTRAINT `Committee_ibfk_1` FOREIGN KEY (`Person`) REFERENCES `Person` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Committee_ibfk_2` FOREIGN KEY (`Competition`) REFERENCES `Competition` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
