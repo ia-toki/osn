@@ -45,18 +45,22 @@ class Competition extends BaseController {
 
 	public function info($id) {
 		helper('link');
+		helper('committee');
 
 		$data = $this->getCompetition($id);
 		$committee = $this->getCompetitionCommittee($id);
 
 		$data['committee'] = array();
+		foreach (getCommitteeRoles() as $role) {
+			$data['committee'][$role] = [
+				'members' => array(),
+			];
+		}
+
 		foreach ($committee as $c) {
 			$role = $c['Role'];
 			if (!isset($data['committee'][$role])) {
-				$data['committee'][$role] = [
-					'chair' => '',
-					'members' => array(),
-				];
+				continue;
 			}
 			$entry = linkPerson($c['PersonID'], $c['PersonName']);
 			if ($c['Chair'] == 'Y') {
@@ -65,6 +69,7 @@ class Competition extends BaseController {
 				$data['committee'][$role]['members'][] = $entry;
 			}
 		}
+		$data['committeeTitles'] = getCommitteeTitles();
 
 		return view('competition_info', array_merge($data, [
 			'submenu' => '',

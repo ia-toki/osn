@@ -23,5 +23,11 @@
 			<h4>Nasional</h4>
 			<?= $nationalTable ?>
 		<?php endif ?>
+
+		<?php if (isset($committeeTable) && $committeeTable) : ?>
+			<hr />
+			<h4>Komite Ikatan Alumni</h4>
+			<?= $committeeTable ?>
+		<?php endif ?>
 	</div>
 <?= $this->endSection() ?>

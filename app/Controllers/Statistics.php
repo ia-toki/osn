@@ -328,6 +328,7 @@ class Statistics extends BaseController {
 	public function person($id) {
 		helper('score');
 		helper('medal');
+		helper('committee');
 		helper('link');
 
 		$persons = $this->db->query(<<<QUERY
@@ -360,6 +361,14 @@ class Statistics extends BaseController {
 			order by t.Alias asc
 		QUERY, [$id])->getResultArray();
 
+		$committee = $this->db->query(<<<QUERY
+			select c.Competition, comp.ShortName as CompetitionName, c.Role, c.Chair
+			from Committee c
+			join Competition comp on comp.ID = c.Competition
+			where c.Person = ?
+			order by comp.Year desc
+		QUERY, [$id])->getResultArray();
+
 		$medals = $this->getPersonMedals($id, null);
 
 		$table = createTable();
@@ -381,13 +390,14 @@ class Statistics extends BaseController {
 			'submenu' => '/',
 			'person' => $person,
 			'medalsTable' => $table->generate(),
-			'internationalTable' => $this->getExternalStatistics(true, 'International', $contestants, $submissions),
-			'regionalTable' => $this->getExternalStatistics(true, 'Regional', $contestants, $submissions),
-			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions)
+			'internationalTable' => $this->getExternalStatistics(true, 'International', $contestants),
+			'regionalTable' => $this->getExternalStatistics(true, 'Regional', $contestants),
+			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions),
+			'committeeTable' => $this->getCommitteeStatistics($committee),
 		]);
 	}
 
-	private function getExternalStatistics($isPerson, $level, $contestants, $submissions) {
+	private function getExternalStatistics($isPerson, $level, $contestants) {
 		$table = createTable();
 		$heading = array(
 			['data' => 'Olimpiade', 'class' => 'col-competition-short'],
@@ -482,6 +492,30 @@ class Statistics extends BaseController {
 			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
 			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
 
+			$table->addRow($row);
+			$rowCount++;
+		}
+
+		if ($rowCount > 0) {
+			return $table->generate();
+		}
+		return null;
+	}
+
+	private function getCommitteeStatistics($committee) {
+		$table = createTable();
+		$heading = array(
+			['data' => 'Olimpiade', 'class' => 'col-competition-short'],
+			'Jabatan'
+		);
+		$table->setHeading($heading);
+
+		$rowCount = 0;
+		foreach ($committee as $c) {
+			$row = array(
+				linkCompetitionInfo($c['Competition'], $c['CompetitionName']),
+				getCommitteeTitle($c['Role']),
+			);
 			$table->addRow($row);
 			$rowCount++;
 		}

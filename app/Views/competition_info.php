@@ -20,51 +20,22 @@
 
 		<h3>Komite Ikatan Alumni</h3>
 
-		<?php
-			$titles = [
-				[
-					'role' => 'SC',
-					'name' => 'Komite Ilmiah',
-				],
-				[
-					'role' => 'TC',
-					'name' => 'Komite Teknis',
-				],
-				[
-					'role' => 'OC',
-					'name' => 'Komite Acara',
-				],
-				[
-					'role' => 'PJJ',
-					'name' => 'Koordinator PJJ',
-				],
-				[
-					'role' => 'OPEN',
-					'name' => 'Koordinator OSN Terbuka',
-				],
-				[
-					'role' => 'PJJOPEN',
-					'name' => 'Koordinator PJJ & OSN Terbuka',
-				],
-			]
-		?>
-
 		<table class="table table-bordered table-competition-info">
 			<tbody>
-				<?php foreach ($titles as $title): ?>
-					<?php if (!isset($committee[$title['role']])) continue; ?>
+				<?php foreach ($committeeTitles as $role => $title): ?>
+					<?php if (!isset($committee[$role]['chair'])) continue; ?>
 					<tr rowspan="2">
-						<th><?= $title['name'] ?></th>
+						<th><?= $title ?></th>
 						<td class="col-committee-chair">Ketua</td>
-						<td><?= $committee[$title['role']]['chair'] ?></td>
+						<td><?= $committee[$role]['chair'] ?></td>
 					</tr>
-					<?php if (count($committee[$title['role']]['members']) > 0): ?>
+					<?php if (count($committee[$role]['members']) > 0): ?>
 						<tr>
 							<td></td>
 							<td>Anggota</td>
 							<td>
 								<ul>
-									<?php foreach ($committee[$title['role']]['members'] as $member): ?>
+									<?php foreach ($committee[$role]['members'] as $member): ?>
 										<li><?= $member ?></li>
 									<?php endforeach ?>
 								</ul>
