@@ -39,6 +39,7 @@
 				'NLD' => 'Netherlands',
 				'NZL' => 'New Zealand',
 				'POL' => 'Poland',
+				'PHL' => 'Philippines',
 				'PRT' => 'Portugal',
 				'ROU' => 'Romania',
 				'RUS' => 'Russia',
