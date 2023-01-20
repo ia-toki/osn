@@ -54,6 +54,27 @@ class BaseController extends Controller
 		QUERY, $id ? 'and c.ID = ?' : '', $level ? 'and c.Level = ?' : ''), array_values(array_filter([$id, $level])))->getResultArray();
 	}
 
+	protected function getCompetitionMedals($level) {
+		return $this->db->query(<<<QUERY
+			select c.ID, Medal, Cnt
+			from Competition c
+			left join (
+				select Competition, 
+				case
+					when Medal = 'G' then 'Golds'
+					when Medal = 'S' then 'Silvers'
+					when Medal = 'B' then 'Bronzes'
+					else 'Participants'
+				end as Medal, count(*) as Cnt
+				from Contestant
+				where TeamNo = 1
+				group by Competition, Medal
+			) as contestants on c.ID = contestants.Competition
+			where Level = ?
+			order by Year desc
+		QUERY, [$level])->getResultArray();
+	}
+
 	protected function getCompetitionCommittee($id) {
 		return $this->db->query(<<<QUERY
 			select c.Person as PersonID, p.Name as PersonName, Role, Chair

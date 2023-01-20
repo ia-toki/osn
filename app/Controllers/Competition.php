@@ -233,15 +233,29 @@ class Competition extends BaseController {
 
 	private function listExternal($level, $submenu) {
 		helper('link');
+		helper('medal');
 
 		$competitions = $this->getCompetitions(null, $level);
+		$medals = $this->getCompetitionMedals($level);
+
+		$medalsByCompetition = array();
+		foreach ($medals as $row) {
+			if (!isset($medalsByCompetition)) {
+				$medalsByCompetition[$row['ID']] = array();
+			}
+			$medalsByCompetition[$row['ID']][$row['Medal']] = $row['Cnt'];
+		}
 
 		$table = new \CodeIgniter\View\Table();
 		$table->setTemplate([
 			'table_open' => '<table class="table table-striped table-bordered">'
 		]);
 
-		$table->setHeading(['data' => '#', 'class' => 'col-order'], 'Nama', 'Peserta Indonesia');
+		$table->setHeading(
+			['data' => '#', 'class' => 'col-order'],
+			'Nama',
+			['data' => 'Hasil Peserta Indonesia', 'colspan' => 4]
+		);
 
 		$competitionsCount = count($competitions);
 		for ($i = 0; $i < $competitionsCount; $i++) {
@@ -249,7 +263,7 @@ class Competition extends BaseController {
 			$table->addRow(
 				$competitionsCount-$i,
 				linkCompetition($c['ID'], $c['Name']),
-				['data' => $c['Contestants'], 'class' => 'col-id-contestants'],
+				...createMedalCells($medalsByCompetition[$c['ID']], '', null)
 			);
 		}
 
