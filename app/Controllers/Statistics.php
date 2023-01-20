@@ -20,7 +20,7 @@ class Statistics extends BaseController {
 
 		return view('statistics_national', [
 			'menu' => 'statistics',
-			'submenu' => '/nasional',
+			'submenu' => '/indonesia',
 			'table' => $table->generate()
 		]);
 	}
