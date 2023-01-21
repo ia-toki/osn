@@ -15,4 +15,10 @@
 	<?php endif; ?>
 
 	<?= $table ?>
+
+	<?php if ($submenu == '/') : ?>
+		<div class="bp3-callout bp3-intent-warning section">
+			<p><small>* Data tidak tersedia / tidak lengkap.</small></p>
+		</div>
+	<?php endif; ?>
 <?= $this->endSection() ?>

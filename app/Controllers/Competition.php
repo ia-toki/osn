@@ -19,7 +19,7 @@ class Competition extends BaseController {
 			$c = $competitions[$i];
 			$table->addRow(
 				$competitionsCount-$i,
-				linkCompetitionInfo($c['ID'], $c['Name']),
+				linkCompetitionInfo($c['ID'], $c['Name']) . ($c['DataComplete'] == 'N' ? ' *' : ''),
 				$c['ProvinceID'] ? linkProvince($c['ProvinceID'], $c['HostName']) : '-',
 				$c['City'],
 				['data' => formatDateRange($c['DateBegin'], $c['DateEnd']), 'class' => 'col-centered'],
@@ -292,6 +292,7 @@ class Competition extends BaseController {
 			'competition' => $competition,
 			'isNational' => $competition['Level'] == 'National',
 			'isFinished' => $competition['Finished'] == 'Y',
+			'isDataComplete' => $competition['DataComplete'] == 'Y',
 			'dates' => formatDateRange($competition['DateBegin'], $competition['DateEnd']),
 		];
 

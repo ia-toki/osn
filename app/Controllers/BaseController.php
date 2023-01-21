@@ -41,7 +41,7 @@ class BaseController extends Controller
 
 	protected function getCompetitions($id, $level) {
 		return $this->db->query(sprintf(<<<QUERY
-			select c.ID as ID, Level, Year, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, HostCountryCode, HostCountryName, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr, Finished from Competition c
+			select c.ID as ID, Level, Year, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, HostCountryCode, HostCountryName, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr, Finished, DataComplete from Competition c
 			left join Province p on p.ID = c.Host
 			left join (
 				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
