@@ -234,6 +234,7 @@ class Competition extends BaseController {
 	private function listExternal($level, $submenu) {
 		helper('link');
 		helper('medal');
+		helper('flag');
 
 		$competitions = $this->getCompetitions(null, $level);
 		$medals = $this->getCompetitionMedals($level);
@@ -253,7 +254,8 @@ class Competition extends BaseController {
 
 		$table->setHeading(
 			['data' => '#', 'class' => 'col-order'],
-			'Nama',
+			['data' => 'Nama', 'class' => 'col-external-competition-name'],
+			'Tuan Rumah',
 			['data' => 'Hasil Peserta Indonesia', 'colspan' => 4]
 		);
 
@@ -263,6 +265,7 @@ class Competition extends BaseController {
 			$table->addRow(
 				$competitionsCount-$i,
 				linkCompetition($c['ID'], $c['Name']),
+				createFlag($c['HostCountryCode']) . $c['HostCountryName'],
 				...createMedalCells($medalsByCompetition[$c['ID']], '', null)
 			);
 		}

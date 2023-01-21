@@ -34,6 +34,8 @@ CREATE TABLE `Competition` (
   `Name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `ShortName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Host` char(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `HostCountryCode` char(3) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `HostCountryName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `City` varchar(40) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `DateBegin` date DEFAULT NULL,
   `DateEnd` date DEFAULT NULL,
