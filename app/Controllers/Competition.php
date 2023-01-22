@@ -256,6 +256,7 @@ class Competition extends BaseController {
 			['data' => '#', 'class' => 'col-order'],
 			['data' => 'Nama', 'class' => 'col-external-competition-name'],
 			'Tuan Rumah',
+			'Catatan',
 			['data' => 'Hasil Peserta Indonesia', 'colspan' => 4]
 		);
 
@@ -266,6 +267,7 @@ class Competition extends BaseController {
 				$competitionsCount-$i,
 				linkCompetition($c['ID'], $c['Name']),
 				createFlag($c['HostCountryCode']) . $c['HostCountryName'],
+				$c['Note'],
 				...createMedalCells($medalsByCompetition[$c['ID']], '', null)
 			);
 		}
