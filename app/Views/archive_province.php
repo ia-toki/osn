@@ -16,7 +16,7 @@
 			<td>OSN-P 2022</td>
 			<td><a href="/data/OSNP2022.pdf">PDF</a></td>
 			<td>-</td>
-			<td>-</td>
+			<td><a href="https://tlx.toki.id/problems/osnp-2022">TLX</a></td>
 		</tr>
 		<tr>
 			<td>KSN-P 2021</td>
