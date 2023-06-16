@@ -3,7 +3,7 @@
 ## Dev Setup
 
 - Create a database using the schema and example data from `db.sql`.
-- `cp env .env`.
+- `cp .env.example .env`.
 - Open `.env` and update the `database.default` configs.
 - `composer install`.
 - `./spark serve`.
