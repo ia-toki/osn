@@ -3,19 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 26, 2022 at 02:30 PM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Generation Time: Jul 07, 2023 at 11:51 PM
+-- Server version: 8.0.32
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `osn`
@@ -24,37 +18,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Committee`
+--
+
+CREATE TABLE `Committee` (
+  `ID` int NOT NULL,
+  `Competition` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Person` int NOT NULL,
+  `Role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Chair` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Competition`
 --
 
 CREATE TABLE `Competition` (
-  `ID` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `Level` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `ID` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Level` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `Year` int NOT NULL,
-  `Name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `ShortName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `Host` char(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `HostCountryCode` char(3) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `HostCountryName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `City` varchar(40) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ShortName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Host` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `HostCountryCode` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `HostCountryName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `City` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `DateBegin` date DEFAULT NULL,
   `DateEnd` date DEFAULT NULL,
   `ScorePr` int DEFAULT NULL,
-  `Finished` char(1) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'Y',
-  `DataComplete` char(1) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'Y',
-  `Note` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `Started` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
+  `Finished` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
+  `DataComplete` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
+  `Note` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Competition`
 --
 
-INSERT INTO `Competition` (`ID`, `Level`, `Year`, `Name`, `ShortName`, `Host`, `City`, `DateBegin`, `DateEnd`, `ScorePr`, `Finished`) VALUES
-('APIO2020', 'Regional', 2020, 'Asia-Pacific Informatics Olympiad 2020', 'APIO 2020', NULL, NULL, NULL, NULL, NULL, 'Y'),
-('APIO2021', 'Regional', 2021, 'Asia-Pacific Informatics Olympiad 2021', 'APIO 2021', NULL, NULL, NULL, NULL, NULL, 'Y'),
-('IOI2020', 'International', 2020, 'International Olympiad in Informatics 2020', 'IOI 2020', NULL, NULL, NULL, NULL, NULL, 'Y'),
-('IOI2021', 'International', 2021, 'International Olympiad in Informatics 2021', 'IOI 2021', NULL, NULL, NULL, NULL, NULL, 'Y'),
-('OSN2019', 'National', 2019, 'Olimpiade Sains Nasional 2019 Bidang Informatika', 'OSN 2019', 'SAZ', 'Manado', '2019-06-30', '2019-07-06', 0, 'Y');
+INSERT INTO `Competition` (`ID`, `Level`, `Year`, `Name`, `ShortName`, `Host`, `HostCountryCode`, `HostCountryName`, `City`, `DateBegin`, `DateEnd`, `ScorePr`, `Started`, `Finished`, `DataComplete`, `Note`) VALUES
+('APIO2020', 'Regional', 2020, 'Asia-Pacific Informatics Olympiad 2020', 'APIO 2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'Y', 'Y', NULL),
+('APIO2021', 'Regional', 2021, 'Asia-Pacific Informatics Olympiad 2021', 'APIO 2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'Y', 'Y', NULL),
+('IOI2020', 'International', 2020, 'International Olympiad in Informatics 2020', 'IOI 2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'Y', 'Y', NULL),
+('IOI2021', 'International', 2021, 'International Olympiad in Informatics 2021', 'IOI 2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'Y', 'Y', NULL),
+('OSN2019', 'National', 2019, 'Olimpiade Sains Nasional 2019 Bidang Informatika', 'OSN 2019', 'SAZ', NULL, NULL, 'Manado', '2019-06-30', '2019-07-06', 0, 'Y', 'Y', 'Y', NULL);
 
 -- --------------------------------------------------------
 
@@ -64,26 +73,28 @@ INSERT INTO `Competition` (`ID`, `Level`, `Year`, `Name`, `ShortName`, `Host`, `
 
 CREATE TABLE `Contestant` (
   `ID` int NOT NULL,
+  `Competition` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Person` int NOT NULL,
   `School` int DEFAULT NULL,
-  `Person` int DEFAULT NULL,
-  `Province` char(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Province` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Gender` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Grade` int DEFAULT NULL,
   `TeamNo` int NOT NULL DEFAULT '1',
-  `Competition` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Score` decimal(8,2) DEFAULT NULL,
   `Rank` int DEFAULT NULL,
-  `Medal` char(1) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `Medal` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Contestant`
 --
 
-INSERT INTO `Contestant` (`ID`, `School`, `Person`, `Province`, `TeamNo`, `Competition`, `Score`, `Rank`, `Medal`) VALUES
-(1160, 27, 1001, 'JTZ', 1, 'OSN2019', '563.00', 2, 'G'),
-(1279, 27, 1001, NULL, 1, 'IOI2020', NULL, 13, 'G'),
-(1285, 27, 1001, NULL, 1, 'APIO2020', NULL, 43, 'S'),
-(1659, 27, 1001, NULL, 1, 'APIO2021', NULL, 25, 'S'),
-(1663, 27, 1001, NULL, 1, 'IOI2021', NULL, 28, 'G');
+INSERT INTO `Contestant` (`ID`, `Competition`, `Person`, `School`, `Province`, `Gender`, `Grade`, `TeamNo`, `Score`, `Rank`, `Medal`) VALUES
+(1160, 'OSN2019', 1001, 27, 'JTZ', NULL, NULL, 1, '563.00', 2, 'G'),
+(1279, 'IOI2020', 1001, 27, NULL, NULL, NULL, 1, NULL, 13, 'G'),
+(1285, 'APIO2020', 1001, 27, NULL, NULL, NULL, 1, NULL, 43, 'S'),
+(1659, 'APIO2021', 1001, 27, NULL, NULL, NULL, 1, NULL, 25, 'S'),
+(1663, 'IOI2021', 1001, 27, NULL, NULL, NULL, 1, NULL, 28, 'G');
 
 -- --------------------------------------------------------
 
@@ -93,8 +104,8 @@ INSERT INTO `Contestant` (`ID`, `School`, `Person`, `Province`, `TeamNo`, `Compe
 
 CREATE TABLE `Person` (
   `ID` int NOT NULL,
-  `Name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Person`
@@ -110,9 +121,9 @@ INSERT INTO `Person` (`ID`, `Name`) VALUES
 --
 
 CREATE TABLE `Province` (
-  `ID` char(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `Name` varchar(75) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `ID` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Name` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Province`
@@ -151,7 +162,7 @@ CREATE TABLE `Submission` (
   `Contestant` int NOT NULL,
   `Task` int NOT NULL,
   `Score` decimal(6,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Submission`
@@ -173,43 +184,39 @@ INSERT INTO `Submission` (`ID`, `Contestant`, `Task`, `Score`) VALUES
 
 CREATE TABLE `Task` (
   `ID` int NOT NULL,
-  `Name` varchar(75) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `Alias` varchar(3) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `Competition` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `Competition` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `DayNo` int NOT NULL,
   `TaskNo` int NOT NULL,
+  `Alias` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Name` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `MaxScore` decimal(6,2) DEFAULT NULL,
   `ScorePr` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `Task`
 --
 
-INSERT INTO `Task` (`ID`, `Name`, `Alias`, `Competition`, `DayNo`, `TaskNo`, `MaxScore`, `ScorePr`) VALUES
-(49, 'Mengumpulkan Peserta', '1A', 'OSN2019', 1, 1, '100.00', 0),
-(50, 'Pertahanan Manado', '1B', 'OSN2019', 1, 2, '100.00', 0),
-(51, 'Rekreasi OSN', '1C', 'OSN2019', 1, 3, '100.00', 0),
-(52, 'Tempat Wisata', '2A', 'OSN2019', 2, 4, '100.00', 0),
-(53, 'Mencari Emas', '2B', 'OSN2019', 2, 5, '100.00', 0),
-(54, 'Penyebaran Hoaks', '2C', 'OSN2019', 2, 6, '100.00', 0);
-
---
--- Table structure for table `Committee`
---
-
-CREATE TABLE `Committee` (
-  `ID` int NOT NULL,
-  `Person` int NOT NULL,
-  `Role` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `Chair` char(1) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'N',
-  `Competition` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
+INSERT INTO `Task` (`ID`, `Competition`, `DayNo`, `TaskNo`, `Alias`, `Name`, `MaxScore`, `ScorePr`) VALUES
+(49, 'OSN2019', 1, 1, '1A', 'Mengumpulkan Peserta', '100.00', 0),
+(50, 'OSN2019', 1, 2, '1B', 'Pertahanan Manado', '100.00', 0),
+(51, 'OSN2019', 1, 3, '1C', 'Rekreasi OSN', '100.00', 0),
+(52, 'OSN2019', 2, 4, '2A', 'Tempat Wisata', '100.00', 0),
+(53, 'OSN2019', 2, 5, '2B', 'Mencari Emas', '100.00', 0),
+(54, 'OSN2019', 2, 6, '2C', 'Penyebaran Hoaks', '100.00', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `Committee`
+--
+ALTER TABLE `Committee`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Competition_Person_Role` (`Competition`,`Person`,`Role`) USING BTREE,
+  ADD KEY `Person` (`Person`),
+  ADD KEY `Competition` (`Competition`) USING BTREE;
 
 --
 -- Indexes for table `Competition`
@@ -268,63 +275,21 @@ ALTER TABLE `Task`
   ADD KEY `Competition` (`Competition`) USING BTREE;
 
 --
--- Indexes for table `Committee`
---
-ALTER TABLE `Committee`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Competition_Person_Role` (`Competition`,`Person`,`Role`) USING BTREE,
-  ADD KEY `Person` (`Person`),
-  ADD KEY `Competition` (`Competition`) USING BTREE;
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Contestant`
---
-ALTER TABLE `Contestant`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1892;
-
---
--- AUTO_INCREMENT for table `Person`
---
-ALTER TABLE `Person`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1489;
-
---
--- AUTO_INCREMENT for table `School`
---
-ALTER TABLE `School`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=721;
-
---
--- AUTO_INCREMENT for table `Submission`
---
-ALTER TABLE `Submission`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7843;
-
---
--- AUTO_INCREMENT for table `Task`
---
-ALTER TABLE `Task`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
-
---
--- AUTO_INCREMENT for table `Committee`
---
-ALTER TABLE `Committee`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `Committee`
+--
+ALTER TABLE `Committee`
+  ADD CONSTRAINT `Committee_ibfk_1` FOREIGN KEY (`Person`) REFERENCES `Person` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `Committee_ibfk_2` FOREIGN KEY (`Competition`) REFERENCES `Competition` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Competition`
 --
 ALTER TABLE `Competition`
-  ADD CONSTRAINT `Olympiad_ibfk_1` FOREIGN KEY (`Host`) REFERENCES `Province` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `Competition_ibfk_1` FOREIGN KEY (`Host`) REFERENCES `Province` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Contestant`
@@ -347,15 +312,4 @@ ALTER TABLE `Submission`
 --
 ALTER TABLE `Task`
   ADD CONSTRAINT `Task_ibfk_1` FOREIGN KEY (`Competition`) REFERENCES `Competition` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Constraints for table `Committee`
---
-ALTER TABLE `Committee`
-  ADD CONSTRAINT `Committee_ibfk_1` FOREIGN KEY (`Person`) REFERENCES `Person` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `Committee_ibfk_2` FOREIGN KEY (`Competition`) REFERENCES `Competition` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
