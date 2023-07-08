@@ -19,7 +19,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="bp3-button-group section">
-		<a role="button" href="/<?= $competition['ID'] ?>/hasil" class="bp3-button <?= $submenu == '/hasil' ? 'bp3-active' : '' ?>"><?= $isFinished ? 'Hasil ' : 'Hasil Sementara '?>Peserta</a>
+		<a role="button" href="/<?= $competition['ID'] ?>/hasil" class="bp3-button <?= $submenu == '/hasil' ? 'bp3-active' : '' ?>"><?= $isFinished ? 'Hasil ' : ($isStarted ? 'Hasil Sementara ' : '') ?>Peserta</a>
 		<?php if ($isNational) : ?>
 			<a role="button" href="/<?= $competition['ID'] ?>/provinsi" class="bp3-button <?= $submenu == '/provinsi' ? 'bp3-active' : '' ?>"><?= $isFinished ? 'Hasil ' : ''?>Provinsi</a>
 		<?php endif; ?>

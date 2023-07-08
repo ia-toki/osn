@@ -300,6 +300,16 @@ table {
   text-align: center;
 }
 
+.col-gender {
+  width: 38px;
+  text-align: center;
+}
+
+.col-grade {
+  width: 40px;
+  text-align: right;
+}
+
 .col-province {
   width: 150px;
 }

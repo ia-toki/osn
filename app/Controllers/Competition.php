@@ -119,10 +119,11 @@ class Competition extends BaseController {
 		$data = $this->getCompetition($id);
 		$competition = $data['competition'];
 		$isNational = $data['isNational'];
+		$isStarted = $data['isStarted'];
 		$isFinished = $data['isFinished'];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Gender, Grade, Score, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
 			left join School s on s.ID = c.School
@@ -130,6 +131,11 @@ class Competition extends BaseController {
 			where Competition = ?
 			order by -c.Rank desc, ProvinceName asc, SchoolName asc, Name asc
 		QUERY, [$id])->getResultArray();
+
+		$pastContestants = array();
+		if (!$isStarted) {
+			$pastContestants = $this->getPastContestants($competition);
+		}
 
 		$tasks = $this->db->query(<<<QUERY
 			select Alias, ScorePr from Task
@@ -157,16 +163,32 @@ class Competition extends BaseController {
 		$heading = array(
 			['data' => '#', 'class' => 'col-centered'],
 			'Nama',
-			'Sekolah'
 		);
+
+		if ($this->hasGradeAndGenderInfo($contestants)) {
+			$heading[] = 'J.K.';
+			$heading[] = 'Kls.';
+		}
+
+		$heading[] = 'Sekolah';
+
 		if ($isNational) {
 			$heading[] = ['data' => 'Provinsi', 'class' => 'col-province'];
 			foreach ($tasks as $t) {
 				$heading[] = ['data' => $t['Alias'], 'class' => 'col-centered'];
 			}
-			$heading[] = ['data' => 'Total', 'class' => 'col-centered'];
+
+			if ($isStarted) {
+				$heading[] = ['data' => 'Total', 'class' => 'col-centered'];
+			} else {
+				$heading[] = 'Veteran?';
+			}
 		}
-		$heading[] = 'Medali';
+
+		if ($isFinished) {
+			$heading[] = 'Medali';
+		}
+
 		$table->setHeading($heading);
 
 		foreach ($contestants as $c) {
@@ -175,8 +197,15 @@ class Competition extends BaseController {
 			$row = array(
 				['data' => $c['TeamNo'] == 1 ? $c['Rank'] : '', 'class' => 'col-rank ' . $clazz],
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
-				['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz]
 			);
+
+			if ($this->hasGradeAndGenderInfo($contestants)) {
+				$row[] = ['data' => $c['Gender'], 'class' => 'col-gender ' . $clazz];
+				$row[] = ['data' => $c['Grade'], 'class' => 'col-grade ' . $clazz];
+			}
+
+			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => 'col-school ' . $clazz];
+
 			if ($isNational) {
 				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 				foreach ($tasks as $t) {
@@ -189,9 +218,16 @@ class Competition extends BaseController {
 
 					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
 				}
-				$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']), 'class' => 'col-score ' . $clazz];
+				if ($isStarted) {
+					$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']), 'class' => 'col-score ' . $clazz];
+				} else {
+					$row[] = join(', ', $pastContestants[$c['PersonID']] ?? []);
+				}
 			}
-			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
+
+			if ($isFinished) {
+				$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
+			}
 
 			$table->addRow($row);
 		}
@@ -293,6 +329,7 @@ class Competition extends BaseController {
 			'menu' => 'competition',
 			'competition' => $competition,
 			'isNational' => $competition['Level'] == 'National',
+			'isStarted' => $competition['Started'] == 'Y',
 			'isFinished' => $competition['Finished'] == 'Y',
 			'isDataComplete' => $competition['DataComplete'] == 'Y',
 			'dates' => formatDateRange($competition['DateBegin'], $competition['DateEnd']),
@@ -314,5 +351,35 @@ class Competition extends BaseController {
 		}
 
 		return $data;
+	}
+
+	private function getPastContestants($competition) {
+		$contestants = $this->db->query(<<<QUERY
+			select c.Person as PersonID, comp.Year as Year
+			from Contestant c
+			join Person p on p.ID = c.Person
+			join Competition comp on comp.ID = c.Competition
+			where comp.Level = ? and comp.Year < ?
+			and c.Person in (select Person from Contestant where Competition = ?)
+			order by Year desc
+		QUERY, [$competition['Level'], $competition['Year'], $competition['ID']])->getResultArray();
+
+		$result = array();
+		foreach ($contestants as $c) {
+			if (!isset($result[$c['PersonID']])) {
+				$result[$c['PersonID']] = array();
+			}
+			$result[$c['PersonID']][] = $c['Year'];
+		}
+		return $result;
+	}
+
+	private function hasGradeAndGenderInfo($contestants) {
+		foreach ($contestants as $c) {
+			if ($c['Gender'] || $c['Grade']) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
