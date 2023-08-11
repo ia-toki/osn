@@ -43,6 +43,14 @@ chdir(FCPATH);
 
 $app = require rtrim($paths->systemDirectory, '/ ') . '/bootstrap.php';
 
+// Load environment settings from .env files into $_SERVER and $_ENV
+require_once SYSTEMPATH . 'Config/DotEnv.php';
+(new CodeIgniter\Config\DotEnv(ROOTPATH))->load();
+
+// Grab our CodeIgniter
+$app = Config\Services::codeigniter();
+$app->initialize();
+
 // Grab our Console
 $console = new \CodeIgniter\CLI\Console($app);
 
