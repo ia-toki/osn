@@ -225,8 +225,8 @@
     <p><b>Mesin</b></p>
 
     <ul>
-    <li><a href="https://www.digitalocean.com/docs/droplets/resources/choose-plan/#droplet-plans"><s>DigitalOcean CPU-optimized dedicated droplet</a>, Intel Xeon Skylake 2 cores @ 2.7 GHz</s> -- tbd</li>
-    <li><s>2 GB RAM</s> -- tbd</li>
+    <li><a href="https://www.digitalocean.com/docs/droplets/resources/choose-plan/#droplet-plans">DigitalOcean CPU-optimized dedicated droplet</a>, Intel Xeon Skylake 2 cores @ 2.7 GHz</li>
+    <li>2 GB RAM</li>
     </ul>
 
     <p><b>Kompilator C++</b></p>
