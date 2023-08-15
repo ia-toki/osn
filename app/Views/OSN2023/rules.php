@@ -232,6 +232,6 @@
     <p><b>Kompilator C++</b></p>
 
     <ul>
-    <li><s>g++ 9.4 (C++11 / C++17 / C++20)</s> -- tbd</li>
+    <li>g++ 11.3.0</li>
     </ul>
 </div>
