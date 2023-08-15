@@ -205,7 +205,7 @@
 
     <p><strong>Kompilator</strong></p>
     <ul>
-      <li>MinGW (C++xx) -- tbd</li>
+      <li>MinGW (C++)</li>
     </ul>
 
     <p><strong>Debugger</strong></p>
