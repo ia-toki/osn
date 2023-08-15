@@ -181,12 +181,6 @@
     <h3>H. Spesifikasi Teknis</h3>
     <p>Berikut ini spesifikasi komputer setiap peserta.</p>
 
-    <p><strong>Komputer</strong></p>
-    <ul>
-      <li>Laptop Acer AMD A8</li>
-      <li>4 GB RAM</li>
-    </ul>
-
     <p><strong>Sistem Operasi</strong></p>
     <ul>
       <li>Windows 11</li>
