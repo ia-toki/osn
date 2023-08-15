@@ -1,10 +1,3 @@
-<div class="bp3-callout bp3-intent-warning">
-    <p>Untuk poin A hingga F, perbedaan dengan <a href="/OSN2022/peraturan">Peraturan OSN 2022</a> ditandai dengan <span style="color:red">warna merah</span>.</p>
-    <p>Untuk poin G, perbedaan dengan <a href="/OSN2019/peraturan">Peraturan OSN 2019</a> ditandai dengan <span style="color:red">warna merah</span>.</p>
-</div>
-
-<br />
-
 <div class="bp3-card">
     <h3 id="a-teknis-umum">A. Teknis Umum</h3>
 
