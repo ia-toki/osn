@@ -197,7 +197,7 @@
 
     <p><strong>Debugger</strong></p>
     <ul>
-      <li>gdb 8.1</li>
+      <li>gdb</li>
     </ul>
 
     <p><strong>Dokumentasi</strong></p>
