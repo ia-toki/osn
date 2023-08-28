@@ -34,7 +34,7 @@
       <ul>
         <li><strong>Day 0</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+Indonesian+NOI+Open+Contest+2023+Day+0&amp;iso=20230828T1800&amp;p1=108&amp;ah=19&amp;am=00">28 August 2023 11:00 - 29 August 2023 06:00 UTC</a> (trial session)</li>
         <li><strong>Day 1</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+Indonesian+NOI+Open+Contest+2023+Day+1&amp;iso=20230829T1400&amp;p1=108&amp;ah=23&amp;am=00">29 August 2023 07:00 - 30 August 2023 06:00 UTC</a></li>
-        <li><strong>Day 2</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+Indonesian+NOI+Open+Contest+2023+Day+2&amp;iso=20230830T1400">30 August 2023 07:00</a> - 1 September 2023 06:00 UTC (2 days)</li>
+        <li><strong>Day 2</strong>: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=TOKI+Indonesian+NOI+Open+Contest+2023+Day+2&amp;iso=20230830T1400&amp;p1=108">30 August 2023 07:00</a> - 1 September 2023 06:00 UTC (2 days)</li>
       </ul>
     </li>
     <li>Each contestant can select <strong>any 5-hour window</strong> within the time range to do the contest for each competition day.</li>
