@@ -11,6 +11,14 @@ function formatScore($score, $precision) {
 	return substr($score, 0, strlen($score)-2+$precision);
 }
 
+function formatScoreMark($mark) {
+	if ($mark == null) {
+		return $mark;
+	}
+
+	return '<sup>&nbsp;' . $mark . '</sup>';
+}
+
 function getScoreCss($score) {
 	if ($score == '') {
 		return '';

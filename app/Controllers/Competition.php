@@ -123,7 +123,7 @@ class Competition extends BaseController {
 		$isFinished = $data['isFinished'];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Gender, Grade, Score, Medal
+			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Gender, Grade, Score, ScoreMark, Medal
 			from Contestant c
 			join Person p on p.ID = c.Person
 			left join School s on s.ID = c.School
@@ -219,7 +219,7 @@ class Competition extends BaseController {
 					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
 				}
 				if ($isStarted) {
-					$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']), 'class' => 'col-score ' . $clazz];
+					$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']) . formatScoreMark($c['ScoreMark']), 'class' => 'col-score ' . $clazz];
 				} else {
 					$row[] = join(', ', $pastContestants[$c['PersonID']] ?? []);
 				}
