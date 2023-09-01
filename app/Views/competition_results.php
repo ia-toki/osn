@@ -1,11 +1,9 @@
 <?= $this->extend('competition') ?>
 
 <?= $this->section('subcontent') ?>
-	<?php if ($isStarted && !$isFinished) : ?>
+	<?php if ($competition['ID'] == 'OSN2023') : ?>
 		<div class="bp3-callout bp3-intent-warning">
-			<p>Ini adalah hasil sementara, yang hanya menampilkan <b>hasil 4 jam pertama</b> setiap harinya.</p>
-			<hr />
-			<p>These are preliminary results, showing only the <b>results from the first 4 hours</b> of each day.</p>
+			<p>Berdasarkan peraturan BPTI, detail hasil setiap bidang hanya boleh dirilis beberapa hari setelah pengumuman resmi. 🙏</p>
 		</div>
 		<br />
 	<?php endif; ?>
