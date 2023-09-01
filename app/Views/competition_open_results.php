@@ -8,7 +8,9 @@
 			$problems = array_splice($header, 5, count($header)-5-2);
 			$countries = [
 				'AFG' => 'Afghanistan',
+				'ARG' => 'Argentina',
 				'ARM' => 'Armenia',
+				'AUS' => 'Australia',
 				'AZE' => 'Azerbaijan',
 				'BGD' => 'Bangladesh',
 				'BGR' => 'Bulgaria',
@@ -19,6 +21,7 @@
 				'DNK' => 'Denmark',
 				'EGY' => 'Egypt',
 				'EST' => 'Estonia',
+				'GBR' => 'United Kingdom',
 				'GEO' => 'Georgia',
 				'GRC' => 'Greece',
 				'HKG' => 'Hong Kong',
@@ -30,6 +33,7 @@
 				'ISR' => 'Israel',
 				'ITA' => 'Italy',
 				'JPN' => 'Japan',
+				'KAZ' => 'Kazakhstan',
 				'KOR' => 'South Korea',
 				'LUX' => 'Luxembourg',
 				'MDA' => 'Moldova',
@@ -38,6 +42,7 @@
 				'MYS' => 'Malaysia',
 				'NLD' => 'Netherlands',
 				'NZL' => 'New Zealand',
+				'PAK' => 'Pakistan',
 				'POL' => 'Poland',
 				'PHL' => 'Philippines',
 				'PRT' => 'Portugal',
