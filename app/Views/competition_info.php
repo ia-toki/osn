@@ -18,7 +18,7 @@
 
 		<hr />
 
-		<h3>Komite Ikatan Alumni</h3>
+		<h3>Asisten Juri</h3>
 
 		<table class="table table-bordered table-competition-info">
 			<tbody>

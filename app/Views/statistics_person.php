@@ -26,7 +26,7 @@
 
 		<?php if (isset($committeeTable) && $committeeTable) : ?>
 			<hr />
-			<h4>Komite Ikatan Alumni</h4>
+			<h4>Asisten Juri</h4>
 			<?= $committeeTable ?>
 		<?php endif ?>
 	</div>
