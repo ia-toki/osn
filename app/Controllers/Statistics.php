@@ -69,7 +69,7 @@ class Statistics extends BaseController {
 		$province = $provinces[0];
 
 		$contestants = $this->db->query(<<<QUERY
-			select c.ID as ID, Competition, comp.ShortName as CompetitionName, p.ID as PersonID, c.Rank as 'Rank', p.Name as Name, s.ID as SchoolID, s.Name as SchoolName, Score, comp.ScorePr as ScorePr, Medal
+			select c.ID as ID, TeamNo, Competition, comp.ShortName as CompetitionName, p.ID as PersonID, c.Rank as 'Rank', p.Name as Name, s.ID as SchoolID, s.Name as SchoolName, Score, comp.ScorePr as ScorePr, Medal
 			from Contestant c
 			join Competition comp on comp.ID = c.Competition
 			join Person p on p.ID = c.Person
@@ -153,7 +153,7 @@ class Statistics extends BaseController {
 			}
 			$curCompetition = $c['Competition'];
 			$clazz = $clazz . ' ' . getMedalClass($c['Medal']);
-			$row[] = ['data' => $c['Rank'], 'class' => 'col-rank ' . $clazz];
+			$row[] = ['data' => $c['TeamNo'] == 1 ? $c['Rank'] : '', 'class' => 'col-rank ' . $clazz];
 			$row[] = ['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz];
 			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz];
 
