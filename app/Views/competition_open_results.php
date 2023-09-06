@@ -63,6 +63,7 @@
 
 		<div class="bp3-callout bp3-intent-warning">
 			<p>*Medals are based on the official contest cutoffs.</p>
+			<p>When there are ties, the user who achieved the score with the shorter duration, will be positioned higher in the ranklist.</p>
 		</div>
 
 		<br />
