@@ -75,7 +75,7 @@ class Statistics extends BaseController {
 			join Person p on p.ID = c.Person
 			left join School s on s.ID = c.School
 			where c.Province = ?
-			order by comp.Year desc, c.Rank asc
+			order by comp.Year desc, -c.Rank desc
 		QUERY, [$id])->getResultArray();
 
 		$contestantCounts = $this->db->query(<<<QUERY
@@ -246,7 +246,7 @@ class Statistics extends BaseController {
 			left join Province pr on pr.ID = c.Province
 			left join School s on s.ID=c.School
 			where c.School = ?
-			order by comp.Year desc, c.Rank asc
+			order by comp.Year desc, -c.Rank desc
 		QUERY, [$id])->getResultArray();
 
 		$submissions = $this->db->query(<<<QUERY
@@ -348,7 +348,7 @@ class Statistics extends BaseController {
 			left join School s on s.ID = c.School
 			left join Province pr on pr.ID = c.Province
 			where c.Person = ?
-			order by comp.Year desc, c.Rank asc
+			order by comp.Year desc, -c.Rank desc
 		QUERY, [$id])->getResultArray();
 
 		$submissions = $this->db->query(<<<QUERY
