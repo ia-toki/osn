@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p>Olimpiade yang baru saja selesai: <a href="/OSN2023/hasil"><strong>Olimpiade Sains Nasional 2023 Bidang Informatika</strong></a> dan <a href="/IOI2023/hasil"><strong>International Olympiad in Informatics 2023</strong></a>.</p>
+  <p><a href="/silabus/kota"><b>Silabus OSN-K 2024</b></a> sudah dirilis.</p>
 </div>
 
 <br />
