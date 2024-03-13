@@ -3,18 +3,21 @@
 <?= $this->section('subcontent') ?>
 
 <div class="bp3-callout bp3-intent-primary">
-  <p>Terakhir diperbarui: <b>Januari 2024</b>.</p>
+  <p>Terakhir diperbarui: <b>13 Maret 2024</b>.</p>
 </div>
 <br/>
 <div class="bp3-card">
+  <h3>Pedoman</h3>
+  <p>Pedoman pelaksanaan OSN-K 2024 dapat diunduh <a href="/data/OSNK2024Pedoman.pdf">di sini.</a></p>
+  <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>, yang terdiri atas, namun tidak terbatas pada:</p>
   <ul>
     <li>aljabar Boolean, teori himpunan</li>
     <li>graf, geometri</li>
     <li>kombinatorika, model matematis, deret aritmetika</li>
-    <li>simulasi, optimisasi, induksi/deduksi logika, <i>computational thinking</i></li>
-    <li>masukan/keluaran, membaca algoritma, percabangan, perulangan, <i>array</i>, subprogram, rekursif</li>
+    <li>simulasi, optimisasi, induksi/deduksi logika, berpikir komputasional (<i>computational thinking</i>)</li>
+    <li>masukan/keluaran, membaca algoritma, percabangan, perulangan, <i>array</i>, subprogram, rekursi</li>
   </ul>
   <hr/>
   <h3>Bentuk Soal</h3>
