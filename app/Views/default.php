@@ -6,7 +6,7 @@
 	<title>OSN Bidang Informatika</title>
 
 	<link rel="shortcut icon" href="/osn-logo.png">
-	<link rel="stylesheet" href="/main8.css">
+	<link rel="stylesheet" href="/main9.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/core@3.35.0/lib/css/blueprint.css" />

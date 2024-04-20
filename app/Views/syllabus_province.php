@@ -23,17 +23,17 @@
   <hr/>
   <h3>Contoh Soal</h3>
   <div style="max-width: 650px; margin-left: auto; margin-right: auto">
-    <h4><b>A. Berbagi Candil</b></h4>
-    <h5><b>Deskripsi</b></h5>
+    <h4>A. Berbagi Candil</h4>
+    <h5>Deskripsi</h5>
     <p>Pak Dengklek memiliki N ekor bebek. Pagi hari ini, Pak Dengklek telah membeli M butir candil untuk dibagikan ke bebek-bebeknya. Perhatikan bahwa nilai M ini bisa saja 0 yang artinya Pak Dengklek sebenarnya tidak membeli candil.</p>
     <p>Pak Dengklek ingin membagikan candil-candil tersebut <b>sebanyak mungkin</b> kepada bebek-bebeknya selama setiap bebeknya mendapatkan banyak butir candil yang <b>sama rata</b>. Setelah membagikan candil-candil tersebut, sisa candil akan dimakan oleh Pak Dengklek.</p>
     <p>Tugas Anda adalah menentukan banyaknya candil yang akhirnya dimakan oleh Pak Dengklek.</p>
 
-    <h5><b>Soal A1</b></h5>
+    <h5>Soal A1</h5>
     <p>Jika Pak Dengklek membeli 100 butir candil untuk dibagikan ke 7 ekor bebeknya, berapakah banyaknya candil yang akhirnya dimakan oleh Pak Dengklek?</p>
     <p><b>Tuliskan jawaban dalam bentuk ANGKA.</b></p>
 
-    <h5><b>Soal A2</b></h5>
+    <h5>Soal A2</h5>
     <p>Asumsikan Pak Dengklek memiliki 10 ekor bebek. Dari 5 skenario berikut, manakah yang menyebabkan Pak Dengklek akhirnya memakan butir candil <b>paling banyak</b>?</p>
 
     <ul>
@@ -44,12 +44,12 @@
       <li>e. Pak Dengklek membeli 101 butir candil</li>
     </ul>
 
-    <h5><b>Soal A3</b></h5>
+    <h5>Soal A3</h5>
     <p>BENAR atau SALAH: Banyak candil yang akhirnya dimakan oleh Pak Dengklek selalu lebih kecil dari N.</p>
     
     <p><b>Tuliskan jawaban dalam bentuk BENAR/SALAH dengan huruf kapital.</b></p>
 
-    <h5><b>Soal Pemrograman</b></h5>
+    <h5>Soal Pemrograman</h5>
 
     <p>Tulislah sebuah program dengan bahasa C/C++ sesuai deskripsi cerita dengan format dan batasan sebagai berikut. Perhatikan bahwa untuk setiap kasus uji berlaku batas waktu selama 2 detik dan batas memori sebanyak 256 MB.</p>
 
@@ -61,7 +61,7 @@
     <p>Keluarkan sebuah baris berisi sebuah bilangan bulat yang menyatakan banyaknya candil yang akhirnya dimakan oleh Pak Dengklek.</p>
 
     <p><b>Contoh Masukan dan Keluaran</b></p>
-    <table border="1">
+    <table border="1" style="margin-bottom: 10px">
       <thead>
         <tr><th>Contoh Masukan</th><th>Contoh Keluaran</th></tr>
       </thead>
@@ -91,14 +91,16 @@
     <p><b>Peringatan</b></p>
     <p>Untuk dapat menjawab pertanyaan ini dengan benar, Anda mungkin perlu menggunakan tipe data <b>long long</b> untuk dapat menyimpan data dengan nilai yang besar. Tipe data <b>int</b> saja mungkin tidak cukup!</p>
 
-    <h4><b>B. Menghitung Subsekuens OSN</b></h4>
+    <hr>
+  
+    <h4>B. Menghitung Subsekuens OSN</h4>
 
-    <h5><b>Deskripsi</b></h5>
+    <h5>Deskripsi</h5>
 
     <p>Diberikan sebuah string S dengan panjang N yang hanya terdiri dari huruf-huruf 'O', 'S', dan 'N'; Anda diminta untuk menghitung berapa banyak kemunculan subsekuens "OSN" dari string tersebut.</p>
     <p>Secara persisnya, Anda diminta untuk menghitung banyaknya cara memilih huruf 'O', 'S', dan 'N' dari string yang diberikan sehingga huruf 'O' yang dipilih berada sebelum huruf 'S' yang dipilih, dan huruf 'S' yang dipilih berada sebelum huruf 'N' yang dipilih.</p>
 
-    <h5><b>Soal B1</b></h5>
+    <h5>Soal B1</h5>
     <p>Manakah dari 5 pilihan string berikut yang memiliki kemunculan subsekuens "OSN" <b>paling banyak</b>?</p>
     <ul>
       <li>a. "OSNOSN"</li>
@@ -108,15 +110,15 @@
       <li>e. "NONONONONON"</li>
     </ul>
 
-    <h5><b>Soal B2</b></h5>
+    <h5>Soal B2</h5>
     <p>Dari seluruh kemungkinan string dengan panjang 9, tuliskan string yang memiliki kemunculan subsekuens "OSN" <b>paling banyak</b>! Jika terdapat lebih dari satu kemungkinan jawaban, pilih yang <b>paling kecil</b> secara leksikografis.</p>
     <p><b>Tuliskan jawaban dalam bentuk STRING dengan huruf kapital.</b></p>
 
-    <h5><b>Soal B3</b></h5>
+    <h5>Soal B3</h5>
     <p>Pada string "SONOSONOSONOSONOSONOSONOSONO" (yakni penggabungan 7 kali string "SONO"), berapa kalikah subsekuens "OSN" muncul?</p>
     <p><b>Tuliskan jawaban dalam bentuk ANGKA.</b></p>
 
-    <h5><b>Soal Pemrograman</b></h5>
+    <h5>Soal Pemrograman</h5>
 
     <p>Tulislah sebuah program dengan bahasa C/C++ sesuai deskripsi cerita dengan format dan batasan sebagai berikut. Perhatikan bahwa untuk setiap kasus uji berlaku batas waktu selama 2 detik dan batas memori sebanyak 256 MB.</p>
    
@@ -129,7 +131,7 @@ S</pre>
     <p>Keluarkan sebuah baris berisi sebuah bilangan bulat yang menyatakan banyaknya kemunculan subsekuens "OSN" dari string S.</p>
     
     <p><b>Contoh Masukan dan Keluaran</b></p>
-    <table border="1">
+    <table border="1" style="margin-bottom: 10px">
       <thead>
         <tr><th>Contoh Masukan</th><th>Contoh Keluaran</th></tr>
       </thead>
