@@ -14,4 +14,11 @@ class Syllabus extends BaseController {
 			'submenu' => '/kota'
 		]);
 	}
+
+	public function province() {
+		return view('syllabus_province', [
+			'menu' => 'syllabus',
+			'submenu' => '/provinsi'
+		]);
+	}
 }

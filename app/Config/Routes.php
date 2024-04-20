@@ -35,6 +35,7 @@ $routes->get('/persiapan/nasional', 'Preparation::national');
 $routes->get('/persiapan/lain-lain', 'Preparation::others');
 $routes->get('/silabus', 'Syllabus::national');
 $routes->get('/silabus/kota', 'Syllabus::city');
+$routes->get('/silabus/provinsi', 'Syllabus::province');
 $routes->get('/olimpiade', 'Competition::listNational');
 $routes->get('/olimpiade/internasional', 'Competition::listInternational');
 $routes->get('/olimpiade/regional', 'Competition::listRegional');
