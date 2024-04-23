@@ -8,7 +8,7 @@
 <br/>
 <div class="bp3-card">
   <h3>Pedoman</h3>
-  <p>Pedoman pelaksanaan OSN-P 2024 dapat diunduh <a href="/data/OSNP2024Pedoman.pdf">di sini.</a></p>
+  <p>Pedoman pelaksanaan OSN-P 2024 dapat diunduh <a href="/data/OSNP2024PedomanRev1.pdf">di sini.</a></p>
   <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>.
