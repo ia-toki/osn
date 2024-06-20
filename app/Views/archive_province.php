@@ -13,6 +13,12 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td>OSN-P 2024</td>
+			<td><a href="/data/OSNP2024.pdf">PDF</a></td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+		<tr>
 			<td>OSN-P 2023</td>
 			<td><a href="/data/OSNP2023.pdf">PDF</a></td>
 			<td>-</td>
