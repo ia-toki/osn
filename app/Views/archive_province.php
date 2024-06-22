@@ -16,7 +16,7 @@
 			<td>OSN-P 2024</td>
 			<td><a href="/data/OSNP2024.pdf">PDF</a></td>
 			<td>-</td>
-			<td>-</td>
+			<td><a href="https://tlx.toki.id/problems/osnp-2024">TLX</a></td>
 		</tr>
 		<tr>
 			<td>OSN-P 2023</td>
