@@ -21,7 +21,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="https://tlx.toki.id/courses/basic">Kursus Pemrograman Dasar TLX</a></td>
+				<td><a href="https://tlx.toki.id/courses/basic-cpp">Kursus Pemrograman Dasar TLX</a></td>
 				<td>Kursus</td>
 				<td>Ikatan Alumni TOKI</td>
 				<td><p>Belajar algoritma dan pemrograman dasar dengan kurikulum yang disusun bertingkat, dan langsung latihan soal-soal melalui situs TLX.</p></td>
