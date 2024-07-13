@@ -165,8 +165,11 @@ class Competition extends BaseController {
 			'Nama',
 		);
 
-		if ($this->hasGradeAndGenderInfo($contestants)) {
+		if ($this->hasGenderInfo($contestants)) {
 			$heading[] = 'J.K.';
+		}
+
+		if ($this->hasGradeInfo($contestants)) {
 			$heading[] = 'Kls.';
 		}
 
@@ -199,8 +202,11 @@ class Competition extends BaseController {
 				['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz],
 			);
 
-			if ($this->hasGradeAndGenderInfo($contestants)) {
+			if ($this->hasGenderInfo($contestants)) {
 				$row[] = ['data' => $c['Gender'], 'class' => 'col-gender ' . $clazz];
+			}
+
+			if ($this->hasGradeInfo($contestants)) {
 				$row[] = ['data' => $c['Grade'], 'class' => 'col-grade ' . $clazz];
 			}
 
@@ -374,9 +380,18 @@ class Competition extends BaseController {
 		return $result;
 	}
 
-	private function hasGradeAndGenderInfo($contestants) {
+	private function hasGenderInfo($contestants) {
 		foreach ($contestants as $c) {
-			if ($c['Gender'] || $c['Grade']) {
+			if ($c['Gender']) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private function hasGradeInfo($contestants) {
+		foreach ($contestants as $c) {
+			if ($c['Grade']) {
 				return true;
 			}
 		}
