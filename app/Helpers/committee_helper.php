@@ -13,8 +13,8 @@ function getCommitteeTitles() {
 	return COMMITTEE_TITLES;
 }
 
-function getCommitteeTitle($role) {
-	return COMMITTEE_TITLES[$role];
+function getCommitteeTitle($role, $isChair) {
+	return COMMITTEE_TITLES[$role] . ($isChair ? ' (Ketua)' : '');
 }
 
 function getCommitteeRoles() {

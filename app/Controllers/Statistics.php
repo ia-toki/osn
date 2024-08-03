@@ -514,7 +514,7 @@ class Statistics extends BaseController {
 		foreach ($committee as $c) {
 			$row = array(
 				linkCompetitionInfo($c['Competition'], $c['CompetitionName']),
-				getCommitteeTitle($c['Role']),
+				getCommitteeTitle($c['Role'], $c['Chair'] == 'Y'),
 			);
 			$table->addRow($row);
 			$rowCount++;
