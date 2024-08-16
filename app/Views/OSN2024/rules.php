@@ -22,14 +22,14 @@
         <ol>
         <li>Peserta membuat sebuah program yang membaca masukan kasus uji dari <strong>stdin</strong> dan mencetak jawaban ke <strong>stdout</strong>.</li>
         <li>Program harus mengeluarkan jawaban dalam batas waktu dan memori yang dinyatakan pada soal.</li>
-        <li>Contoh soal: <a href="https://tlx.toki.id/problems/osn-2018/1C">Ojek Daring, OSN 2018</a>.</li>
+        <li>Contoh soal: <a href="https://tlx.toki.id/problems/osn-2023/1A">Pertahanan Bogor, OSN 2023</a>.</li>
         </ol>
     </li>
     <li>Pada soal bertipe <em>interactive</em>:
         <ol>
         <li>Peserta membuat sebuah program yang berinteraksi dengan program juri: program juri memberikan keluaran ke <strong>stdout</strong>, yang menjadi masukan <strong>stdin</strong> untuk program peserta, kemudian program peserta memberikan keluaran ke <strong>stdout</strong>, dan seterusnya, untuk mencapai tujuan tertentu yang dinyatakan pada soal.</li>
         <li>Program harus mengeluarkan jawaban dalam batas waktu dan memori yang dinyatakan pada soal.</li>
-        <li>Contoh soal: <a href="https://tlx.toki.id/problems/osn-2019/2B">Mencari Emas, OSN 2019</a>.</li>
+        <li>Contoh soal: <a href="https://tlx.toki.id/problems/osn-2023/2C">Pengiriman Satu Hari, OSN 2023</a>.</li>
         </ol>
     </li>
     <li>Pada soal bertipe <em>output-only</em>:
@@ -37,7 +37,7 @@
         <li>Peserta diberikan seluruh masukan dari kasus-kasus uji soal.</li>
         <li>Peserta menjawab dengan mengirimkan beberapa <strong>berkas keluaran</strong> yang sudah dikompres.</li>
         <li>Peserta <strong>tidak harus</strong> membuat program untuk menghasilkan berkas-berkas keluaran (boleh dikerjakan secara manual).</li>
-        <li>Contoh soal: <a href="https://tlx.toki.id/problems/osn-2019/1C">Rekreasi OSN, OSN 2019</a>.</li>
+        <li>Contoh soal: <a href="https://tlx.toki.id/problems/ksn-2020/1A">Pertahanan Negara, KSN 2020</a>.</li>
         </ol>
     </li>
     </ol>
@@ -67,7 +67,7 @@
             <li>Contoh soal:
                 <ul>
                 <li><em>Batch</em>: <a href="https://tlx.toki.id/problems/osn-2013/0C">Tukar-Tukar, OSN 2013</a>.</li>
-                <li><em>Interactive</em>: <a href="https://tlx.toki.id/problems/ksn-2020/2C">Mencari Bola, KSN 2020</a>.</li>
+                <li><em>Interactive</em>: <a href="https://tlx.toki.id/problems/osn-2023/2C">Pengiriman Satu Hari, OSN 2023</a>.</li>
                 <li><em>Output-only</em>: <a href="https://tlx.toki.id/problems/ksn-2020/1A">Pertahanan Negara, KSN 2020</a>.</li>
                 </ul>
             </li>
