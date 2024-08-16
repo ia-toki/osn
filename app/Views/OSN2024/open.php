@@ -55,14 +55,14 @@
         <li>The most common problem type.</li>
         <li>Given an input, contestants write a program that reads input from <strong>stdin</strong> and writes output to <strong>stdout</strong>.</li>
         <li>The program must run within the given time and memory limits.</li>
-        <li>Example: <a href="https://tlx.toki.id/problems/osn-2018/1C">Online Ojek, OSN 2018</a></li>
+        <li>Example: <a href="https://tlx.toki.id/problems/osn-2023/1A">Bogor Defence, OSN 2023</a></li>
       </ul>
     </li>
     <li><strong>Interactive</strong> problems:
       <ul>
         <li>Contestants write a program that interacts with judge's program: judge's program writes to <strong>stdout</strong> and is given as the <strong>stdin</strong> for contestant's program, then contestant's program writes to <strong>stdout</strong> and is given as the <strong>stdin</strong> for judge's program, and the interaction continues until a given goal is reached.</li>
         <li>Contestant's program must output the answer within the given time and memory limits.</li>
-        <li>Example: <a href="https://tlx.toki.id/problems/osn-2019/2B">Detecting Gold, OSN 2019</a></li>
+        <li>Example: <a href="https://tlx.toki.id/problems/osn-2023/2C">One-Day Delivery, OSN 2023</a></li>
       </ul>
     </li>
     <li><strong>Output-only</strong> problems:
@@ -70,7 +70,7 @@
         <li>Contestants will be given all the input test cases.</li>
         <li>Contestants submit <strong>output</strong> for each input test case.</li>
         <li>Contestants <strong>do not have to</strong> write a program; the outputs may be solved manually.</li>
-        <li>Example: <a href="https://tlx.toki.id/problems/osn-2019/1C">OSN Excursion, OSN 2019</a>.</li>
+        <li>Example: <a href="https://tlx.toki.id/problems/ksn-2020/1A">National Defence, KSN 2020</a>.</li>
       </ul>
     </li>
   </ul>
@@ -100,7 +100,7 @@
         <li>Example:
           <ul>
             <li>Batch: <a href="https://tlx.toki.id/problems/osn-2013/0C">Tukar-Tukar, OSN 2013</a>.</li>
-            <li>Interactive: <a href="https://tlx.toki.id/problems/ksn-2020/2C">Finding Balls, KSN 2020</a>.</li>
+            <li>Interactive: <a href="https://tlx.toki.id/problems/osn-2023/2C">One-Day Delivery, OSN 2023</a>.</li>
             <li>Output-only: <a href="https://tlx.toki.id/problems/ksn-2020/1A">National Defence, KSN 2020</a>.</li>
           </ul>
         </li>
