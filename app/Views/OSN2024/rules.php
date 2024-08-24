@@ -171,18 +171,19 @@
 
     <p><strong>Browser</strong></p>
     <ul>
-      <li>Mozilla Firefox</li>
+      <li>Google Chrome</li>
     </ul>
 
     <p><strong>Aplikasi</strong></p>
     <ul>
       <li>Geany</li>
+      <li>Dev-C++</li>
       <li>Visual Studio Code</li>
     </ul>
 
     <p><strong>Kompilator</strong></p>
     <ul>
-      <li>MinGW (C++)</li>
+      <li>g++ 11 (MinGW)</li>
     </ul>
 
     <p><strong>Debugger</strong></p>
@@ -192,7 +193,7 @@
 
     <p><strong>Dokumentasi</strong></p>
     <ul>
-      <li><a href="http://upload.cppreference.com/mwiki/images/0/0f/html_book_20180311.zip">http://upload.cppreference.com/mwiki/images/0/0f/html_book_20180311.zip</a></li>
+      <li><a href="https://en.cppreference.com/w/File:html_book_20190607.zip">https://en.cppreference.com/w/File:html_book_20190607.zip</a></li>
     </ul>
 
     <hr />
