@@ -112,7 +112,7 @@
         <ol>
         <li><strong>AC</strong> (Accepted): program berhasil menyelesaikan kasus uji dalam batas waktu dan memori.</li>
         <li><strong>WA</strong> (Wrong Answer): program berhenti dalam batas waktu dan memori, namun menghasilkan keluaran yang salah.</li>
-        <li><strong>RTE</strong> (Runtime Error): program <em>crash</em> atas melebihi batas memori.</li>
+        <li><strong>RTE</strong> (Runtime Error): program <em>crash</em> atau melebihi batas memori.</li>
         <li><strong>TLE</strong> (Time Limit Exceeded): program melebihi batas waktu.</li>
         <li>Skipped: <em>grading</em> tidak dilakukan karena sudah ada kasus uji lain dalam subsoal yang sama yang tidak mendapatkan AC.</li>
         </ol>
