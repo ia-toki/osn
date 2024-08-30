@@ -12,15 +12,20 @@
 				'ARM' => 'Armenia',
 				'AUS' => 'Australia',
 				'AZE' => 'Azerbaijan',
+				'BEL' => 'Belgium',
 				'BGD' => 'Bangladesh',
 				'BGR' => 'Bulgaria',
+				'BIH' => 'Bosnia and Herzegovina',
+				'BLR' => 'Belarus',
 				'BRA' => 'Brazil',
 				'CAN' => 'Canada',
 				'CHN' => 'China',
 				'COL' => 'Colombia',
+				'CZE' => 'Czech Republic',
 				'DNK' => 'Denmark',
 				'EGY' => 'Egypt',
 				'EST' => 'Estonia',
+				'FRA' => 'France',
 				'GBR' => 'United Kingdom',
 				'GEO' => 'Georgia',
 				'GRC' => 'Greece',
@@ -35,7 +40,9 @@
 				'JPN' => 'Japan',
 				'KAZ' => 'Kazakhstan',
 				'KOR' => 'South Korea',
+				'LTU' => 'Lithuania',
 				'LUX' => 'Luxembourg',
+				'MAR' => 'Morocco',
 				'MDA' => 'Moldova',
 				'MKD' => 'Macedonia',
 				'MNG' => 'Mongolia',
@@ -54,6 +61,8 @@
 				'THA' => 'Thailand',
 				'TJK' => 'Tajikistan',
 				'TKM' => 'Turkmenistan',
+				'TUN' => 'Tunisia',
+				'TUR' => 'Türkiye',
 				'TWN' => 'Taiwan',
 				'UKR' => 'Ukraine',
 				'USA' => 'United States of America',
@@ -72,7 +81,7 @@
 			<thead>
 				<tr>
 					<th class="col-rank">#</th>
-					<th class="col-name">TLX Username</th>
+					<th class="col-tlx-username">TLX Username</th>
 					<th class="col-name">Name</th>
 					<th class="col-country">Country</th>
 					<?php foreach ($problems as $problem): ?>

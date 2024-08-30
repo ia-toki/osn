@@ -291,6 +291,10 @@ table {
   text-align: center;
 }
 
+.col-tlx-username {
+  width: 120px;
+}
+
 .col-competition-short {
   width: 85px;
 }
