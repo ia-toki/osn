@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p><a href="/IOI2024/hasil"><b>IOI 2024</b></a> baru selesai dilaksanakan.</p>
+  <p>Silabus <a href="/silabus/kota">OSN-K</a>, <a href="/silabus/provinsi">OSN-P</a>, dan <a href="/silabus">OSN</a> 2025 sudah dirilis.</p>
 </div>
 
 <br />

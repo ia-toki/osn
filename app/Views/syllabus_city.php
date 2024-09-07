@@ -2,14 +2,11 @@
 
 <?= $this->section('subcontent') ?>
 
-<div class="bp3-callout bp3-intent-primary">
-  <p>Terakhir diperbarui: <b>13 Maret 2024</b>.</p>
+<div class="bp3-callout bp3-intent-warning">
+  <p>Perbedaan dengan Silabus OSN-K 2024 ditandai dengan <span style="color:red">warna merah</span>.</p>
 </div>
 <br/>
 <div class="bp3-card">
-  <h3>Pedoman</h3>
-  <p>Pedoman pelaksanaan OSN-K 2024 dapat diunduh <a href="/data/OSNK2024Pedoman.pdf">di sini.</a></p>
-  <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>, yang terdiri atas, namun tidak terbatas pada:</p>
   <ul>
@@ -21,25 +18,26 @@
   </ul>
   <hr/>
   <h3>Bentuk Soal</h3>
-  <h4>A. Berpikir Komputasional</h4>
+  <p><span style="color:red">Terdapat <b>30&ndash;50 soal</b> yang terbagi atas 3 bagian, yakni:</span></p>
+  <h4>A. <span style="color:red">Abstraksi</span> Berpikir Komputasional</h4>
   <ul>
     <li>Berupa soal cerita bergambar yang secara tak langsung terkait pada aspek dan konsep tertentu dalam informatika dan berpikir komputasional.</li>
     <li>Tipe soal ini mirip dengan soal-soal <a href="https://bebras.or.id/">Bebras</a>.</li>
   </ul>
   <br>
-  <h4>B. Pemecahan Masalah</h4>
+  <h4>B. Pemecahan Masalah <span style="color:red">Komputasional</span></h4>
   <ul>
-    <li>Berupa soal yang sudah mengarah ke pemecahan masalah dalam pemrograman kompetitif.</li>
-    <li>Formatnya mirip dengan format OSN-P 2023 (atau bahkan tingkat nasional OSN). Bedanya, peserta <b>tidak diminta dan tidak perlu membuat program solusi</b>.</li>
-    <li>Untuk setiap 1 deskripsi soal, akan ada 2&ndash;3 anak soal yang harus dikerjakan oleh peserta.</li>
-    <li>Setiap anak soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
+    <li>Berupa <span style="color:red"><s>soal</s> studi kasus</span> yang sudah mengarah ke pemecahan masalah dalam pemrograman kompetitif.</li>
+    <li>Untuk setiap 1 deskripsi <span style="color:red"><s>soal</s> studi kasus</span>, akan ada <span style="color:red"><s>2&ndash;</s></span>3 <span style="color:red"><s>anak</s></span> soal <span style="color:red">pemahaman</span> yang harus dikerjakan oleh peserta.</li>
+    <li>Formatnya mirip dengan format OSN-P 2024 (atau bahkan tingkat nasional OSN). Bedanya, peserta <b>tidak diminta dan tidak perlu membuat program solusi</b>.</li>
+    <li>Setiap <span style="color:red"><s>anak</s></span> soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
   </ul>
   <br>
-  <h4>C. Algoritmika</h4>
+  <h4>C. <span style="color:red"><s>Algoritmika</s> Pemahaman Algoritma dalam Bahasa C++</span></h4>
   <ul>
-    <li>Diberikan beberapa kode program (dalam bahasa C/C++).</li>
-    <li>Untuk setiap 1 kode program, akan ada 2&ndash;3 anak soal yang harus dikerjakan oleh peserta.</li>
-    <li>Seperti bagian sebelumnya, setiap anak soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
+    <li>Diberikan beberapa kode program (dalam bahasa <span style="color:red"><s>C/</s></span>C++).</li>
+    <li>Untuk setiap 1 kode program, akan ada <span style="color:red"><s>2&ndash;</s></span>3 <span style="color:red"><s>anak</s></span> soal yang harus dikerjakan oleh peserta.</li>
+    <li>Seperti bagian sebelumnya, setiap <span style="color:red"><s>anak</s></span> soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
   </ul>
   </li>
   <p>Tidak ada bentukan/tipe khusus untuk masing-masing soal.</p>
@@ -47,7 +45,7 @@
   <hr/>
   <h3>Contoh Soal</h3>
   <div style="max-width: 650px; margin-left: auto; margin-right: auto">
-    <h4>A. Berpikir Komputasional</h4>
+    <h4>A. Abstraksi Berpikir Komputasional</h4>
     <h5>1. Mesin Penerjemah Bentuk</h5>
     <p>Pak Dengklek memiliki sebuah mesin ajaib yang dapat menerjemahkan 26 huruf alfabet (dari A hingga Z) ke 26 bentuk berbeda. Huruf yang sama akan diterjemahkan ke bentuk yang sama, sedangkan huruf yang berbeda akan diterjemahkan ke bentuk yang berbeda.</p>
     <p>Untuk menggunakan mesin ini, Pak Dengklek terlebih dahulu menuliskan kata yang ingin diterjemahkan. Kemudian, mesin akan mencetak bentuk-bentuk hasil terjemahan setiap huruf di kata tersebut. Pada akhirnya, bentuk-bentuk ini akan dikumpulkan di dalam sebuah wadah yang dilabeli kata yang diterjemahkan.</p>
@@ -63,7 +61,7 @@
     <p>Pak Dengklek ingin meletakkan bebeknya ke salah satu petak kosong. Kemudian, Pak Dengklek ingin bebeknya dapat mengumpulkan sebanyak mungkin bola yang dapat ia temukan. Perhatikan bahwa bebek Pak Dengklek tidak dapat menembus tembok.</p>
     <p>Jika Pak Dengklek meletakkan bebeknya secara optimal, berapa <b>maksimal</b> banyak bola yang dapat dikumpulkan oleh bebeknya?</p>
     <br>
-    <h4>B. Pemecahan Masalah</h4>
+    <h4>B. Pemecahan Masalah Komputasional</h4>
     <h5>3&ndash;5. Menghitung Subsekuens OSN</h5>
     <p>Diberikan sebuah string yang hanya terdiri dari huruf-huruf 'O', 'S', dan 'N'; Anda diminta untuk menghitung berapa banyak kemunculan subsekuens "OSN" dari string tersebut.</p>
     <p>Secara persisnya, Anda diminta untuk menghitung banyaknya cara memilih huruf 'O', 'S', dan 'N' dari string yang diberikan sehingga huruf 'O' yang dipilih berada sebelum huruf 'S' yang dipilih, dan huruf 'S' yang dipilih berada sebelum huruf 'N' yang dipilih.</p>
@@ -79,7 +77,7 @@
     <p><b>Soal 4</b>. Dari seluruh kemungkinan string dengan panjang 9, tuliskan salah satu yang memiliki kemunculan subsekuens "OSN" <b>paling banyak</b>!</p>
     <p><b>Soal 5</b>. Pada string "SONOSONOSONOSONOSONOSONOSONO" (yakni penggabungan 7 kali string "SONO"), berapa kalikah subsekuens "OSN" muncul?</p>
     <br>
-    <h4>C. Algoritmika</h4>
+    <h4>C. Pemahaman Algoritma dalam Bahasa C++</h4>
     <h5>6&ndash;8. Merah, Kuning, Hijau</h5>
     <p>Perhatikan fungsi-fungsi berikut!</p>
     <img src="/images/osnk-c-1.png" style="display: block; width: 640px; margin-left: auto; margin-right: auto;"/>

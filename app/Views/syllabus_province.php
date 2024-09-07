@@ -2,20 +2,17 @@
 
 <?= $this->section('subcontent') ?>
 
-<div class="bp3-callout bp3-intent-primary">
-  <p>Terakhir diperbarui: <b>20 April 2024</b>.</p>
+<div class="bp3-callout bp3-intent-warning">
+  <p>Perbedaan dengan Silabus OSN-P 2024 ditandai dengan <span style="color:red">warna merah</span>.</p>
 </div>
 <br/>
 <div class="bp3-card">
-  <h3>Pedoman</h3>
-  <p>Pedoman pelaksanaan OSN-P 2024 dapat diunduh <a href="/data/OSNP2024PedomanRev2.pdf">di sini.</a></p>
-  <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>.
   <hr/>
   <h3>Bentuk Soal</h3>
-  <p>Terdapat <b>6 bagian</b> yang dikerjakan selama <b>3 jam</b>.</p>
-  <p>Setiap bagian terdiri atas:</p>
+  <p>Terdapat <span style="color:red"><s>6 bagian</s> <b>5&ndash;8 studi kasus</b></span> yang dikerjakan selama <b>3 jam</b>.</p>
+  <p>Setiap <span style="color:red"><s>bagian</s> studi kasus berupa <b>Pemecahan Masalah Komputasional</b> (seperti bagian B OSN-K), yang masing-masing</span> terdiri atas:</p>
   <ul>
     <li>3 soal pemahaman, yang dapat berupa pilihan ganda, isian singkat, atau pertanyaan benar/salah.</li>
     <li>1 soal pemrograman, yang terdiri atas 2 subsoal: mudah dan sulit.</li>
