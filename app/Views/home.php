@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p><a href="/silabus"><b>Silabus OSN 2024</b></a> sudah dirilis.</p>
+  <p><a href="/IOI2024/hasil"><b>IOI 2024</b></a> baru selesai dilaksanakan.</p>
 </div>
 
 <br />
