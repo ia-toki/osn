@@ -22,7 +22,7 @@ jobs:
           known_hosts: ${{ secrets.DEPLOYMENT_KNOWN_HOSTS }}
       
       - name: Rsync app/
-        run: rsync -avzh app/ root@${DEPLOYMENT_HOST}:/var/www/html/osn/app
+        run: rsync -avzh --delete app/ root@${DEPLOYMENT_HOST}:/var/www/html/osn/app
 
       - name: Rsync public/
-        run: rsync -avzh public/ root@${DEPLOYMENT_HOST}:/var/www/html/osn/public
+        run: rsync -avzh --delete public/ root@${DEPLOYMENT_HOST}:/var/www/html/osn/public
