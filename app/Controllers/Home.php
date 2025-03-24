@@ -1,9 +1,13 @@
-<?php namespace App\Controllers;
+<?php
 
-class Home extends BaseController {
-	public function index() {
-		return view('home', [
+namespace App\Controllers;
+
+class Home extends BaseController
+{
+    public function index(): string
+    {
+        return view('home', [
 			'menu' =>'home',
 		]);
-	}
+    }
 }
