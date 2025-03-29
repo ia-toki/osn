@@ -1,5 +1,9 @@
 # OSN Bidang Informatika
 
+## Requirements
+
+- PHP 8.4
+
 ## Dev Setup
 
 - Create a database using the schema and example data from `db.sql`.

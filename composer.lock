@@ -4,38 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53f61f62fa022837bc2b84fa14dd954a",
+    "content-hash": "81a3dafda0da5bf8cd859a353899aabf",
     "packages": [
         {
             "name": "codeigniter4/framework",
-            "version": "v4.5.8",
+            "version": "v4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/framework.git",
-                "reference": "80204755e06c4545144abda345116fe98dd5b559"
+                "reference": "96a1e603b9a0f022b0febb2e249eab6971a7e0d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/framework/zipball/80204755e06c4545144abda345116fe98dd5b559",
-                "reference": "80204755e06c4545144abda345116fe98dd5b559",
+                "url": "https://api.github.com/repos/codeigniter4/framework/zipball/96a1e603b9a0f022b0febb2e249eab6971a7e0d5",
+                "reference": "96a1e603b9a0f022b0febb2e249eab6971a7e0d5",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
                 "ext-mbstring": "*",
-                "laminas/laminas-escaper": "^2.13",
+                "laminas/laminas-escaper": "^2.14",
                 "php": "^8.1",
                 "psr/log": "^3.0"
             },
             "require-dev": {
                 "codeigniter/coding-standard": "^1.7",
-                "fakerphp/faker": "^1.9",
+                "fakerphp/faker": "^1.24",
                 "friendsofphp/php-cs-fixer": "^3.47.1",
-                "kint-php/kint": "^5.0.4",
-                "mikey179/vfsstream": "^1.6",
+                "kint-php/kint": "^6.0",
+                "mikey179/vfsstream": "^1.6.12",
                 "nexusphp/cs-config": "^3.6",
                 "phpunit/phpunit": "^10.5.16 || ^11.2",
-                "predis/predis": "^1.1 || ^2.0"
+                "predis/predis": "^1.1 || ^2.3"
             },
             "suggest": {
                 "ext-curl": "If you use CURLRequest class",
@@ -78,7 +78,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "source": "https://github.com/codeigniter4/CodeIgniter4"
             },
-            "time": "2025-01-19T16:13:02+00:00"
+            "time": "2025-01-19T18:31:34+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
