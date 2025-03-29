@@ -21,41 +21,41 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
-	/**
-	 * Instance of the main Request object.
-	 *
-	 * @var CLIRequest|IncomingRequest
-	 */
-	protected $request;
+    /**
+     * Instance of the main Request object.
+     *
+     * @var CLIRequest|IncomingRequest
+     */
+    protected $request;
 
-	/**
-	 * An array of helpers to be loaded automatically upon
-	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
-	 *
-	 * @var list<string>
-	 */
-	protected $helpers = [];
+    /**
+     * An array of helpers to be loaded automatically upon
+     * class instantiation. These helpers will be available
+     * to all other controllers that extend BaseController.
+     *
+     * @var list<string>
+     */
+    protected $helpers = [];
 
-	/**
-	 * Be sure to declare properties for any property fetch you initialized.
-	 * The creation of dynamic property is deprecated in PHP 8.2.
-	 */
-	// protected $session;
+    /**
+     * Be sure to declare properties for any property fetch you initialized.
+     * The creation of dynamic property is deprecated in PHP 8.2.
+     */
+    // protected $session;
 
-	/**
-	 * @return void
-	 */
-	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
-	{
-		// Do Not Edit This Line
-		parent::initController($request, $response, $logger);
+    /**
+     * @return void
+     */
+    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+    {
+        // Do Not Edit This Line
+        parent::initController($request, $response, $logger);
 
-		// Preload any models, libraries, etc, here.
+        // Preload any models, libraries, etc, here.
 
-		// E.g.: $this->session = \Config\Services::session();
+        // E.g.: $this->session = service('session');
 		$this->db = \Config\Database::connect();
-	}
+    }
 
 	protected function getCompetitions($id, $level) {
 		return $this->db->query(sprintf(<<<QUERY
