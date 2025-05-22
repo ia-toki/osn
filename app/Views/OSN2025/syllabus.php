@@ -5,6 +5,10 @@
 <br />
 
 <div class="bp3-card">
+    <h3>Pedoman</h3>
+	<p>Pedoman pelaksanaan OSN 2025 dapat dilihat <a href="https://s.id/slide-osn-inf-2025">di sini.</a></p>
+	<hr>
+	<h3>Materi</h3>
     <p>Mengacu pada <a href="https://ioinformatics.org/page/syllabus/12">silabus IOI 2025</a> dengan berbagai penyesuaian.</p>
 
     <ol>

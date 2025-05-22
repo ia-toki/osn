@@ -7,6 +7,9 @@
 </div>
 <br/>
 <div class="bp3-card">
+  <h3>Pedoman</h3>
+  <p>Pedoman pelaksanaan OSN 2025 dapat dilihat <a href="https://s.id/slide-osn-inf-2025">di sini.</a></p>
+  <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>.
   <hr/>
