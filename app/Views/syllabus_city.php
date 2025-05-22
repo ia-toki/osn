@@ -21,7 +21,7 @@
   </ul>
   <hr/>
   <h3>Bentuk Soal</h3>
-  <p><span style="color:red">Terdapat <b>30&ndash;50 soal</b> yang terbagi atas 3 bagian, yakni:</span></p>
+  <p><span style="color:red">Terdapat <b>30&ndash;50 soal</b> untuk dikerjakan selama <b>2,5 jam</b>, yang terbagi atas 3 bagian, yakni:</span></p>
   <h4>A. <span style="color:red">Abstraksi</span> Berpikir Komputasional</h4>
   <ul>
     <li>Berupa soal cerita bergambar yang secara tak langsung terkait pada aspek dan konsep tertentu dalam informatika dan berpikir komputasional.</li>
