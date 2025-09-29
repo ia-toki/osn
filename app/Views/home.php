@@ -10,7 +10,7 @@
 <div class="bp3-card">
   <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh:</p>
   <ul>
-    <li><a href="https://bpti.kemdikbud.go.id/"><strong>Balai Pengembangan Talenta Indonesia</strong> (BPTI)</a> (sebelumnya <a href="https://pusatprestasinasional.kemdikbud.go.id/"><strong>Pusat Prestasi Nasional</strong> (Puspresnas)</a>, sebelumnya Direktorat SMA), Kemendikbudristek Republik Indonesia,</li>
+    <li><a href="https://osn-onmipa-bpti.kemdikbud.go.id/osn.html"><strong>Balai Pengembangan Talenta Indonesia</strong> (BPTI)</a>,</li>
   </ul>
   <p>dan didukung oleh <a href="https://alumni.toki.id"><strong>Ikatan Alumni TOKI</strong></a> (Tim Olimpiade Komputer Indonesia).</p>
   <p>Bidang <b>informatika</b> (dahulu komputer) merupakan salah satu bidang yang dilombakan, yang menguji penyelesaian masalah (<i>problem solving</i>) melalui soal-soal pemrograman <i>(<strong>competitive programming</strong>)</i>.</p>
