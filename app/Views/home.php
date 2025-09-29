@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p>Silabus <a href="/silabus/kota">OSN-K</a>, <a href="/silabus/provinsi">OSN-P</a>, dan <a href="/silabus">OSN</a> 2025 sudah dirilis.</p>
+  <p>Peraturan <a href="/OSN2025/peraturan">OSN 2025</a> sudah dirilis.</p>
 </div>
 
 <br />
