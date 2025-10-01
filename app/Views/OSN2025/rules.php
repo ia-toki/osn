@@ -138,11 +138,11 @@
     <li>Besarnya berkas <em>source code</em> yang boleh dikumpulkan untuk setiap soal maksimum <strong>300 KB</strong>.</li>
     <li>Untuk setiap kasus uji, balasan <em>grader</em> yang mungkin adalah:
         <ol>
-        <li><strong>AC</strong> (Accepted): program berhasil menyelesaikan kasus uji dalam batas waktu dan memori.</li>
-        <li><strong>WA</strong> (Wrong Answer): program berhenti dalam batas waktu dan memori, namun menghasilkan keluaran yang salah.</li>
-        <li><strong>RTE</strong> (Runtime Error): program <em>crash</em> atau melebihi batas memori.</li>
-        <li><strong>TLE</strong> (Time Limit Exceeded): program melebihi batas waktu.</li>
-        <li>Skipped: <em>grading</em> tidak dilakukan karena sudah ada kasus uji lain dalam subsoal yang sama yang tidak mendapatkan AC.</li>
+        <li><strong>Accepted</strong>: program berhasil menyelesaikan kasus uji dalam batas waktu dan memori.</li>
+        <li><strong>Wrong Answer</strong>: program berhenti dalam batas waktu dan memori, namun menghasilkan keluaran yang salah.</li>
+        <li><strong>Runtime Error</strong>: program <em>crash</em> atau melebihi batas memori.</li>
+        <li><strong>Time Limit Exceeded</strong>: program melebihi batas waktu.</li>
+        <li><strong>Skipped</strong>: <em>grading</em> tidak dilakukan karena sudah ada kasus uji lain dalam subsoal yang sama yang tidak mendapatkan AC.</li>
         </ol>
     </li>
     </ol>

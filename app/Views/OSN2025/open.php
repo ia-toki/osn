@@ -144,11 +144,11 @@
     <li>Source code limit for each submission is <strong>300 KB</strong>.</li>
     <li>For each test case, the grader will output one of:
       <ul>
-        <li><strong>AC</strong> (Accepted): program solved the problem within the given time and memory limits.</li>
-        <li><strong>WA</strong> (Wrong Answer): program stopped within given time and memory limits, but produced the wrong output.</li>
-        <li><strong>RTE</strong> (Runtime Error): program crashed or exceedeed the memory limit.</li>
-        <li><strong>TLE</strong> (Time Limit Exceeded): program exceeded the time limit.</li>
-        <li>Skipped: test case is not graded because there was a test case in the same subtask that was not solved.</li>
+        <li><strong>Accepted</strong>: program solved the problem within the given time and memory limits.</li>
+        <li><strong>Wrong Answer</strong>: program stopped within given time and memory limits, but produced the wrong output.</li>
+        <li><strong>Runtime Error</strong>: program crashed or exceedeed the memory limit.</li>
+        <li><strong>Time Limit Exceeded</strong>: program exceeded the time limit.</li>
+        <li><strong>Skipped</strong>: test case is not graded because there was a test case in the same subtask that was not solved.</li>
       </ul>
     </li>
   </ul>
