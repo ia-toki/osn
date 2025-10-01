@@ -74,7 +74,7 @@
             <li>Rumus penilaian akan dinyatakan secara eksplisit pada soal.</li>
             <li>Contoh soal:
                 <ul>
-                <li><em>Batch</em>: <a href="https://tlx.toki.id/problems/osn-2024/0A">Riwayat Bebek, OSN 2024</a>.</li>
+                <li><em>Batch</em>: <a href="https://tlx.toki.id/problems/osn-2025-semifinal/C">Kebun Apel, Semifinal OSN 2025</a>.</li>
                 <li><em>Interactive</em>: <a href="https://tlx.toki.id/problems/osn-2024/0B">Harta Karun Nasional, OSN 2024</a>.</li>
                 <li><em>Output-only</em>: <a href="https://tlx.toki.id/problems/osn-2024/0C">Mosaik Monokrom, OSN 2024</a>.</li>
                 </ul>
