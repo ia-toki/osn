@@ -221,7 +221,7 @@
 
     <p><strong>Dokumentasi</strong></p>
     <ul>
-      <li><a href="https://en.cppreference.com/w/File:html_book_20190607.zip">https://en.cppreference.com/w/File:html_book_20190607.zip</a></li>
+      <li><a href="https://www.cppreference.com/">cppreference.com</a></li>
     </ul>
 
     <hr />
