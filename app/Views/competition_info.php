@@ -18,7 +18,7 @@
 
 		<hr />
 
-		<h3>Asisten Juri</h3>
+		<h3>Komite</h3>
 
 		<table class="table table-bordered table-competition-info">
 			<tbody>
