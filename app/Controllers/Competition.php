@@ -64,7 +64,8 @@ class Competition extends BaseController {
 			}
 			$entry = linkPerson($c['PersonID'], $c['PersonName']);
 			if ($c['Chair'] == 'Y') {
-				$data['committee'][$role]['chair'] = $entry;
+				// ignore chair status from now on
+				$data['committee'][$role]['members'][] = $entry;
 			} else {
 				$data['committee'][$role]['members'][] = $entry;
 			}

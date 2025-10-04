@@ -14,7 +14,8 @@ function getCommitteeTitles() {
 }
 
 function getCommitteeTitle($role, $isChair) {
-	return COMMITTEE_TITLES[$role] . ($isChair ? ' (Ketua)' : '');
+	// ignore $isChair from now on
+	return COMMITTEE_TITLES[$role];
 }
 
 function getCommitteeRoles() {

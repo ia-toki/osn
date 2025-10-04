@@ -23,16 +23,9 @@
 		<table class="table table-bordered table-competition-info">
 			<tbody>
 				<?php foreach ($committeeTitles as $role => $title): ?>
-					<?php if (!isset($committee[$role]['chair'])) continue; ?>
-					<tr rowspan="2">
-						<th><?= $title ?></th>
-						<td class="col-committee-chair">Ketua</td>
-						<td><?= $committee[$role]['chair'] ?></td>
-					</tr>
 					<?php if (count($committee[$role]['members']) > 0): ?>
 						<tr>
-							<td></td>
-							<td>Anggota</td>
+							<th><?= $title ?></th>
 							<td>
 								<ul>
 									<?php foreach ($committee[$role]['members'] as $member): ?>
