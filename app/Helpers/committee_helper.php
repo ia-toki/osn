@@ -1,7 +1,7 @@
 <?php
 
 define('COMMITTEE_TITLES', [
-	'SC' => 'Komite Ilmiah',
+	'SC' => 'Komite Soal',
 	'TC' => 'Komite Teknis',
 	'OC' => 'Komite Acara',
 	'PJJ' => 'Koordinator PJJ',
