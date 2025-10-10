@@ -268,6 +268,10 @@ table {
   background-color: #b87838;
 }
 
+.col-medal.medal--hm {
+  font-size: 10px;
+}
+
 .section {
   margin-bottom: 10px;
   margin-right: 10px;

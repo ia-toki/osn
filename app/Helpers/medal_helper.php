@@ -12,11 +12,11 @@ function getMedalClass($medal) {
 	if (!$medal) {
 		return '';
 	}
-	$map = array('G' => 'gold', 'S' => 'silver', 'B' => 'bronze');
-	$clazz = $map[$medal];
-	if (!$clazz) {
+	$map = array('G' => 'gold', 'S' => 'silver', 'B' => 'bronze', 'H' => 'hm');
+	if (!isset($map[$medal])) {
 		return '';
 	}
+	$clazz = $map[$medal];
 	return 'medal--' . $clazz;
 }
 
@@ -24,8 +24,8 @@ function getMedalName($medal) {
 	if (!$medal) {
 		return '';
 	}
-	$map = array('G' => 'Emas', 'S' => 'Perak', 'B' => 'Perunggu');
-	return $map[$medal];
+	$map = array('G' => 'Emas', 'S' => 'Perak', 'B' => 'Perunggu', 'H' => 'Juara Harapan');
+	return $map[$medal] ?? '';
 }
 
 function getMedalNameEnglish($medal) {
@@ -33,7 +33,7 @@ function getMedalNameEnglish($medal) {
 		return '';
 	}
 	$map = array('G' => 'Gold', 'S' => 'Silver', 'B' => 'Bronze');
-	return $map[$medal];
+	return $map[$medal] ?? '';
 }
 
 function createMedalHeading($prefix) {
