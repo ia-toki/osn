@@ -56,6 +56,7 @@
 				'ROU' => 'Romania',
 				'RUS' => 'Russia',
 				'SGP' => 'Singapore',
+				'SRB' => 'Serbia',
 				'SVN' => 'Slovenia',
 				'SYR' => 'Syria',
 				'THA' => 'Thailand',
@@ -66,13 +67,14 @@
 				'TWN' => 'Taiwan',
 				'UKR' => 'Ukraine',
 				'USA' => 'United States of America',
+				'UZB' => 'Uzbekistan',
 				'VNM' => 'Viet Nam',
 			];
 		?>
 
 		<div class="bp3-callout bp3-intent-warning">
 			<p>*Medals are based on the official contest cutoffs.</p>
-			<p>When there are ties, the user who achieved the score with the shorter duration, will be positioned higher in the ranklist.</p>
+			<p>When there are ties, the user who achieved the score with the shorter duration (sum of Day 1 and Day 2), will be positioned higher in the ranklist.</p>
 		</div>
 
 		<br />
