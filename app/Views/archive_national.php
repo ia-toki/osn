@@ -12,6 +12,12 @@
 		</tr>
 	</thead>
 	<tbody>
+			<tr>
+			<td>OSN 2025</td>
+			<td>-</td>
+			<td>-</td>
+			<td><a href="https://tlx.toki.id/problems/osn-2025">TLX &nbsp;(+ Pembahasan)</a></td>
+		</tr>
 		<tr>
 			<td>OSN 2024</td>
 			<td>-</td>
