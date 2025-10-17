@@ -137,7 +137,7 @@ abstract class BaseController extends Controller
 				select comp.Level as Level, count(Medal) as Participants
 				from Contestant c
 				join Competition comp on comp.ID = c.Competition
-				where Medal = ''
+				where Medal not in ('G', 'S', 'B')
 				and TeamNo = 1
 				group by comp.Level
 			) as participants on c.Level = participants.Level
@@ -174,7 +174,7 @@ abstract class BaseController extends Controller
 			left join (
 				select Province as ID, count(Medal) as Participants
 				from Contestant
-				where Medal = '' %1\$s
+				where Medal not in ('G', 'S', 'B') %1\$s
 				group by Province
 			) as participants on p.ID = participants.ID
 			where 1 %2\$s
@@ -227,7 +227,7 @@ abstract class BaseController extends Controller
 					select %1\$s, count(Medal) as InternationalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
-					where comp.Level = 'International' and Medal = ''
+					where comp.Level = 'International' and Medal not in ('G', 'S', 'B')
 					group by %1\$s
 				) as iParticipants on c.ID = iParticipants.%1\$s
 				left join (
@@ -255,7 +255,7 @@ abstract class BaseController extends Controller
 					select %1\$s, count(Medal) as RegionalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
-					where comp.Level = 'Regional' and Medal = ''
+					where comp.Level = 'Regional' and Medal not in ('G', 'S', 'B')
 					group by %1\$s
 				) as rParticipants on c.ID = rParticipants.%1\$s
 				left join (
@@ -283,7 +283,7 @@ abstract class BaseController extends Controller
 					select %1\$s, count(Medal) as NationalParticipants
 					from Contestant c
 					join Competition comp on comp.ID = c.Competition
-					where comp.Level = 'National' and Medal = ''
+					where comp.Level = 'National' and Medal not in ('G', 'S', 'B')
 					group by %1\$s
 				) as nParticipants on c.ID = nParticipants.%1\$s
 				order by %2\$s, coalesce(InternationalParticipants, 0) desc, coalesce(RegionalParticipants, 0) desc, coalesce(NationalParticipants, 0) desc, Name asc
