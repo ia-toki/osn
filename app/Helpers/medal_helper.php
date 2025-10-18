@@ -12,7 +12,7 @@ function getMedalClass($medal) {
 	if (!$medal) {
 		return '';
 	}
-	$map = array('G' => 'gold', 'S' => 'silver', 'B' => 'bronze', 'H' => 'hm');
+	$map = array('G' => 'gold', 'S' => 'silver', 'B' => 'bronze', 'HM' => 'hm');
 	if (!isset($map[$medal])) {
 		return '';
 	}
@@ -24,7 +24,7 @@ function getMedalName($medal) {
 	if (!$medal) {
 		return '';
 	}
-	$map = array('G' => 'Emas', 'S' => 'Perak', 'B' => 'Perunggu', 'H' => 'Juara Harapan');
+	$map = array('G' => 'Emas', 'S' => 'Perak', 'B' => 'Perunggu', 'HM' => 'Juara Harapan');
 	return $map[$medal] ?? '';
 }
 
