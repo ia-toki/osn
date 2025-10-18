@@ -86,7 +86,7 @@ class Statistics extends BaseController {
 		QUERY, [$id])->getResultArray();
 
 		$submissions = $this->db->query(<<<QUERY
-			select comp.ID as CompetitionID, c.ID as ContestantID, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			select comp.ID as CompetitionID, c.ID as ContestantID, s.Task as TaskID, s.Score as TaskScore, t.ScorePr as TaskScorePr
 			from Submission s
 			join Contestant c on c.ID = s.Contestant
 			join Competition comp on comp.ID = c.Competition
@@ -95,19 +95,31 @@ class Statistics extends BaseController {
 			order by t.Alias asc
 		QUERY, [$id])->getResultArray();
 
+		$tasks = $this->db->query(<<<QUERY
+			select Competition, ID
+			from Task
+			where Competition in (select distinct Competition from Contestant where Province = ?)
+			order by Alias asc
+		QUERY, [$id])->getResultArray();
+
+		$taskCount = 1;
+		$competitionTasksMap = array();
+		foreach ($tasks as $t) {
+			$competitionTasksMap[$t['Competition']][] = $t['ID'];
+			$taskCount = max($taskCount, count($competitionTasksMap[$t['Competition']]));
+		}
+
 		$contestantCountsMap = array();
 		foreach ($contestantCounts as $c) {
 			$contestantCountsMap[$c['Competition']] = $c['Count'];
 		}
 
-		$taskCount = 1;
-		$taskScores = array();
+		$taskScoresMap = array();
 		foreach ($submissions as $s) {
-			if (empty($taskScores[$s['ContestantID']])) {
-				$taskScores[$s['ContestantID']] = array();
+			if (!isset($taskScoresMap[$s['ContestantID']])) {
+				$taskScoresMap[$s['ContestantID']] = array();
 			}
-			$taskScores[$s['ContestantID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
-			$taskCount = max($taskCount, count($taskScores[$s['ContestantID']]));
+			$taskScoresMap[$s['ContestantID']][$s['TaskID']] = formatScore($s['TaskScore'], $s['TaskScorePr']);
 		}
 
 		$medals = $this->getProvinceMedals($id, null);
@@ -157,16 +169,20 @@ class Statistics extends BaseController {
 			$row[] = ['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz];
 			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz];
 
-			$tasks = 0;
-			if (isset($taskScores[$c['ID']])) {
-				foreach ($taskScores[$c['ID']] as $t) {
-					$row[] = ['data' => $t, 'class' => 'col-score ' . $clazz];
-					$tasks++;
+			$contestantTaskCount = 0;
+			if (isset($taskScoresMap[$c['ID']])) {
+				foreach ($competitionTasksMap[$c['Competition']] as $t) {
+					if (isset($taskScoresMap[$c['ID']][$t])) {
+						$row[] = ['data' => $taskScoresMap[$c['ID']][$t], 'class' => 'col-score ' . $clazz];
+					} else {
+						$row[] = ['class' => 'col-score ' . $clazz];
+					}
+					$contestantTaskCount++;
 				}
 			}
 
-			if ($tasks < $taskCount) {
-				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$tasks];
+			if ($contestantTaskCount < $taskCount) {
+				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$contestantTaskCount];
 			}
 
 			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
@@ -250,13 +266,20 @@ class Statistics extends BaseController {
 		QUERY, [$id])->getResultArray();
 
 		$submissions = $this->db->query(<<<QUERY
-			select comp.ID as CompetitionID, c.ID as ContestantID, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			select comp.ID as CompetitionID, c.ID as ContestantID, t.ID as TaskID, s.Score as TaskScore, t.ScorePr as TaskScorePr
 			from Submission s
 			join Contestant c on c.ID = s.Contestant
 			join Competition comp on comp.ID = c.Competition
 			join Task t on t.ID = s.Task
 			where c.School = ?
 			order by t.Alias asc
+		QUERY, [$id])->getResultArray();
+
+		$tasks = $this->db->query(<<<QUERY
+			select Competition, ID
+			from Task
+			where Competition in (select distinct Competition from Contestant where School = ?)
+			order by Alias asc
 		QUERY, [$id])->getResultArray();
 
 		$medals = $this->getSchoolMedals($id, null);
@@ -282,7 +305,7 @@ class Statistics extends BaseController {
 			'medalsTable' => $table->generate(),
 			'internationalTable' => $this->getExternalStatistics(false, 'International', $contestants, $submissions),
 			'regionalTable' => $this->getExternalStatistics(false, 'Regional', $contestants, $submissions),
-			'nationalTable' => $this->getNationalStatistics(false, $contestants, $submissions)
+			'nationalTable' => $this->getNationalStatistics(false, $contestants, $submissions, $tasks)
 		]);
 	}
 
@@ -352,13 +375,20 @@ class Statistics extends BaseController {
 		QUERY, [$id])->getResultArray();
 
 		$submissions = $this->db->query(<<<QUERY
-			select comp.ID as CompetitionID, c.ID as ContestantID, s.Score as TaskScore, t.ScorePr as TaskScorePr
+			select comp.ID as CompetitionID, c.ID as ContestantID, t.ID as TaskID, s.Score as TaskScore, t.ScorePr as TaskScorePr
 			from Submission s
 			join Contestant c on c.ID = s.Contestant
 			join Competition comp on comp.ID = c.Competition
 			join Task t on t.ID = s.Task
 			where c.Person = ?
 			order by t.Alias asc
+		QUERY, [$id])->getResultArray();
+
+		$tasks = $this->db->query(<<<QUERY
+			select Competition, ID
+			from Task
+			where Competition in (select distinct Competition from Contestant where Person = ?)
+			order by Alias asc
 		QUERY, [$id])->getResultArray();
 
 		$committee = $this->db->query(<<<QUERY
@@ -392,7 +422,7 @@ class Statistics extends BaseController {
 			'medalsTable' => $table->generate(),
 			'internationalTable' => $this->getExternalStatistics(true, 'International', $contestants),
 			'regionalTable' => $this->getExternalStatistics(true, 'Regional', $contestants),
-			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions),
+			'nationalTable' => $this->getNationalStatistics(true, $contestants, $submissions, $tasks),
 			'committeeTable' => $this->getCommitteeStatistics($committee),
 		]);
 	}
@@ -433,15 +463,20 @@ class Statistics extends BaseController {
 		return null;
 	}
 
-	private function getNationalStatistics($isPerson, $contestants, $submissions) {
+	private function getNationalStatistics($isPerson, $contestants, $submissions, $tasks) {
 		$taskCount = 1;
-		$taskScores = array();
+		$competitionTasksMap = array();
+		foreach ($tasks as $t) {
+			$competitionTasksMap[$t['Competition']][] = $t['ID'];
+			$taskCount = max($taskCount, count($competitionTasksMap[$t['Competition']]));
+		}
+
+		$taskScoresMap = array();
 		foreach ($submissions as $s) {
-			if (empty($taskScores[$s['ContestantID']])) {
-				$taskScores[$s['ContestantID']] = array();
+			if (!isset($taskScoresMap[$s['ContestantID']])) {
+				$taskScoresMap[$s['ContestantID']] = array();
 			}
-			$taskScores[$s['ContestantID']][] = formatScore($s['TaskScore'], $s['TaskScorePr']);
-			$taskCount = max($taskCount, count($taskScores[$s['ContestantID']]));
+			$taskScoresMap[$s['ContestantID']][$s['TaskID']] = formatScore($s['TaskScore'], $s['TaskScorePr']);
 		}
 
 		$table = createTable();
@@ -477,16 +512,20 @@ class Statistics extends BaseController {
 				$row [] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 			}
 
-			$tasks = 0;
-			if (isset($taskScores[$c['ID']])) {
-				foreach ($taskScores[$c['ID']] as $t) {
-					$row[] = ['data' => $t, 'class' => 'col-score ' . $clazz];
-					$tasks++;
+			$contestantTaskCount = 0;
+			if (isset($taskScoresMap[$c['ID']])) {
+				foreach ($competitionTasksMap[$c['Competition']] as $t) {
+					if (isset($taskScoresMap[$c['ID']][$t])) {
+						$row[] = ['data' => $taskScoresMap[$c['ID']][$t], 'class' => 'col-score ' . $clazz];
+					} else {
+						$row[] = ['class' => 'col-score ' . $clazz];
+					}
+					$contestantTaskCount++;
 				}
 			}
 
-			if ($tasks < $taskCount) {
-				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$tasks];
+			if ($contestantTaskCount < $taskCount) {
+				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$contestantTaskCount];
 			}
 
 			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
