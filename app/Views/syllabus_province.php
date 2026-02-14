@@ -2,20 +2,20 @@
 
 <?= $this->section('subcontent') ?>
 
-<div class="bp3-callout bp3-intent-warning">
-  <p>Perbedaan dengan Silabus OSN-P 2024 ditandai dengan <span style="color:red">warna merah</span>.</p>
+<div class="bp3-callout bp3-intent-primary">
+  <p>Tidak terdapat perbedaan dengan Silabus OSN-P 2025.</p>
 </div>
 <br/>
 <div class="bp3-card">
   <h3>Pedoman</h3>
-  <p>Pedoman pelaksanaan OSN 2025 dapat dilihat <a href="https://s.id/slide-osn-inf-2025">di sini.</a></p>
+  <p>Pedoman pelaksanaan OSN 2026 dapat dilihat <a href="https://pusatprestasinasional.kemendikdasmen.go.id/pengumuman/sd/panduan-osn-tahun-2026-2026-sd">di sini.</a></p>
   <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>.
   <hr/>
   <h3>Bentuk Soal</h3>
-  <p>Terdapat <span style="color:red"><s>6 bagian</s> <b>5&ndash;8 studi kasus</b></span> yang dikerjakan selama <b>3 jam</b>.</p>
-  <p>Setiap <span style="color:red"><s>bagian</s> studi kasus berupa <b>Pemecahan Masalah Komputasional</b> (seperti bagian B OSN-K), yang masing-masing</span> terdiri atas:</p>
+  <p>Terdapat <b>5&ndash;8 studi kasus</b> yang dikerjakan selama <b>3 jam</b>.</p>
+  <p>Setiap studi kasus berupa <b>Pemecahan Masalah Komputasional</b> (seperti bagian B OSN-K), yang masing-masing terdiri atas:</p>
   <ul>
     <li>3 soal pemahaman, yang dapat berupa pilihan ganda, isian singkat, atau pertanyaan benar/salah.</li>
     <li>1 soal pemrograman, yang terdiri atas 2 subsoal: mudah dan sulit.</li>

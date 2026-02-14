@@ -2,13 +2,13 @@
 
 <?= $this->section('subcontent') ?>
 
-<div class="bp3-callout bp3-intent-warning">
-  <p>Perbedaan dengan Silabus OSN-K 2024 ditandai dengan <span style="color:red">warna merah</span>.</p>
+<div class="bp3-callout bp3-intent-primary">
+  <p>Tidak terdapat perbedaan dengan Silabus OSN-K 2025.</p>
 </div>
 <br/>
 <div class="bp3-card">
   <h3>Pedoman</h3>
-  <p>Pedoman pelaksanaan OSN 2025 dapat dilihat <a href="https://s.id/slide-osn-inf-2025">di sini.</a></p>
+  <p>Pedoman pelaksanaan OSN 2026 dapat dilihat <a href="https://pusatprestasinasional.kemendikdasmen.go.id/pengumuman/sd/panduan-osn-tahun-2026-2026-sd">di sini.</a></p>
   <hr>
   <h3>Materi</h3>
   <p>Materi yang diajukan mengacu kepada <a href="/silabus">silabus OSN</a>, yang terdiri atas, namun tidak terbatas pada:</p>
@@ -21,26 +21,26 @@
   </ul>
   <hr/>
   <h3>Bentuk Soal</h3>
-  <p><span style="color:red">Terdapat <b>30&ndash;50 soal</b> untuk dikerjakan selama <b>2,5 jam</b>, yang terbagi atas 3 bagian, yakni:</span></p>
-  <h4>A. <span style="color:red">Abstraksi</span> Berpikir Komputasional</h4>
+  <p>Terdapat <b>30&ndash;50 soal</b> untuk dikerjakan selama <b>2,5 jam</b>, yang terbagi atas 3 bagian, yakni:</p>
+  <h4>A. Abstraksi Berpikir Komputasional</h4>
   <ul>
     <li>Berupa soal cerita bergambar yang secara tak langsung terkait pada aspek dan konsep tertentu dalam informatika dan berpikir komputasional.</li>
     <li>Tipe soal ini mirip dengan soal-soal <a href="https://bebras.or.id/">Bebras</a>.</li>
   </ul>
   <br>
-  <h4>B. Pemecahan Masalah <span style="color:red">Komputasional</span></h4>
+  <h4>B. Pemecahan Masalah Komputasional</h4>
   <ul>
-    <li>Berupa <span style="color:red"><s>soal</s> studi kasus</span> yang sudah mengarah ke pemecahan masalah dalam pemrograman kompetitif.</li>
-    <li>Untuk setiap 1 deskripsi <span style="color:red"><s>soal</s> studi kasus</span>, akan ada <span style="color:red"><s>2&ndash;</s></span>3 <span style="color:red"><s>anak</s></span> soal <span style="color:red">pemahaman</span> yang harus dikerjakan oleh peserta.</li>
-    <li>Formatnya mirip dengan format OSN-P 2024 (atau bahkan tingkat nasional OSN). Bedanya, peserta <b>tidak diminta dan tidak perlu membuat program solusi</b>.</li>
-    <li>Setiap <span style="color:red"><s>anak</s></span> soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
+    <li>Berupa studi kasus yang sudah mengarah ke pemecahan masalah dalam pemrograman kompetitif.</li>
+    <li>Untuk setiap 1 deskripsi studi kasus, akan ada 3 soal pemahaman yang harus dikerjakan oleh peserta.</li>
+    <li>Formatnya mirip dengan format OSN-P 2025 (atau bahkan tingkat nasional OSN). Bedanya, peserta <b>tidak diminta dan tidak perlu membuat program solusi</b>.</li>
+    <li>Setiap soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
   </ul>
   <br>
-  <h4>C. <span style="color:red"><s>Algoritmika</s> Pemahaman Algoritma dalam Bahasa C++</span></h4>
+  <h4>C. Pemahaman Algoritma dalam Bahasa C++</h4>
   <ul>
-    <li>Diberikan beberapa kode program (dalam bahasa <span style="color:red"><s>C/</s></span>C++).</li>
-    <li>Untuk setiap 1 kode program, akan ada <span style="color:red"><s>2&ndash;</s></span>3 <span style="color:red"><s>anak</s></span> soal yang harus dikerjakan oleh peserta.</li>
-    <li>Seperti bagian sebelumnya, setiap <span style="color:red"><s>anak</s></span> soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
+    <li>Diberikan beberapa kode program (dalam bahasa C++).</li>
+    <li>Untuk setiap 1 kode program, akan ada 3 soal yang harus dikerjakan oleh peserta.</li>
+    <li>Seperti bagian sebelumnya, setiap soal akan dapat diselesaikan dengan cara "dihitung di atas kertas".</li>
   </ul>
   </li>
   <p>Tidak ada bentukan/tipe khusus untuk masing-masing soal.</p>
