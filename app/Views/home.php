@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p><a href="/OSN2025/hasil"><b>OSN 2025</b></a> baru saja berakhir.</p>
+  <p><a href="/silabus/kota"><b>Silabus OSN 2026</b></a> sudah dirilis.</p>
 </div>
 
 <br />
@@ -10,7 +10,7 @@
 <div class="bp3-card">
   <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh:</p>
   <ul>
-    <li><a href="https://osn-onmipa-bpti.kemdikbud.go.id/osn.html"><strong>Balai Pengembangan Talenta Indonesia</strong> (BPTI)</a>,</li>
+    <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/"><strong>Pusat Prestasi Nasional, Kemendikdasmen</strong></a>,</li>
   </ul>
   <p>dan didukung oleh <a href="https://alumni.toki.id"><strong>Ikatan Alumni TOKI</strong></a> (Tim Olimpiade Komputer Indonesia).</p>
   <p>Bidang <b>informatika</b> (dahulu komputer) merupakan salah satu bidang yang dilombakan, yang menguji penyelesaian masalah (<i>problem solving</i>) melalui soal-soal pemrograman <i>(<strong>competitive programming</strong>)</i>.</p>
