@@ -22,7 +22,7 @@
 				<td><p>Materi pemrograman kompetitif dasar dan lanjutan.</p></td>
 			</tr>
 			<tr>
-				<td><a href="https://tlx.toki.id/courses/competitive">Kursus Pemrograman Kompetitif Dasar TLX</a></td>
+				<td><a href="https://tlx.toki.id/courses/competitive-1">Kursus Pemrograman Kompetitif Dasar TLX</a></td>
 				<td>Kursus</td>
 				<td>Indonesia</td>
 				<td>Ikatan Alumni TOKI</td>
