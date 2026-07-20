@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="bp3-callout bp3-intent-primary">
-  <p><a href="/silabus/kota"><b>Silabus OSN 2026</b></a> sudah dirilis.</p>
+  <p>Berikut <a href="https://docs.google.com/presentation/d/1tu8OvOMfuUCbxvhEXSgF_svCUNtfH60Z/"><b>Sosialisasi OSN-P 2026 Bidang Informatika</b></a>.</p>
 </div>
 
 <br />
