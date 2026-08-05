@@ -12,6 +12,12 @@
 		</tr>
 	</thead>
 	<tbody>
+    	<tr>
+    		<td>OSN-P 2026</td>
+    		<td><a href="/data/OSNP2026.pdf">PDF</a></td>
+    		<td>-</td>
+    		<td><a href="https://tlx.toki.id/problems/osnp-2026">TLX</a></td>
+    	</tr>
 		<tr>
 			<td>OSN-P 2025</td>
 			<td><a href="/data/OSNP2025.pdf">PDF</a></td>
