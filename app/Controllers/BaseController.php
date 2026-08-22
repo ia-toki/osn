@@ -57,12 +57,21 @@ abstract class BaseController extends Controller
 		$this->db = \Config\Database::connect();
     }
 
+	protected const TEAM_SEMIFINALIST = 3;
+
 	protected function getCompetitions($id, $level) {
+		$semifinalist = self::TEAM_SEMIFINALIST;
+
 		return $this->db->query(sprintf(<<<QUERY
-			select c.ID as ID, Level, Year, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, HostCountryCode, HostCountryName, City, DateBegin, DateEnd, Contestants, Provinces, ScorePr, Started, Finished, DataComplete, Note from Competition c
+			select c.ID as ID, Level, Year, c.Name as Name, p.ID as ProvinceID, p.Name as HostName, HostCountryCode, HostCountryName, City, DateBegin, DateEnd, Contestants, Finalists, Provinces, FinalistProvinces, ScorePr, Started, Finished, DataComplete, Note from Competition c
 			left join Province p on p.ID = c.Host
 			left join (
-				select Competition, count(Person) as Contestants, count(distinct(Province)) as Provinces from Contestant
+				select Competition,
+					count(Person) as Contestants,
+					sum(TeamNo <> {$semifinalist}) as Finalists,
+					count(distinct(Province)) as Provinces,
+					count(distinct case when TeamNo <> {$semifinalist} then Province end) as FinalistProvinces
+				from Contestant
 				group by Competition
 			) as contestants on c.ID = contestants.Competition
 			where 1
@@ -77,7 +86,7 @@ abstract class BaseController extends Controller
 			select c.ID, Medal, Cnt
 			from Competition c
 			left join (
-				select Competition, 
+				select Competition,
 				case
 					when Medal = 'G' then 'Golds'
 					when Medal = 'S' then 'Silvers'
@@ -174,7 +183,7 @@ abstract class BaseController extends Controller
 			left join (
 				select Province as ID, count(Medal) as Participants
 				from Contestant
-				where Medal not in ('G', 'S', 'B') %1\$s
+				where Medal not in ('G', 'S', 'B') and TeamNo = 1 %1\$s
 				group by Province
 			) as participants on p.ID = participants.ID
 			where 1 %2\$s

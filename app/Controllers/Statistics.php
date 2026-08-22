@@ -52,7 +52,7 @@ class Statistics extends BaseController {
 			'table' => $table->generate()
 		]);
 	}
-	
+
 	public function province($id) {
 		helper('score');
 		helper('medal');
@@ -169,21 +169,7 @@ class Statistics extends BaseController {
 			$row[] = ['data' => linkPerson($c['PersonID'], $c['Name']), 'class' => $clazz];
 			$row[] = ['data' => linkSchool($c['SchoolID'], $c['SchoolName']), 'class' => $clazz];
 
-			$contestantTaskCount = 0;
-			if (isset($taskScoresMap[$c['ID']])) {
-				foreach ($competitionTasksMap[$c['Competition']] as $t) {
-					if (isset($taskScoresMap[$c['ID']][$t])) {
-						$row[] = ['data' => $taskScoresMap[$c['ID']][$t], 'class' => 'col-score ' . $clazz];
-					} else {
-						$row[] = ['class' => 'col-score ' . $clazz];
-					}
-					$contestantTaskCount++;
-				}
-			}
-
-			if ($contestantTaskCount < $taskCount) {
-				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$contestantTaskCount];
-			}
+			$this->addTaskScoreCells($row, $c, $clazz, $taskCount, $competitionTasksMap, $taskScoresMap);
 
 			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
 			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
@@ -512,21 +498,7 @@ class Statistics extends BaseController {
 				$row [] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
 			}
 
-			$contestantTaskCount = 0;
-			if (isset($taskScoresMap[$c['ID']])) {
-				foreach ($competitionTasksMap[$c['Competition']] as $t) {
-					if (isset($taskScoresMap[$c['ID']][$t])) {
-						$row[] = ['data' => $taskScoresMap[$c['ID']][$t], 'class' => 'col-score ' . $clazz];
-					} else {
-						$row[] = ['class' => 'col-score ' . $clazz];
-					}
-					$contestantTaskCount++;
-				}
-			}
-
-			if ($contestantTaskCount < $taskCount) {
-				$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$contestantTaskCount];
-			}
+			$this->addTaskScoreCells($row, $c, $clazz, $taskCount, $competitionTasksMap, $taskScoresMap);
 
 			$row[] = ['data' => formatScore($c['Score'], $c['ScorePr']), 'class' => 'col-score ' . $clazz];
 			$row[] = ['data' => getMedalName($c['Medal']), 'class' => 'col-medal ' . $clazz];
@@ -539,6 +511,30 @@ class Statistics extends BaseController {
 			return $table->generate();
 		}
 		return null;
+	}
+
+
+	private function addTaskScoreCells(&$row, $c, $clazz, $taskCount, $competitionTasksMap, $taskScoresMap) {
+		if ($c['TeamNo'] == self::TEAM_SEMIFINALIST) {
+			$row[] = ['data' => 'Semifinalis', 'class' => 'col-centered' . $clazz, 'colspan' => $taskCount];
+			return;
+		}
+
+		$contestantTaskCount = 0;
+		if (isset($taskScoresMap[$c['ID']])) {
+			foreach ($competitionTasksMap[$c['Competition']] as $t) {
+				if (isset($taskScoresMap[$c['ID']][$t])) {
+					$row[] = ['data' => $taskScoresMap[$c['ID']][$t], 'class' => 'col-score ' . $clazz];
+				} else {
+					$row[] = ['class' => 'col-score ' . $clazz];
+				}
+				$contestantTaskCount++;
+			}
+		}
+
+		if ($contestantTaskCount < $taskCount) {
+			$row[] = ['class' => 'col-score ' . $clazz, 'colspan' => $taskCount-$contestantTaskCount];
+		}
 	}
 
 	private function getCommitteeStatistics($committee) {

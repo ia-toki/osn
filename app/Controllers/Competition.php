@@ -4,6 +4,7 @@ class Competition extends BaseController {
 	public function listNational() {
 		helper('link');
 		helper('date');
+		helper('competition');
 
 		$competitions = $this->getCompetitions(null, 'National');
 
@@ -23,8 +24,8 @@ class Competition extends BaseController {
 				$c['ProvinceID'] ? linkProvince($c['ProvinceID'], $c['HostName']) : '-',
 				$c['City'],
 				['data' => formatDateRange($c['DateBegin'], $c['DateEnd']), 'class' => 'col-centered'],
-				['data' => $c['Contestants'], 'class' => 'col-centered'],
-				['data' => $c['Provinces'], 'class' => 'col-centered']
+				['data' => formatCompetitionCount($c['Contestants'], $c['Finalists']), 'class' => 'col-centered'],
+				['data' => formatCompetitionCount($c['Provinces'], $c['FinalistProvinces']), 'class' => 'col-centered']
 			);
 		}
 
@@ -46,6 +47,7 @@ class Competition extends BaseController {
 	public function info($id) {
 		helper('link');
 		helper('committee');
+		helper('competition');
 
 		$data = $this->getCompetition($id);
 		$committee = $this->getCompetitionCommittee($id);
@@ -123,6 +125,8 @@ class Competition extends BaseController {
 		$isStarted = $data['isStarted'];
 		$isFinished = $data['isFinished'];
 
+		$semifinalist = self::TEAM_SEMIFINALIST;
+
 		$contestants = $this->db->query(<<<QUERY
 			select c.ID as ID, c.Rank as 'Rank', TeamNo, p.ID as PersonID, c.Province as ProvinceID, p.Name as Name, pr.Name as ProvinceName, s.ID as SchoolID, s.Name as SchoolName, Gender, Grade, Score, ScoreMark, Medal
 			from Contestant c
@@ -130,7 +134,7 @@ class Competition extends BaseController {
 			left join School s on s.ID = c.School
 			left join Province pr on pr.ID = c.Province
 			where Competition = ?
-			order by -c.Rank desc, ProvinceName asc, SchoolName asc, Name asc
+			order by TeamNo = {$semifinalist} asc, -c.Rank desc, ProvinceName asc, SchoolName asc, Name asc
 		QUERY, [$id])->getResultArray();
 
 		$pastContestants = array();
@@ -185,7 +189,7 @@ class Competition extends BaseController {
 			if ($isStarted) {
 				$heading[] = ['data' => 'Total', 'class' => 'col-centered'];
 			} else {
-				$heading[] = 'Veteran?';
+				$heading[] = 'Status';
 			}
 		}
 
@@ -215,20 +219,24 @@ class Competition extends BaseController {
 
 			if ($isNational) {
 				$row[] = ['data' => linkProvince($c['ProvinceID'], $c['ProvinceName']), 'class' => $clazz];
-				foreach ($tasks as $t) {
-					$score = $taskScores[$c['ID']][$t['Alias']] ?? null;
+				if ($c['TeamNo'] == self::TEAM_SEMIFINALIST && $tasks) {
+					$row[] = ['data' => 'Semifinalis', 'class' => 'col-centered ' . $clazz, 'colspan' => count($tasks)];
+				} else {
+					foreach ($tasks as $t) {
+						$score = $taskScores[$c['ID']][$t['Alias']] ?? null;
 
-					$style = '';
-					if (!$isFinished) {
-						$style = getScoreCss($score);
+						$style = '';
+						if (!$isFinished) {
+							$style = getScoreCss($score);
+						}
+
+						$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
 					}
-
-					$row[] = ['data' => $taskScores[$c['ID']][$t['Alias']] ?? '', 'class' => 'col-score ' . $clazz, 'style' => $style];
 				}
 				if ($isStarted) {
 					$row[] = ['data' => formatScore($c['Score'], $data['competition']['ScorePr']) . formatScoreMark($c['ScoreMark']), 'class' => 'col-score ' . $clazz];
 				} else {
-					$row[] = join(', ', $pastContestants[$c['PersonID']] ?? []);
+					$row[] = $this->formatContestantStatus($c, $pastContestants[$c['PersonID']] ?? []);
 				}
 			}
 
@@ -358,6 +366,16 @@ class Competition extends BaseController {
 		}
 
 		return $data;
+	}
+
+	private function formatContestantStatus($contestant, $pastYears) {
+		if ($contestant['TeamNo'] == self::TEAM_SEMIFINALIST) {
+			return 'Semifinalis';
+		}
+		if ($pastYears) {
+			return 'Veteran ' . join(', ', $pastYears);
+		}
+		return '';
 	}
 
 	private function getPastContestants($competition) {

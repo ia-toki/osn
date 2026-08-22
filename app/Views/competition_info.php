@@ -8,10 +8,10 @@
 				<tr><th>Tempat</th><td><?= $competition['City'] ?><?= $competition['HostName'] ? ', ' . $competition['HostName'] : '' ?></td></tr>
 				<tr><th>Waktu</th><td> <?= $dates ?></td></tr>
 				<?php if ($competition['Contestants']) : ?>
-					<tr><th>Peserta</th><td><?= $competition['Contestants'] ?></td></tr>
+					<tr><th>Peserta</th><td><?= formatCompetitionCount($competition['Contestants'], $competition['Finalists']) ?></td></tr>
 				<?php endif ?>
 				<?php if ($competition['Provinces']) : ?>
-					<tr><th>Provinsi</th><td><?= $competition['Provinces'] ?></td></tr>
+					<tr><th>Provinsi</th><td><?= formatCompetitionCount($competition['Provinces'], $competition['FinalistProvinces']) ?></td></tr>
 				<?php endif ?>
 			</tbody>
 		</table>
