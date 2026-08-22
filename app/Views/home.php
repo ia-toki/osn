@@ -1,20 +1,14 @@
 <?= $this->extend('default') ?>
 
 <?= $this->section('content') ?>
-<div class="bp3-callout bp3-intent-primary">
-  <p>Berikut <a href="https://docs.google.com/presentation/d/1tu8OvOMfuUCbxvhEXSgF_svCUNtfH60Z/"><b>Sosialisasi OSN-P 2026 Bidang Informatika</b></a>.</p>
-</div>
-
-<br />
-
 <div class="bp3-card">
   <p><b>OSN</b> (Olimpiade Sains Nasional) merupakan olimpiade tahunan tingkat SMA/sederajat yang diadakan oleh:</p>
   <ul>
     <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/"><strong>Pusat Prestasi Nasional, Kemendikdasmen</strong></a>,</li>
+    <li>dan didukung oleh <a href="https://alumni.toki.id"><strong>Ikatan Alumni TOKI</strong></a> (Tim Olimpiade Komputer Indonesia).</li>
   </ul>
-  <p>dan didukung oleh <a href="https://alumni.toki.id"><strong>Ikatan Alumni TOKI</strong></a> (Tim Olimpiade Komputer Indonesia).</p>
-  <p>Bidang <b>informatika</b> (dahulu komputer) merupakan salah satu bidang yang dilombakan, yang menguji penyelesaian masalah (<i>problem solving</i>) melalui soal-soal pemrograman <i>(<strong>competitive programming</strong>)</i>.</p>
-  <p>Untuk dapat bertanding di OSN tingkat nasional, siswa harus ditunjuk melalui pihak sekolah untuk mengikuti OSN tingkat kota/kabupaten (<b>OSN-K</b>) terlebih dahulu. Kemudian, para siswa terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>OSN-P</b>) dan kemudian nasional (<b>OSN</b>).</p> 
+  <p>Bidang <b>informatika</b> menguji penyelesaian masalah (<i>problem solving</i>) melalui soal-soal pemrograman <i>(<strong>competitive programming</strong>)</i>.</p>
+  <p>Untuk dapat bertanding di OSN tingkat nasional, siswa harus ditunjuk melalui pihak sekolah untuk mengikuti OSN tingkat kota/kabupaten (<b>OSN-K</b>) terlebih dahulu. Kemudian, para siswa terbaik tingkat kota akan ditandingkan di tingkat provinsi (<b>OSN-P</b>) dan kemudian nasional (<b>OSN</b>).</p>
   <p>Para medalis akan diseleksi lebih lanjut untuk memilih 4 siswa yang akan mewakili Indonesia pada ajang <a href="https://ioinformatics.org/"><strong>International Olympiad in Informatics</strong></a> (<strong>IOI</strong>).</p>
 </div>
 <div class="bp3-card">
