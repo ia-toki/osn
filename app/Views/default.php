@@ -6,13 +6,13 @@
 	<title>OSN Bidang Informatika</title>
 
 	<link rel="shortcut icon" href="/osn-logo.png">
-	<link rel="stylesheet" href="/main12.css">
+	<link rel="stylesheet" href="/main13.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/core@3.35.0/lib/css/blueprint.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@blueprintjs/icons@3.22.0/lib/css/blueprint-icons.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-	
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-182293493-1"></script>
 	<script>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
   </nav>
-  
+
   <div class="menubar">
     <div class="menubar__content">
       <div class="bp3-tabs">
@@ -67,7 +67,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="content">
 		<?= $this->renderSection('content') ?>
 

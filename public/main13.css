@@ -395,6 +395,7 @@ table {
 
 .col-archive-year {
   width: 80px;
+  vertical-align: middle !important;
 }
 
 .col-external-competition-name {
