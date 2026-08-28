@@ -17,14 +17,15 @@
 			<td>2026</td>
 			<td><a href="/data/OSNK2026.pdf">Soal</a></td>
 			<td><a href="/data/OSNP2026.pdf">Soal</a></td>
-			<td><a href="/data/OSN2026Semifinal.pdf">Soal Semifinal</td>
+			<td><a href="/data/OSN2026Semifinal.pdf">Soal Semifinal</a></td>
 			<td>-</td>
 		</tr>
 		<tr>
 			<td>2025</td>
 			<td><a href="/data/OSNK2025.pdf">Soal</a></td>
 			<td><a href="/data/OSNP2025.pdf">Soal</a></td>
-			<td colspan="2">-</td>
+			<td><a href="/data/OSN2025Semifinal.pdf">Soal Semifinal</a></td>
+			<td>-</td>
 		</tr>
 		<tr>
 			<td>2024</td>
