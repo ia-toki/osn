@@ -25,7 +25,7 @@
 			<td><a href="/data/OSNK2025.pdf">Soal</a></td>
 			<td><a href="/data/OSNP2025.pdf">Soal</a></td>
 			<td><a href="/data/OSN2025Semifinal.pdf">Soal Semifinal</a></td>
-			<td>-</td>
+			<td><a href="/data/OSN2025.pdf">Soal Final</a></td>
 		</tr>
 		<tr>
 			<td>2024</td>
