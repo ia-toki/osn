@@ -61,37 +61,37 @@
 			<td>2019</td>
 			<td><a href="/data/OSK2019.pdf">Soal</a></td>
 			<td><a href="/data/OSP2019.pdf">Soal</a> | <a href="https://docs.google.com/document/d/1p3TncIO-klesAS0TdAWYwLLRCVenVzP4F3Kgf6MU7Jg/">Pembahasan</a></td>
-			<td colspan="2"><a href="/data/OSN2019.pdf">Soal</a> | <a href="/data/OSN2019Pembahasan.pdf">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/OSN2019Pembahasan.pdf">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2018</td>
 			<td><a href="/data/OSK2018.pdf">Soal</a> | <a href="https://www.kujawab.com/OSKKOM18">Kujawab</a></td>
 			<td><a href="/data/OSP2018.pdf">Soal</a> | <a href="https://www.kujawab.com/OSPKOM18">Kujawab</a></td>
-			<td colspan="2"><a href="/data/OSN2018.pdf">Soal</a> | <a href="/data/OSN2018Pembahasan.pdf">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/OSN2018Pembahasan.pdf">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2017</td>
 			<td><a href="/data/OSK2017.pdf">Soal</a> | <a href="https://www.kujawab.com/OSKKOM17">Kujawab</a></td>
 			<td><a href="/data/OSP2017.pdf">Soal</a> | <a href="https://www.kujawab.com/OSPKOM17">Kujawab</a></td>
-			<td colspan="2"><a href="/data/OSN2017.pdf">Soal</a> | <a href="/data/OSN2017Pembahasan.pdf">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/OSN2017Pembahasan.pdf">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2016</td>
 			<td><a href="/data/OSK2016.pdf">Soal</a> | <a href="https://www.kujawab.com/OSKKOM16">Kujawab</a></td>
 			<td><a href="/data/OSP2016.pdf">Soal</a> | <a href="https://www.kujawab.com/OSPKOM16">Kujawab</a></td>
-			<td colspan="2"><a href="/data/OSN2016.pdf">Soal</a></td>
+			<td colspan="2">-</td>
 		</tr>
 		<tr>
 			<td>2015</td>
 			<td><a href="/data/OSK2015.pdf">Soal</a> | <a href="https://www.kujawab.com/OSKKOM15">Kujawab</a></td>
 			<td><a href="/data/OSP2015.pdf">Soal</a> | <a href="https://www.kujawab.com/OSPKOM15">Kujawab</a></td>
-			<td colspan="2"><a href="/data/OSN2015.pdf">Soal</a> | <a href="/data/OSN2015Pembahasan.pdf">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/OSN2015Pembahasan.pdf">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2014</td>
 			<td><a href="/data/OSK2014.pdf">Soal</a> | <a href="https://www.kujawab.com/OSKKOM14">Kujawab</a></td>
 			<td><a href="/data/OSP2014.pdf">Soal</a> | <a href="https://www.kujawab.com/OSPKOM14">Kujawab</a></td>
-			<td colspan="2"><a href="/data/OSN2014.pdf">Soal</a></td>
+			<td colspan="2">-</td>
 		</tr>
 		<tr>
 			<td>2013</td>
