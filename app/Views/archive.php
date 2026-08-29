@@ -31,7 +31,7 @@
 			<td>2024</td>
 			<td><a href="/data/OSNK2024.pdf">Soal</a></td>
 			<td><a href="/data/OSNP2024.pdf">Soal</a></td>
-			<td colspan="2">-</td>
+			<td colspan="2"><a href="/data/OSN2024.pdf">Soal</a></td>
 		</tr>
 		<tr>
 			<td>2023</td>
