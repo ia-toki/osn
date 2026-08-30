@@ -43,7 +43,7 @@
 			<td>2022</td>
 			<td><a href="/data/OSNK2022.pdf">Soal</a></td>
 			<td><a href="/data/OSNP2022.pdf">Soal</a></td>
-			<td colspan="2"><a href="https://docs.google.com/presentation/d/10yjaJYmQqGaAin8Eq70OHQQ5ZUtXNFq4cKihXB9oyb4/">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/OSN2022.pdf">Soal</a> | <a href="https://docs.google.com/presentation/d/10yjaJYmQqGaAin8Eq70OHQQ5ZUtXNFq4cKihXB9oyb4/">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2021</td>
