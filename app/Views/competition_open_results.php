@@ -17,6 +17,7 @@
 				'BGR' => 'Bulgaria',
 				'BIH' => 'Bosnia and Herzegovina',
 				'BLR' => 'Belarus',
+				'BOL' => 'Bolivia',
 				'BRA' => 'Brazil',
 				'CAN' => 'Canada',
 				'CHN' => 'China',
@@ -40,6 +41,7 @@
 				'JPN' => 'Japan',
 				'KAZ' => 'Kazakhstan',
 				'KOR' => 'South Korea',
+				'LKA' => 'Sri Lanka',
 				'LTU' => 'Lithuania',
 				'LUX' => 'Luxembourg',
 				'MAR' => 'Morocco',
@@ -48,6 +50,7 @@
 				'MNG' => 'Mongolia',
 				'MYS' => 'Malaysia',
 				'NLD' => 'Netherlands',
+				'NOR' => 'Norway',
 				'NZL' => 'New Zealand',
 				'PAK' => 'Pakistan',
 				'POL' => 'Poland',
@@ -59,6 +62,7 @@
 				'SRB' => 'Serbia',
 				'SVN' => 'Slovenia',
 				'SYR' => 'Syria',
+				'TGO' => 'Togo',
 				'THA' => 'Thailand',
 				'TJK' => 'Tajikistan',
 				'TKM' => 'Turkmenistan',
@@ -69,6 +73,7 @@
 				'USA' => 'United States of America',
 				'UZB' => 'Uzbekistan',
 				'VNM' => 'Viet Nam',
+				'ZAF' => 'South Africa',
 			];
 		?>
 
