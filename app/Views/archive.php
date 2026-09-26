@@ -49,13 +49,13 @@
 			<td>2021</td>
 			<td><a href="/data/KSNK2021.pdf">Soal</a></td>
 			<td><a href="/data/KSNP2021.pdf">Soal</a></td>
-			<td colspan="2"><a href="https://docs.google.com/presentation/d/1ZvDBHjdHDLE2z2smygAP-po1peWPzxFGoYqDzoRDTzg/">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/KSN2021.pdf">Soal</a> | <a href="https://docs.google.com/presentation/d/1ZvDBHjdHDLE2z2smygAP-po1peWPzxFGoYqDzoRDTzg/">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2020</td>
 			<td><a href="/data/KSNK2020.pdf">Soal</a></td>
 			<td><a href="/data/KSNP2020.pdf">Soal</a></td>
-			<td colspan="2"><a href="https://docs.google.com/presentation/d/1NrPtZ5zKC443hjPsu0EByZqKIhWy5aPMPN6fEHvGqjc/">Pembahasan</a></td>
+			<td colspan="2"><a href="/data/KSN2020.pdf">Soal</a> | <a href="https://docs.google.com/presentation/d/1NrPtZ5zKC443hjPsu0EByZqKIhWy5aPMPN6fEHvGqjc/">Pembahasan</a></td>
 		</tr>
 		<tr>
 			<td>2019</td>
